@@ -1,5 +1,6 @@
 @charset "UTF-8";
-@use './src/scss/foundation';
+@use "./src/scss/foundation";
+@use "../../scss/sections/first-section" as *;
 
 /* INFO:
  * Зависмые компоненты нужно запрашивать
@@ -8,7 +9,7 @@
  * в другой компонент или секцию
  */
 /* List of components used on this page: */
-  //@use "./src/scss/components/header";
+//@use "./src/scss/components/header";
 
 /* List of sections used on this page: */
-  //@use "./src/scss/sections/section-primary";
+//@use "./src/scss/sections/section-primary";
