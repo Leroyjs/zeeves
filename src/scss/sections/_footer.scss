@@ -1,0 +1,25 @@
+@use '../global/index' as *;
+@use '../components/agreements' as *;
+@use '../components/nav-footer' as *;
+@use '../components/footer-main' as *;
+
+.footer {
+  margin-top: auto;
+  min-height: 440px;
+}
+
+.footer__inner {
+
+}
+
+.footer__main {
+
+}
+
+.footer__agreements {
+  margin-top: 144px;
+
+  @media screen and (max-width: $tablet-sm-width) {
+    margin-top: $size-6;
+  }
+}

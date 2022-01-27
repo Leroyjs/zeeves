@@ -1,0 +1,35 @@
+@use '../global/index' as *;
+@use '../components/logo' as *;
+@use '../components/navbar' as *;
+@use '../components/socials' as *;
+
+.header {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: $size-27;
+  background-color: $light-blue;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.header__logo {
+
+}
+
+.header__navbar {
+  margin-left: $size-10;
+}
+
+.header__socials {
+  margin-left: auto;
+}

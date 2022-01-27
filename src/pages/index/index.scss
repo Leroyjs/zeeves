@@ -8,7 +8,8 @@
  * в другой компонент или секцию
  */
 /* List of components used on this page: */
-  //@use "./src/scss/components/header";
+//@use "../../scss/sections/header";
 
 /* List of sections used on this page: */
-  //@use "./src/scss/sections/section-primary";
+@use "./src/scss/sections/header";
+@use "./src/scss/sections/footer";

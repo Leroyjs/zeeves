@@ -1,0 +1,15 @@
+@use '../global/index'as *;
+
+.navbar {
+  display: flex;
+}
+
+.navbar__item {
+  & + & {
+    margin-left: $size-10;
+  }
+}
+
+.navbar__link {
+
+}
