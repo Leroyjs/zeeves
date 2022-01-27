@@ -9,3 +9,61 @@ html {
   padding-left: $size-10;
   padding-right: $size-10;
 }
+
+.section-margin-top {
+  margin-top: $size-35;
+}
+
+.button {
+  padding: 20px 0;
+  width: 240px;
+  text-align: center;
+  transition: opacity 0.3s;
+
+  &_type {
+    &_common {
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+
+    &_corner-filling {
+      position: relative;
+      overflow: hidden;
+
+      span {
+        position: relative;
+      }
+
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        border-radius: 50%;
+        right: 0;
+        top: 0;
+        transform: translate(50%, -50%);
+        transition: transform 0.4s;
+        width: 48px;
+        height: 48px;
+        background-color: $white;
+      }
+
+      &:hover {
+        &::before {
+          transform: translate(50%, -50%) scale(12);
+        }
+      }
+    }
+  }
+
+  &_color {
+    &_orange {
+      background-color: $orange;
+    }
+
+    &_light-blue {
+      background-color: $light-blue;
+    }
+  }
+}
