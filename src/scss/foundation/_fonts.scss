@@ -1,4 +1,4 @@
-@use '../global' as *;
+@use "../global" as *;
 
 @mixin font-face($font-family, $file-path, $weight: normal, $style: normal) {
   @font-face {
@@ -7,8 +7,8 @@
     font-style: $style;
     font-display: swap;
 
-    src: url('#{$file-path}.woff') format('woff'),
-    url('#{$file-path}.woff') format('woff2');
+    src: url("#{$file-path}.woff") format("woff"),
+      url("#{$file-path}.woff") format("woff2");
   }
 }
 
@@ -21,69 +21,58 @@
 }
 
 /* Example include fonts from local file */
-//@include font-face("Helvetica", "~/fonts/helvetica-regular", 400);
-//@include font-face("Helvetica", "~/fonts/helvetica-light", 300);
-//@include font-face("Helvetica", "~/fonts/helvetica-bold", 700);
+@include font-face("TTHoves", "~/fonts/TTHoves-Bold", bold);
+@include font-face("TTHoves", "~/fonts/TTHoves-Medium", medium);
 
-/* Example include fonts from google-fonts */
-//@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
-$text-sizes: (large: 64px,
-        title: 36px,
-        subtitle: 24px,
-        header-logo: 22px,
-        accent: 18px,
-        default: 16px,
-        text: 14px,
-        small: 9px,
+$text-colors: (
+  "white": $white,
+  "black": $black,
+  "dark-blue": $dark-blue,
+  "light-blue": $light-blue,
+  "orange": $orange,
+  "light-orange": $light-orange,
+  "pink": $pink,
+  "purpure": $purpure,
 );
-
-$text-colors: ("black": #000,
-        "white": #FFF,
-        "gray": #00000066,
-        "gray-blue": #0D1D47,
-        "yellow": #FFC700,
-        "green": #219653,
-        "bronze": #BD8C4E,
-        "silver": #B5B5B5,
-        "gold": #ECBA40,
-        "platinum": #9195A3,
-        "red": red,
-);
-
-%text-default {
-  font-family: $fontMain;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: normal;
-  line-height: 120%;
-
-  @media screen and (min-width: $bp-large) {
-    font-size: #{get-vw(14px, $bp-large)};
-  }
-}
 
 .text {
-  @extend %text-default;
   color: map-get($text-colors, "black");
+  font-style: normal;
 
   &_size {
+    &_h1 {
+      font-size: $font-size-24;
+      line-height: 98%;
+    }
 
-    @each $size,
-    $val in $text-sizes {
-      &_#{$size} {
-        font-size: $val;
+    &_h2 {
+      font-size: $font-size-21;
+      line-height: 100%;
+    }
 
-        @media screen and (min-width: $bp-large) {
-          font-size: #{get-vw($val, $bp-large)};
-        }
-      }
+    &_main {
+      font-size: $font-size-8;
+      line-height: 120%;
+    }
+
+    &_desc {
+      font-size: $font-size-5;
+      line-height: 140%;
+    }
+
+    &_small {
+      font-size: $font-size-4;
+      line-height: 140%;
+    }
+
+    &_x-small {
+      font-size: $font-size-3;
+      line-height: 140%;
     }
   }
 
   &_color {
-    @each $color,
-    $val in $text-colors {
+    @each $color, $val in $text-colors {
       &_#{$color} {
         color: $val;
       }
@@ -91,27 +80,12 @@ $text-colors: ("black": #000,
   }
 
   &_weight {
-    &_normal {
-      font-weight: 400;
-    }
-
-    &_lighter {
-      font-weight: 300;
+    &_medium {
+      font-weight: medium;
     }
 
     &_bold {
-      font-weight: 700;
+      font-weight: bold;
     }
-  }
-
-  &_align {
-    &_center {
-      text-align: center;
-      vertical-align: center;
-    }
-  }
-
-  &_p {
-    margin-top: 1em;
   }
 }

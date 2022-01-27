@@ -1,15 +1,41 @@
-// Colors
-$dark-blue: #111E44;
-$light-blue: #3361E9;
-$white: #FFFFFF;
-$black: #000000;
-$gray: #F5F5F5;
-$green: #219653;
+// colors
+$white: #fbfdff;
+$black: #222222;
+$dark-blue: #299197;
+$light-blue: #cfeaec;
+$orange: #f2943e;
+$light-orange: #fff1e5;
+$pink: #fff3f3;
+$purpure: #f1e7ff;
 
-$fontMain: 'Roboto', Arial, sans-serif;
+// fonts
+$fontMain: "TT Hoves", Arial, sans-serif;
 
-// Sass Screen Variables
-$bp-mobile: 486px;
-$bp-tablet: 924px;
-$bp-laptop: 1024px;
-$bp-large: 1440px;
+//base
+$base-x: 4px;
+
+// offset
+$size-4: 4 * $base-x;
+$size-5: 5 * $base-x;
+$size-6: 6 * $base-x;
+$size-7: 7 * $base-x;
+$size-10: 10 * $base-x;
+$size-16: 16 * $base-x;
+$size-27: 27 * $base-x;
+
+//font-size
+$font-size-24: 24 * $base-x;
+$font-size-21: 21 * $base-x;
+$font-size-8: 8 * $base-x;
+$font-size-5: 5 * $base-x;
+$font-size-4: 4 * $base-x;
+$font-size-3: 3 * $base-x;
+
+// media
+$desktop-xlg-width: 1920px;
+$desktop-lg-width: 1600px;
+$desktop-md-width: 1440px;
+$desktop-sm-width: 1280px;
+$tablet-lg-width: 1024px;
+$tablet-sm-width: 768px;
+$phone-width: 600px;
