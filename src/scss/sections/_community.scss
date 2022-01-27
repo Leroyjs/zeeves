@@ -1,0 +1,37 @@
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.accentuation {
+    position: absolute;
+    height: 138px;
+    border-radius: 24px;
+
+    &_users {
+        width: 526px;
+        background-color: $light-orange;
+        left: 801px;
+        top: -24px;
+    }
+
+    &_zeeves {
+        width: 338px;
+        background-color: $pink;
+        left: 51px;
+        top: 144px;
+    }
+
+    &_community {
+        width: 720px;
+        background-color: $purpure;
+        left: 752px;
+        top: 228px;
+    }
+}
+
+.button {
+    margin-top: $size-16;
+}
