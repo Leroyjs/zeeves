@@ -1,0 +1,34 @@
+@use '../global/index'as *;
+
+.social {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: $white;
+  border-radius: 50%;
+
+  &_light-blue {
+    background-color: $light-blue;
+
+    .social__img {
+      fill: $white;
+    }
+  }
+}
+
+.social__img {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 42%;
+  height: 42%;
+  object-fit: contain;
+  object-position: center;
+  fill: $dark-blue;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}

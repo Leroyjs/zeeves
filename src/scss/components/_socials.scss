@@ -1,0 +1,13 @@
+@use '../global/index'as *;
+@use '../components/social'as *;
+
+.socials {
+  display: flex;
+  align-items: center;
+}
+
+.socials__item {
+  & + & {
+    margin-left: $size-2;
+  }
+}

@@ -15,12 +15,15 @@ $fontMain: "TT Hoves", Arial, sans-serif;
 $base-x: 4px;
 
 // offset
+$size-2: 2 * $base-x;
+$size-3: 3 * $base-x;
 $size-4: 4 * $base-x;
 $size-5: 5 * $base-x;
 $size-6: 6 * $base-x;
 $size-7: 7 * $base-x;
 $size-8: 8 * $base-x;
 $size-10: 10 * $base-x;
+$size-12: 12 * $base-x;
 $size-16: 16 * $base-x;
 $size-27: 27 * $base-x;
 $size-35: 35 * $base-x;
@@ -41,3 +44,6 @@ $desktop-sm-width: 1280px;
 $tablet-lg-width: 1024px;
 $tablet-sm-width: 768px;
 $phone-width: 600px;
+
+//z-index
+$z-index-header: 100;
