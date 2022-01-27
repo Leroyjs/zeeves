@@ -1,12 +1,13 @@
 @use "../global" as *;
 
 .first-section {
-  height: 100vh;
+  min-height: 100vh;
   background: url("../../images/design/bg.png"), $light-blue;
   background-position: 100% 100%;
   background-repeat: no-repeat;
   background-size: contain;
   padding-top: $size-27 + $size-7;
+  padding-bottom: $size-10;
 }
 
 .first-section__title {
