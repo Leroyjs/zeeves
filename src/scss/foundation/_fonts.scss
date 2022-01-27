@@ -88,4 +88,8 @@ $text-colors: (
       font-weight: bold;
     }
   }
+
+  &_uppercase {
+    text-transform: uppercase;
+  }
 }
