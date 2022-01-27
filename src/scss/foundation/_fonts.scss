@@ -21,8 +21,8 @@
 }
 
 /* Example include fonts from local file */
-@include font-face("TTHoves", "~/fonts/TTHoves-Bold", bold);
-@include font-face("TTHoves", "~/fonts/TTHoves-Medium", medium);
+@include font-face("TTHoves", "../../fonts/TTHoves-Bold", bold);
+@include font-face("TTHoves", "../../fonts/TTHoves-Medium", medium);
 
 $text-colors: (
   "white": $white,
