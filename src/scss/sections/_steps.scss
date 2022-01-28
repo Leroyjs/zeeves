@@ -3,7 +3,6 @@
 
 .steps-section {
   position: relative;
-  overflow: hidden;
 }
 
 .steps-section__title {
@@ -22,11 +21,26 @@
 }
 
 .steps-section__action {
-
+  width: 100%;
 }
 
 .steps-section__doodle {
   position: absolute;
   right: -3.4%;
   top: 0;
+  object-fit: contain;
+
+  @media screen and (max-width: $desktop-sm-width) {
+    top: auto;
+    bottom: -50%;
+  }
+
+  @media screen and (max-width: $tablet-lg-width) {
+    width: 25%;
+    bottom: -40%;
+  }
+
+  @media screen and (max-width: $tablet-sm-width) {
+    display: none;
+  }
 }

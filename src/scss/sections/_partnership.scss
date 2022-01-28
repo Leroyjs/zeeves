@@ -24,7 +24,12 @@
 .partnership__subtitle {
   flex: 1 0 50%;
 
+  @media screen and (max-width: $tablet-sm-width) {
+    margin-left: $size-3;
+  }
+
   @media screen and (max-width: $phone-width) {
     margin-top: $size-6;
+    margin-left: 0;
   }
 }

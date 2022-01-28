@@ -3,6 +3,10 @@
 .steps-list {
   display: flex;
   width: 100%;
+
+  @media screen and (max-width: $tablet-sm-width) {
+    flex-wrap: wrap;
+  }
 }
 
 .steps-list__item {
@@ -10,6 +14,21 @@
 
   &:not(:first-child) {
     margin-left: $size-4;
+  }
+
+  @media screen and (max-width: $tablet-lg-width) {
+    &:not(:first-child) {
+      margin-left: $size-3;
+    }
+  }
+
+  @media screen and (max-width: $tablet-sm-width) {
+    width: calc(100% / 2 - #{$size-3 / 2});
+    margin-bottom: $size-3;
+
+    &:nth-child(2n + 1) {
+      margin-left: 0;
+    }
   }
 }
 
