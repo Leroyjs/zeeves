@@ -3,6 +3,7 @@
 
 .steps-section {
   position: relative;
+  overflow: hidden;
 }
 
 .steps-section__title {
@@ -26,6 +27,6 @@
 
 .steps-section__doodle {
   position: absolute;
-  right: 0;
-  bottom: 50%;
+  right: -3.4%;
+  top: 0;
 }
