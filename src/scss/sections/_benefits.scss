@@ -1,0 +1,30 @@
+@use "../global" as *;
+
+.benefits {
+  display: flex;
+  min-height: 240px;
+}
+
+.benefits__item {
+  flex: 1;
+  padding-top: $size-10;
+  padding-bottom: $size-10;
+
+  &_color {
+    &_pink {
+      background-color: $pink;
+    }
+
+    &_light-orange {
+      background-color: $light-orange;
+    }
+
+    &_purpure {
+      background-color: $purpure;
+    }
+  }
+}
+
+.benefits__title {
+  margin-bottom: $size-6;
+}

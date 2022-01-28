@@ -1,0 +1,24 @@
+@use '../global/index' as *;
+
+.nav-footer {
+  display: flex;
+}
+
+.nav-footer__col {
+  flex: 1 0 auto;
+}
+
+.nav-footer__title {
+  margin-bottom: $size-12;
+  text-transform: uppercase;
+}
+
+.nav-footer__links {
+
+}
+
+.nav-footer__item {
+  & + & {
+    margin-top: $size-4;
+  }
+}

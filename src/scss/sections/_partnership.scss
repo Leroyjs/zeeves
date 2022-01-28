@@ -1,0 +1,21 @@
+@use '../global/index' as *;
+@use '../components/partners-list' as *;
+
+.partnership {
+
+}
+
+.partnership__header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: $size-16;
+}
+
+.partnership__title {
+  flex: 1 0 50%;
+}
+
+.partnership__subtitle {
+  flex: 1 0 50%;
+}

@@ -1,0 +1,79 @@
+@use "../global" as *;
+
+.manage {
+  display: flex;
+  position: relative;
+
+  &_bacground-color {
+    &_dark-blue {
+      background-color: $dark-blue;
+    }
+
+    &_light-blue {
+      background-color: $light-blue;
+    }
+
+    &_pink {
+      background-color: $pink;
+    }
+
+    &_light-orange {
+      background-color: $light-orange;
+    }
+
+    &_purpure {
+      background-color: $purpure;
+    }
+  }
+
+  &_align {
+    &_right {
+      align-self: flex-end;
+    }
+  }
+}
+
+.manage__column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.manage__title {
+  margin-bottom: $size-16;
+}
+
+.manage__desc-title {
+  margin-bottom: $size-6;
+  display: inline-block;
+}
+
+.manage__user {
+  border-radius: 50%;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 64px;
+  width: 64px;
+
+  &.manage_align_right {
+    margin-top: $size-6;
+  }
+}
+
+.manage__message {
+  margin-bottom: $base-x;
+  padding-top: $size-5;
+  padding-left: $size-8;
+  padding-right: $size-8;
+  padding-bottom: $size-6;
+  border-radius: $size-6;
+}
+
+.manage__doodle {
+  position: absolute;
+  left: 0;
+  bottom: -48px;
+}

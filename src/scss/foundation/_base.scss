@@ -10,11 +10,17 @@ html {
   padding-right: $size-10;
 }
 
+.section-margin-top {
+  margin-top: $size-35;
+}
+
 .button {
   padding: 20px 0;
   width: 240px;
   text-align: center;
-  transition: opacity 0.3s;
+  transition: opacity 0.3s, color .3s, background-color .3s;
+  border-radius: 2px;
+  cursor: pointer;
 
   &_type {
     &_common {
@@ -49,6 +55,17 @@ html {
         &::before {
           transform: translate(50%, -50%) scale(12);
         }
+      }
+    }
+
+    &_secondary {
+      border: 1px solid $dark-blue;
+      background-color: transparent;
+      color: $dark-blue;
+
+      &:hover {
+        background-color: $dark-blue;
+        color: $white;
       }
     }
   }

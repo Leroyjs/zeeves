@@ -1,17 +1,14 @@
 @charset "UTF-8";
 @use "./src/scss/foundation";
-@use "../../scss/sections/first-section" as *;
-@use "./src/scss/sections/community" as *;
 
-
-/* INFO:
- * Зависмые компоненты нужно запрашивать
- * внутри самого компонента через @forward.
- * Сюда выносить лишь глобальные компоненты, которые не являются вложенными
- * в другой компонент или секцию
- */
 /* List of components used on this page: */
-//@use "./src/scss/components/header";
+@use "./src/scss/sections/header";
+@use "./src/scss/sections/footer";
 
 /* List of sections used on this page: */
-//@use "./src/scss/sections/section-primary";
+@use "../../scss/sections/first-section" as *;
+@use "../../scss/sections/benefits" as *;
+@use "../../scss/sections/manage" as *;
+@use "../../scss/sections/steps";
+@use "../../scss/sections/partnership";
+@use "./src/scss/sections/community" as *;

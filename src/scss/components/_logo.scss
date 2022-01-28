@@ -1,0 +1,12 @@
+@use '../global/index'as *;
+
+.logo {
+
+}
+
+.logo__img {
+
+  &_footer {
+    min-height: 32px;
+  }
+}

@@ -1,0 +1,32 @@
+@use '../global/index' as *;
+
+.footer-main {
+  display: flex;
+  width: 100%;
+}
+
+.footer-main__logo {
+  flex: 1 0 40%;
+
+  @media screen and (max-width: $tablet-sm-width) {
+    display: none;
+  }
+}
+
+.footer-main__nav {
+  flex: 1 0 auto;
+
+  @media screen and (max-width: $tablet-sm-width) {
+    display: none;
+  }
+}
+
+.footer-main__social {
+  flex: 1 0 auto;
+  align-self: flex-start;
+  justify-content: flex-end;
+
+  @media screen and (max-width: $tablet-sm-width) {
+    justify-content: center;
+  }
+}

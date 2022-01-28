@@ -1,0 +1,32 @@
+@use "../global" as *;
+
+.steps-list {
+  display: flex;
+  width: 100%;
+}
+
+.steps-list__item {
+  width: 240px;
+
+  &:not(:first-child) {
+    margin-left: $size-4;
+  }
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.step__count {
+  margin-bottom: $size-4;
+}
+
+.step__title {
+
+}
+
+.step__title-br-04 {
+
+}

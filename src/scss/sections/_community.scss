@@ -21,70 +21,52 @@
 
 .accentuation {
     position: relative;
-    // height: 138px;
-    // border-radius: 24px;
-    content: '';
     display: block;
 
     &_users {
-        background: $light-orange;
 
         &::after {
+            content: '';
             position:absolute;
-            left: $size-4;
-            top: $size-4;
+            background: $light-orange;
+            left: -$size-6;
+            top: -$size-6;
             height: calc(100% + (24px * 2));
             width: calc(100% + (24px * 2));
             border-radius: 25px;
+            z-index: -1;
         }
     }
     &_zeeves {
-        background-color: $pink;
 
         &::after {
+            content: '';
             position:absolute;
-            left: $size-4;
-            top: $size-4;
+            left: -$size-6;
+            top: -$size-6;
             height: calc(100% + (24px * 2));
             width: calc(100% + (24px * 2));
             border-radius: 25px;
+            background-color: $pink;
+            z-index: -1;
         }
     }
 
     &_community {
-        background-color: $purpure;
 
         &::after {
+            content: '';
             position:absolute;
-            left: $size-4;
-            top: $size-4;
+            left: -$size-6;
+            top: -$size-6;
             height: calc(100% + (24px * 2));
             width: calc(100% + (24px * 2));
             border-radius: 25px;
+            background-color: $purpure;
+            z-index: -1;
         }
     }
 }
-
-
-
-
-
-
-
-//     &_zeeves {
-//         width: 338px;
-//         background-color: $pink;
-//         // left: 3%;
-//         // top: 144px;
-//     }
-
-//     &_community {
-//         width: 720px;
-//         background-color: $purpure;
-//         // left: 49%;
-//         // top: 228px;
-//     }
-// }
 
 .button {
     margin-top: $size-16;

@@ -8,7 +8,7 @@
     font-display: swap;
 
     src: url("#{$file-path}.woff") format("woff"),
-      url("#{$file-path}.woff") format("woff2");
+    url("#{$file-path}.woff") format("woff2");
   }
 }
 
@@ -25,14 +25,14 @@
 @include font-face("TTHoves", "../../fonts/TTHoves-Medium", medium);
 
 $text-colors: (
-  "white": $white,
-  "black": $black,
-  "dark-blue": $dark-blue,
-  "light-blue": $light-blue,
-  "orange": $orange,
-  "light-orange": $light-orange,
-  "pink": $pink,
-  "purpure": $purpure,
+        "white": $white,
+        "black": $black,
+        "dark-blue": $dark-blue,
+        "light-blue": $light-blue,
+        "orange": $orange,
+        "light-orange": $light-orange,
+        "pink": $pink,
+        "purpure": $purpure,
 );
 
 .text {
@@ -81,11 +81,15 @@ $text-colors: (
 
   &_weight {
     &_medium {
-      font-weight: medium;
+      font-weight: 400;
     }
 
     &_bold {
       font-weight: bold;
     }
+  }
+
+  &_uppercase {
+    text-transform: uppercase;
   }
 }
