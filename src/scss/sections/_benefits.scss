@@ -13,6 +13,9 @@ $section-height-lg: 240px;
   padding-top: $size-10;
   padding-bottom: $size-10;
   overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
 
   &_color {
     &_pink {
@@ -27,6 +30,12 @@ $section-height-lg: 240px;
       background-color: $purpure;
     }
   }
+
+  &:hover {
+    .benefits__link-img {
+      transform: rotate(-90deg);
+    }
+  }
 }
 
 .benefits__title {
@@ -36,6 +45,16 @@ $section-height-lg: 240px;
 
 .benefits__link {
   position: relative;
+  display: flex;
+  line-height: 100%;
+}
+
+.benefits__link-img {
+  margin-left: $size-3;
+  width: 9px;
+  height: 9px;
+  transition: transform 0.3s;
+  transform-origin: right top;
 }
 
 .benefits__figures-wrapper {
