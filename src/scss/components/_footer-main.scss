@@ -6,7 +6,16 @@
 }
 
 .footer-main__logo {
-  flex: 1 0 40%;
+  flex: 1 0 50%;
+
+  @media screen and (max-width: $tablet-sm-width) {
+    display: none;
+  }
+
+  @media screen and (max-width: $tablet-lg-width) {
+    flex-basis: 35%;
+  }
+
 
   @media screen and (max-width: $tablet-sm-width) {
     display: none;
@@ -14,19 +23,39 @@
 }
 
 .footer-main__nav {
-  flex: 1 0 auto;
+  flex: 1 0 25%;
 
   @media screen and (max-width: $tablet-sm-width) {
     display: none;
   }
+
+  @media screen and (max-width: $desktop-md-width) {
+    flex-basis: 30%;
+  }
+
+  @media screen and (max-width: $desktop-sm-width) {
+    flex: 1 0 35%;
+  }
+
+  @media screen and (max-width: $tablet-lg-width) {
+    flex-basis: 40%;
+  }
 }
 
 .footer-main__social {
-  flex: 1 0 auto;
+  flex: 1 1 25%;
   align-self: flex-start;
   justify-content: flex-end;
 
   @media screen and (max-width: $tablet-sm-width) {
     justify-content: center;
+  }
+
+  @media screen and (max-width: $desktop-md-width) {
+    flex-basis: 20%;
+  }
+
+  @media screen and (max-width: $tablet-lg-width) {
+    flex-basis: 25%;
   }
 }
