@@ -8,7 +8,7 @@
     font-display: swap;
 
     src: url("#{$file-path}.woff") format("woff"),
-    url("#{$file-path}.woff") format("woff2");
+      url("#{$file-path}.woff") format("woff2");
   }
 }
 
@@ -25,14 +25,14 @@
 @include font-face("TTHoves", "../../fonts/TTHoves-Medium", medium);
 
 $text-colors: (
-        "white": $white,
-        "black": $black,
-        "dark-blue": $dark-blue,
-        "light-blue": $light-blue,
-        "orange": $orange,
-        "light-orange": $light-orange,
-        "pink": $pink,
-        "purpure": $purpure,
+  "white": $white,
+  "black": $black,
+  "dark-blue": $dark-blue,
+  "light-blue": $light-blue,
+  "orange": $orange,
+  "light-orange": $light-orange,
+  "pink": $pink,
+  "purpure": $purpure,
 );
 
 .text {
@@ -91,5 +91,84 @@ $text-colors: (
 
   &_uppercase {
     text-transform: uppercase;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .text {
+    &_size {
+      &_h1 {
+        font-size: $font-size-19;
+      }
+
+      &_h2 {
+        font-size: $font-size-17;
+      }
+
+      &_main {
+        font-size: $font-size-7;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $desktop-md-width) {
+  .text {
+    &_size {
+      &_h1 {
+        font-size: $font-size-19;
+      }
+
+      &_h2 {
+        font-size: $font-size-17;
+      }
+
+      &_main {
+        font-size: $font-size-7;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $desktop-sm-width) {
+  .text {
+    &_size {
+      &_h2 {
+        font-size: $font-size-15;
+      }
+
+      &_main {
+        font-size: $font-size-7;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $tablet-lg-width) {
+  .text {
+    &_size {
+      &_h2 {
+        font-size: $font-size-13;
+      }
+
+      &_main {
+        font-size: $font-size-6;
+      }
+
+      &_desc {
+        font-size: $font-size-4 + 2;
+        line-height: 140%;
+      }
+
+      &_small {
+        font-size: $font-size-3 + 2;
+        line-height: 140%;
+      }
+
+      &_x-small {
+        font-size: $font-size-2 + 2;
+        line-height: 140%;
+      }
+    }
   }
 }
