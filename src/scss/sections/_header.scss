@@ -15,6 +15,11 @@
   align-items: center;
   justify-content: center;
   z-index: $z-index-header;
+
+  @media screen and (max-width: 670px) {
+    background-color: $white;
+    height: $size-12;
+  }
 }
 
 .header__inner {
@@ -29,8 +34,20 @@
 
 .header__navbar {
   margin-left: $size-10;
+
+  @media screen and (max-width: $tablet-lg-width) {
+    margin-left: $size-6;
+  }
+
+  @media screen and (max-width: 670px) {
+    display: none;
+  }
 }
 
 .header__socials {
   margin-left: auto;
+
+  @media screen and (max-width: 670px) {
+    display: none;
+  }
 }

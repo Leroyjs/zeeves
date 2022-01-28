@@ -5,11 +5,19 @@
 }
 
 .navbar__item {
+  flex-shrink: 0;
+
   & + & {
     margin-left: $size-10;
+  }
+
+  @media screen and (max-width: $tablet-lg-width) {
+    & + & {
+      margin-left: $size-6;
+    }
   }
 }
 
 .navbar__link {
-
+  opacity: 0.4;
 }
