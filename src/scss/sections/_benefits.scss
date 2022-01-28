@@ -1,4 +1,5 @@
 @use "../global" as *;
+@use "sass:math";
 
 $section-height-lg: 240px;
 
@@ -69,7 +70,7 @@ $star-size: 120px;
 $rectangle-size: 80px;
 $polygon-size: 140px;
 
-$offset-lg: $section-height-lg + $star-size / 2;
+$offset-lg: $section-height-lg + math.div($star-size, 2);
 
 .figures__star {
   width: $star-size;
@@ -329,12 +330,15 @@ $offset-lg: $section-height-lg + $star-size / 2;
     &_1 {
       animation: rotation 20s linear 0s infinite;
     }
+
     &_2 {
       animation: rotation 20s linear 0s infinite reverse;
     }
+
     &_3 {
       animation: rotation 40s linear 0s infinite;
     }
+
     &_4 {
       animation: rotation 30s linear 0s infinite reverse;
     }
