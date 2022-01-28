@@ -3,13 +3,64 @@
 .partners-list {
   display: flex;
   width: 100%;
+
+  @media screen and (max-width: $tablet-sm-width) {
+    flex-wrap: wrap;
+  }
 }
 
 .partners-list__item {
-  width: calc(100% / 4 - #{$size-4});
+  width: calc(100% / 4 - #{$size-4 / 2});
 
   &:not(:first-child) {
     margin-left: $size-4;
+  }
+
+  @media screen and (max-width: $desktop-sm-width) {
+    width: calc(100% / 4 - #{$size-3 / 2});
+
+    &:not(:first-child) {
+      margin-left: $size-3;
+    }
+  }
+
+  @media screen and (max-width: $tablet-sm-width) {
+    width: calc(100% / 2 - #{$size-4 / 2});
+    margin-bottom: $size-4;
+
+    &:not(:first-child) {
+      margin-left: $size-4;
+    }
+
+    &:nth-child(2n + 1) {
+      margin-left: 0;
+    }
+  }
+
+  @media screen and (max-width: $phone-width) {
+    width: calc(100% / 2 - #{$size-3 / 2});
+    margin-bottom: $size-3;
+
+    &:not(:first-child) {
+      margin-left: $size-3;
+    }
+
+    &:nth-child(2n + 1) {
+      margin-left: 0;
+    }
+  }
+
+  @media screen and (max-width: 320px) {
+    width: calc(100% / 2 - #{$base-x / 2});
+    margin-bottom: $base-x;
+
+    &:not(:first-child) {
+      margin-left: $base-x;
+    }
+
+    &:nth-child(2n + 1) {
+      margin-left: 0;
+    }
   }
 }
 
@@ -22,12 +73,21 @@
   background: rgba(34, 34, 34, 0.02);
   border-radius: 2px;
   height: 100%;
+
+  &:hover {
+    .partners-list__logo {
+      fill: $dark-blue;
+      stroke: $dark-blue;
+    }
+  }
 }
 
 .partners-list__logo {
   width: 60%;
+  height: 100%;
   object-position: center;
   object-fit: contain;
   fill: $light-blue;
   stroke: $light-blue;
+  transition: fill .3s, stroke .3s;
 }
