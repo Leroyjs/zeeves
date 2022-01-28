@@ -1,0 +1,31 @@
+@use "../global" as *;
+@use "../components/steps-list" as *;
+
+.steps-section {
+  position: relative;
+}
+
+.steps-section__title {
+  margin-bottom: $size-10;
+}
+
+.steps-section__list {
+
+}
+
+.steps-section__actions {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-top: $size-16;
+}
+
+.steps-section__action {
+
+}
+
+.steps-section__doodle {
+  position: absolute;
+  right: 0;
+  bottom: 50%;
+}
