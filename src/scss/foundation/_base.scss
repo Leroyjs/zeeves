@@ -5,6 +5,10 @@ html {
   font-family: $fontMain;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 .main-padding {
   padding-left: $size-10;
   padding-right: $size-10;
