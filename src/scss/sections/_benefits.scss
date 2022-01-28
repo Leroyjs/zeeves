@@ -3,6 +3,7 @@
 
 $section-height-lg: 240px;
 $section-height-md: 200px;
+$section-height-sm: 160px;
 
 $star-size-lg: 120px;
 $rectangle-size-lg: 80px;
@@ -12,8 +13,13 @@ $star-size-md: 80px;
 $rectangle-size-md: 70px;
 $polygon-size-md: 110px;
 
+$star-size-sm: 74px;
+$rectangle-size-sm: 54px;
+$polygon-size-sm: 88px;
+
 $offset-lg: $section-height-lg + math.div($polygon-size-lg, 2);
 $offset-md: $section-height-md + math.div($polygon-size-md, 2);
+$offset-md-2: $section-height-sm + math.div($polygon-size-md, 2);
 
 .benefits {
   display: flex;
@@ -627,6 +633,262 @@ $offset-md: $section-height-md + math.div($polygon-size-md, 2);
   @keyframes moving {
     0% {
       transform: translate(-$offset-md, $offset-md);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
+  }
+}
+
+@media screen and (max-width: $tablet-lg-width) {
+  .benefits {
+    flex-direction: column;
+    min-height: $section-height-sm * 3;
+  }
+
+  .benefits__item {
+    padding-top: $size-6;
+    padding-bottom: $size-6;
+  }
+
+  .figures__item-wrapper-moving {
+    &_star {
+      &_1 {
+        $right: 330px;
+        $bottom: 90px;
+
+        &_1 {
+          right: $right;
+          bottom: $bottom;
+        }
+
+        &_2 {
+          right: $right - $offset-md;
+          bottom: $bottom + $offset-md-2;
+        }
+      }
+
+      &_2 {
+        $right: 290px;
+        $bottom: -24px;
+
+        &_1 {
+          right: $right;
+          bottom: $bottom;
+        }
+
+        &_2 {
+          right: $right - $offset-md;
+          bottom: $bottom + $offset-md-2;
+        }
+      }
+
+      &_3 {
+        $right: 200px;
+        $bottom: 4px;
+
+        &_1 {
+          right: $right;
+          bottom: $bottom;
+        }
+
+        &_2 {
+          right: $right - $offset-md;
+          bottom: $bottom + $offset-md-2;
+        }
+      }
+
+      &_4 {
+        $right: 88px;
+        $bottom: 90px;
+
+        &_1 {
+          right: $right;
+          bottom: $bottom;
+        }
+
+        &_2 {
+          right: $right - $offset-md;
+          bottom: $bottom + $offset-md-2;
+        }
+      }
+
+      &_5 {
+        $right: -10px;
+        $bottom: 0px;
+
+        &_1 {
+          right: $right;
+          bottom: $bottom;
+          animation: moving 10s linear 0s infinite;
+        }
+
+        &_2 {
+          right: $right - $offset-md;
+          bottom: $bottom + $offset-md-2;
+          animation: moving 10s linear 0s infinite;
+        }
+      }
+    }
+
+    &_rectangle {
+      &_1 {
+        $right: 360px;
+        $bottom: -20px;
+
+        &_1 {
+          right: $right;
+          bottom: $bottom;
+        }
+
+        &_2 {
+          right: $right - $offset-md;
+          bottom: $bottom + $offset-md-2;
+        }
+      }
+
+      &_2 {
+        $right: 200px;
+        $bottom: 28px;
+
+        &_1 {
+          right: $right;
+          bottom: $bottom;
+        }
+
+        &_2 {
+          right: $right - $offset-md;
+          bottom: $bottom + $offset-md-2;
+        }
+      }
+
+      &_3 {
+        $right: 94px;
+        $bottom: -9px;
+
+        &_1 {
+          right: $right;
+          bottom: $bottom;
+        }
+
+        &_2 {
+          right: $right - $offset-md;
+          bottom: $bottom + $offset-md-2;
+        }
+      }
+
+      &_4 {
+        $right: 64px;
+        $bottom: 87px;
+
+        &_1 {
+          right: $right;
+          bottom: $bottom;
+        }
+
+        &_2 {
+          right: $right - $offset-md;
+          bottom: $bottom + $offset-md-2;
+        }
+      }
+
+      &_5 {
+        $right: -26px;
+        $bottom: 42px;
+
+        &_1 {
+          right: $right;
+          bottom: $bottom;
+        }
+
+        &_2 {
+          right: $right - $offset-md;
+          bottom: $bottom + $offset-md-2;
+        }
+      }
+    }
+
+    &_polygon {
+      &_1 {
+        $right: 70px;
+        $bottom: 77px;
+
+        &_1 {
+          right: $right;
+          bottom: $bottom;
+        }
+
+        &_2 {
+          right: $right - $offset-md;
+          bottom: $bottom + $offset-md-2;
+        }
+      }
+
+      &_2 {
+        $right: 118px;
+        $bottom: -55px;
+
+        &_1 {
+          right: $right;
+          bottom: $bottom;
+        }
+
+        &_2 {
+          right: $right - $offset-md;
+          bottom: $bottom + $offset-md-2;
+        }
+      }
+
+      &_3 {
+        $right: 258px;
+        $bottom: 80px;
+
+        &_1 {
+          right: $right;
+          bottom: $bottom;
+        }
+
+        &_2 {
+          right: $right - $offset-md;
+          bottom: $bottom + $offset-md-2;
+        }
+      }
+
+      &_4 {
+        $right: 288px;
+        $bottom: 2px;
+
+        &_1 {
+          right: $right;
+          bottom: $bottom;
+        }
+
+        &_2 {
+          right: $right - $offset-md;
+          bottom: $bottom + $offset-md-2;
+        }
+      }
+
+      &_5 {
+        $right: 400px;
+        $bottom: -55px;
+
+        &_1 {
+          right: $right;
+          bottom: $bottom;
+        }
+
+        &_2 {
+          right: $right - $offset-md;
+          bottom: $bottom + $offset-md-2;
+        }
+      }
+    }
+  }
+
+  @keyframes moving {
+    0% {
+      transform: translate(-$offset-md, $offset-md-2);
     }
     100% {
       transform: translate(0, 0);

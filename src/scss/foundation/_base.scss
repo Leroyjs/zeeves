@@ -13,3 +13,14 @@ html {
 .section-margin-top {
   margin-top: $size-35;
 }
+
+@media screen and (max-width: $tablet-lg-width) {
+  .main-padding {
+    padding-left: $size-6;
+    padding-right: $size-6;
+  }
+
+  .section-margin-top {
+    margin-top: $size-22;
+  }
+}
