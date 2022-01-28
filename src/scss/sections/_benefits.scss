@@ -2,6 +2,18 @@
 @use "sass:math";
 
 $section-height-lg: 240px;
+$section-height-md: 200px;
+
+$star-size-lg: 120px;
+$rectangle-size-lg: 80px;
+$polygon-size-lg: 140px;
+
+$star-size-md: 80px;
+$rectangle-size-md: 70px;
+$polygon-size-md: 110px;
+
+$offset-lg: $section-height-lg + math.div($polygon-size-lg, 2);
+$offset-md: $section-height-md + math.div($polygon-size-md, 2);
 
 .benefits {
   display: flex;
@@ -66,25 +78,19 @@ $section-height-lg: 240px;
   top: 0;
 }
 
-$star-size: 120px;
-$rectangle-size: 80px;
-$polygon-size: 140px;
-
-$offset-lg: $section-height-lg + math.div($star-size, 2);
-
 .figures__star {
-  width: $star-size;
-  height: $star-size;
+  width: $star-size-lg;
+  height: $star-size-lg;
 }
 
 .figures__rectangle {
-  width: $rectangle-size;
-  height: $rectangle-size;
+  width: $rectangle-size-lg;
+  height: $rectangle-size-lg;
 }
 
 .figures__polygon {
-  width: $polygon-size;
-  height: $polygon-size;
+  width: $polygon-size-lg;
+  height: $polygon-size-lg;
 }
 
 .figures__item-wrapper-moving {
@@ -360,5 +366,270 @@ $offset-lg: $section-height-lg + math.div($star-size, 2);
   }
   100% {
     transform: translate(0, 0);
+  }
+}
+
+@media screen and (max-width: $desktop-sm-width) {
+  .benefits {
+    min-height: $section-height-md;
+  }
+
+  .figures__star {
+    width: $star-size-md;
+    height: $star-size-md;
+  }
+
+  .figures__rectangle {
+    width: $rectangle-size-md;
+    height: $rectangle-size-md;
+  }
+
+  .figures__polygon {
+    width: $polygon-size-md;
+    height: $polygon-size-md;
+  }
+
+  .figures__item-wrapper-moving {
+    &_star {
+      &_1 {
+        $right: 300px;
+        $bottom: -50px;
+
+        &_1 {
+          right: $right;
+          bottom: $bottom;
+        }
+
+        &_2 {
+          right: $right - $offset-md;
+          bottom: $bottom + $offset-md;
+        }
+      }
+
+      &_2 {
+        $right: 212px;
+        $bottom: 24px;
+
+        &_1 {
+          right: $right;
+          bottom: $bottom;
+        }
+
+        &_2 {
+          right: $right - $offset-md;
+          bottom: $bottom + $offset-md;
+        }
+      }
+
+      &_3 {
+        $right: -32px;
+        $bottom: 0px;
+
+        &_1 {
+          right: $right;
+          bottom: $bottom;
+        }
+
+        &_2 {
+          right: $right - $offset-md;
+          bottom: $bottom + $offset-md;
+        }
+      }
+
+      &_4 {
+        $right: -20px;
+        $bottom: 146px;
+
+        &_1 {
+          right: $right;
+          bottom: $bottom;
+        }
+
+        &_2 {
+          right: $right - $offset-md;
+          bottom: $bottom + $offset-md;
+        }
+      }
+
+      &_5 {
+        $left: -40px;
+        $top: -20px;
+
+        &_1 {
+          left: $left;
+          top: $top;
+          animation: moving 6s linear 0s infinite;
+        }
+
+        &_2 {
+          left: $left + $offset-md;
+          top: $top - $offset-md;
+          animation: moving 6s linear 0s infinite;
+        }
+      }
+    }
+
+    &_rectangle {
+      &_1 {
+        $right: -22px;
+        $bottom: -152px;
+
+        &_1 {
+          right: $right;
+          bottom: $bottom;
+        }
+
+        &_2 {
+          right: $right - $offset-md;
+          bottom: $bottom + $offset-md;
+        }
+      }
+
+      &_2 {
+        $right: 63px;
+        $bottom: 150px;
+
+        &_1 {
+          right: $right;
+          bottom: $bottom;
+        }
+
+        &_2 {
+          right: $right - $offset-md;
+          bottom: $bottom + $offset-md;
+        }
+      }
+
+      &_3 {
+        $right: 54px;
+        $bottom: 56px;
+
+        &_1 {
+          right: $right;
+          bottom: $bottom;
+        }
+
+        &_2 {
+          right: $right - $offset-md;
+          bottom: $bottom + $offset-md;
+        }
+      }
+
+      &_4 {
+        $right: 164px;
+        $bottom: 46px;
+
+        &_1 {
+          right: $right;
+          bottom: $bottom;
+        }
+
+        &_2 {
+          right: $right - $offset-md;
+          bottom: $bottom + $offset-md;
+        }
+      }
+
+      &_5 {
+        $right: 254px;
+        $bottom: -36px;
+
+        &_1 {
+          right: $right;
+          bottom: $bottom;
+        }
+
+        &_2 {
+          right: $right - $offset-md;
+          bottom: $bottom + $offset-md;
+        }
+      }
+    }
+
+    &_polygon {
+      &_1 {
+        $right: -88px;
+        $bottom: -110px;
+
+        &_1 {
+          right: $right;
+          bottom: $bottom;
+        }
+
+        &_2 {
+          right: $right - $offset-md;
+          bottom: $bottom + $offset-md;
+        }
+      }
+
+      &_2 {
+        $right: 62px;
+        $bottom: 104px;
+
+        &_1 {
+          right: $right;
+          bottom: $bottom;
+        }
+
+        &_2 {
+          right: $right - $offset-md;
+          bottom: $bottom + $offset-md;
+        }
+      }
+
+      &_3 {
+        $right: 270px;
+        $bottom: 130px;
+
+        &_1 {
+          right: $right;
+          bottom: $bottom;
+        }
+
+        &_2 {
+          right: $right - $offset-md;
+          bottom: $bottom + $offset-md;
+        }
+      }
+
+      &_4 {
+        $right: 164px;
+        $bottom: 46px;
+
+        &_1 {
+          right: $right;
+          bottom: $bottom;
+        }
+
+        &_2 {
+          right: $right - $offset-md;
+          bottom: $bottom + $offset-md;
+        }
+      }
+
+      &_5 {
+        $right: 200px;
+        $bottom: -76px;
+
+        &_1 {
+          right: $right;
+          bottom: $bottom;
+        }
+
+        &_2 {
+          right: $right - $offset-md;
+          bottom: $bottom + $offset-md;
+        }
+      }
+    }
+  }
+
+  @keyframes moving {
+    0% {
+      transform: translate(-$offset-md, $offset-md);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
   }
 }
