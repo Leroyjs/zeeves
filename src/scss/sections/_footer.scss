@@ -5,6 +5,10 @@
 
 .footer {
   min-height: 440px;
+
+  @media screen and (max-width: $tablet-sm-width) {
+    min-height: auto;
+  }
 }
 
 .footer__inner {
@@ -20,5 +24,6 @@
 
   @media screen and (max-width: $tablet-sm-width) {
     margin-top: $size-6;
+    margin-bottom: $size-10;
   }
 }

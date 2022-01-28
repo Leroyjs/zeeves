@@ -1,44 +1,48 @@
 @use '../global/index'as *;
 
 .agreements {
-  display: grid;
-  grid-template-areas:
-            "copyright options madeby"
-            "copyright options madeby";
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
 
-  @media screen and (max-width: $tablet-sm-width) {
-    grid-template-areas:
-            "options options options"
-            "copyright madeby madeby";
+  @media screen and (max-width: $phone-width) {
+    flex-direction: column;
   }
 }
 
 .agreements__col {
+  flex: 1 0 50%;
+}
 
-  &_copyright {
-    grid-area: copyright;
-    opacity: .4;
+.agreements__marks {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  @media screen and (max-width: $phone-width) {
+    margin-top: $size-10;
+  }
+}
+
+.agreements__mark {
+  text-transform: uppercase;
+  font-weight: bold;
+
+  & + & {
+    margin-left: $size-6;
   }
 
-  &_options {
-    grid-area: options;
-    margin-bottom: $size-10;
-  }
-
-  &_powerby {
-    grid-area: madeby;
-    text-transform: uppercase;
-    display: flex;
-    justify-content: flex-end;
+  &_gray {
+    opacity: 0.2;
   }
 }
 
 .agreements__list {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
 
-  @media screen and (max-width: $tablet-sm-width) {
+  @media screen and (max-width: $phone-width) {
     flex-direction: column;
   }
 }
@@ -47,7 +51,7 @@
   & + & {
     margin-left: $size-10;
 
-    @media screen and (max-width: $tablet-sm-width) {
+    @media screen and (max-width: $phone-width) {
       margin-left: 0;
       margin-top: $size-3;
     }
