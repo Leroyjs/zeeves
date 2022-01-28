@@ -1,36 +1,90 @@
-section {
+@use "../global" as *;
+
+.community {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
+    padding-left: $size-10;
+    padding-right: $size-10;
+    margin-top: 140px;
+    width: 100%;
+
+    &__row {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
+
 .accentuation {
-    position: absolute;
-    height: 138px;
-    border-radius: 24px;
+    position: relative;
+    // height: 138px;
+    // border-radius: 24px;
+    content: '';
+    display: block;
 
     &_users {
-        width: 526px;
-        background-color: $light-orange;
-        left: 801px;
-        top: -24px;
-    }
+        background: $light-orange;
 
+        &::after {
+            position:absolute;
+            left: $size-4;
+            top: $size-4;
+            height: calc(100% + (24px * 2));
+            width: calc(100% + (24px * 2));
+            border-radius: 25px;
+        }
+    }
     &_zeeves {
-        width: 338px;
         background-color: $pink;
-        left: 51px;
-        top: 144px;
+
+        &::after {
+            position:absolute;
+            left: $size-4;
+            top: $size-4;
+            height: calc(100% + (24px * 2));
+            width: calc(100% + (24px * 2));
+            border-radius: 25px;
+        }
     }
 
     &_community {
-        width: 720px;
         background-color: $purpure;
-        left: 752px;
-        top: 228px;
+
+        &::after {
+            position:absolute;
+            left: $size-4;
+            top: $size-4;
+            height: calc(100% + (24px * 2));
+            width: calc(100% + (24px * 2));
+            border-radius: 25px;
+        }
     }
 }
+
+
+
+
+
+
+
+//     &_zeeves {
+//         width: 338px;
+//         background-color: $pink;
+//         // left: 3%;
+//         // top: 144px;
+//     }
+
+//     &_community {
+//         width: 720px;
+//         background-color: $purpure;
+//         // left: 49%;
+//         // top: 228px;
+//     }
+// }
 
 .button {
     margin-top: $size-16;

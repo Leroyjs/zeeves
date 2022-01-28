@@ -1,6 +1,8 @@
 @charset "UTF-8";
 @use "./src/scss/foundation";
 @use "../../scss/sections/first-section" as *;
+@use "./src/scss/sections/community" as *;
+
 
 /* INFO:
  * Зависмые компоненты нужно запрашивать
