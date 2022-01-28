@@ -1,0 +1,33 @@
+@use "../global" as *;
+
+.partners-list {
+  display: flex;
+  width: 100%;
+}
+
+.partners-list__item {
+  width: calc(100% / 4 - #{$size-4});
+
+  &:not(:first-child) {
+    margin-left: $size-4;
+  }
+}
+
+.partners-list__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 56px 0;
+  background: rgba(34, 34, 34, 0.02);
+  border-radius: 2px;
+  height: 100%;
+}
+
+.partners-list__logo {
+  width: 60%;
+  object-position: center;
+  object-fit: contain;
+  fill: $light-blue;
+  stroke: $light-blue;
+}
