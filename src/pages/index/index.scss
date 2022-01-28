@@ -1,14 +1,12 @@
 @charset "UTF-8";
 @use "../../scss/foundation";
 
-/* List of components used on this page: */
-@use "../../scss/sections/header";
-@use "../../scss/sections/footer";
-
 /* List of sections used on this page: */
+@use "../../scss/sections/header";
 @use "../../scss/sections/first-section" as *;
 @use "../../scss/sections/benefits" as *;
 @use "../../scss/sections/manage" as *;
 @use "../../scss/sections/steps";
 @use "../../scss/sections/partnership";
-@use "../..//scss/sections/community" as *;
+@use "../../scss/sections/community" as *;
+@use "../../scss/sections/footer";
