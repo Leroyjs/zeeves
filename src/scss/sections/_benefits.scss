@@ -1,14 +1,18 @@
 @use "../global" as *;
 
+$section-height-lg: 240px;
+
 .benefits {
   display: flex;
-  min-height: 240px;
+  min-height: $section-height-lg;
 }
 
 .benefits__item {
   flex: 1;
+  position: relative;
   padding-top: $size-10;
   padding-bottom: $size-10;
+  overflow: hidden;
 
   &_color {
     &_pink {
@@ -27,4 +31,311 @@
 
 .benefits__title {
   margin-bottom: $size-6;
+  position: relative;
+}
+
+.benefits__link {
+  position: relative;
+}
+
+.benefits__figures-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+
+$star-size: 120px;
+$rectangle-size: 80px;
+$polygon-size: 140px;
+
+$offset-lg: $section-height-lg + $star-size / 2;
+
+.figures__star {
+  width: $star-size;
+  height: $star-size;
+}
+
+.figures__rectangle {
+  width: $rectangle-size;
+  height: $rectangle-size;
+}
+
+.figures__polygon {
+  width: $polygon-size;
+  height: $polygon-size;
+}
+
+.figures__item-wrapper-moving {
+  position: absolute;
+  animation: moving 10s linear 0s infinite;
+
+  &_star {
+    &_1 {
+      $right: 300px;
+      $bottom: -50px;
+
+      &_1 {
+        right: $right;
+        bottom: $bottom;
+      }
+
+      &_2 {
+        right: $right - $offset-lg;
+        bottom: $bottom + $offset-lg;
+      }
+    }
+
+    &_2 {
+      $right: 212px;
+      $bottom: 24px;
+
+      &_1 {
+        right: $right;
+        bottom: $bottom;
+      }
+
+      &_2 {
+        right: $right - $offset-lg;
+        bottom: $bottom + $offset-lg;
+      }
+    }
+
+    &_3 {
+      $right: -32px;
+      $bottom: 0px;
+
+      &_1 {
+        right: $right;
+        bottom: $bottom;
+      }
+
+      &_2 {
+        right: $right - $offset-lg;
+        bottom: $bottom + $offset-lg;
+      }
+    }
+
+    &_4 {
+      $right: -20px;
+      $bottom: 146px;
+
+      &_1 {
+        right: $right;
+        bottom: $bottom;
+      }
+
+      &_2 {
+        right: $right - $offset-lg;
+        bottom: $bottom + $offset-lg;
+      }
+    }
+
+    &_5 {
+      $left: -40px;
+      $top: -20px;
+
+      &_1 {
+        left: $left;
+        top: $top;
+        animation: moving 6s linear 0s infinite;
+      }
+
+      &_2 {
+        left: $left + $offset-lg;
+        top: $top - $offset-lg;
+        animation: moving 6s linear 0s infinite;
+      }
+    }
+  }
+
+  &_rectangle {
+    &_1 {
+      $right: -22px;
+      $bottom: -152px;
+
+      &_1 {
+        right: $right;
+        bottom: $bottom;
+      }
+
+      &_2 {
+        right: $right - $offset-lg;
+        bottom: $bottom + $offset-lg;
+      }
+    }
+
+    &_2 {
+      $right: 63px;
+      $bottom: 150px;
+
+      &_1 {
+        right: $right;
+        bottom: $bottom;
+      }
+
+      &_2 {
+        right: $right - $offset-lg;
+        bottom: $bottom + $offset-lg;
+      }
+    }
+
+    &_3 {
+      $right: 54px;
+      $bottom: 56px;
+
+      &_1 {
+        right: $right;
+        bottom: $bottom;
+      }
+
+      &_2 {
+        right: $right - $offset-lg;
+        bottom: $bottom + $offset-lg;
+      }
+    }
+
+    &_4 {
+      $right: 164px;
+      $bottom: 46px;
+
+      &_1 {
+        right: $right;
+        bottom: $bottom;
+      }
+
+      &_2 {
+        right: $right - $offset-lg;
+        bottom: $bottom + $offset-lg;
+      }
+    }
+
+    &_5 {
+      $right: 254px;
+      $bottom: -36px;
+
+      &_1 {
+        right: $right;
+        bottom: $bottom;
+      }
+
+      &_2 {
+        right: $right - $offset-lg;
+        bottom: $bottom + $offset-lg;
+      }
+    }
+  }
+
+  &_polygon {
+    &_1 {
+      $right: -88px;
+      $bottom: -110px;
+
+      &_1 {
+        right: $right;
+        bottom: $bottom;
+      }
+
+      &_2 {
+        right: $right - $offset-lg;
+        bottom: $bottom + $offset-lg;
+      }
+    }
+
+    &_2 {
+      $right: 62px;
+      $bottom: 104px;
+
+      &_1 {
+        right: $right;
+        bottom: $bottom;
+      }
+
+      &_2 {
+        right: $right - $offset-lg;
+        bottom: $bottom + $offset-lg;
+      }
+    }
+
+    &_3 {
+      $right: 270px;
+      $bottom: 130px;
+
+      &_1 {
+        right: $right;
+        bottom: $bottom;
+      }
+
+      &_2 {
+        right: $right - $offset-lg;
+        bottom: $bottom + $offset-lg;
+      }
+    }
+
+    &_4 {
+      $right: 164px;
+      $bottom: 46px;
+
+      &_1 {
+        right: $right;
+        bottom: $bottom;
+      }
+
+      &_2 {
+        right: $right - $offset-lg;
+        bottom: $bottom + $offset-lg;
+      }
+    }
+
+    &_5 {
+      $right: 200px;
+      $bottom: -76px;
+
+      &_1 {
+        right: $right;
+        bottom: $bottom;
+      }
+
+      &_2 {
+        right: $right - $offset-lg;
+        bottom: $bottom + $offset-lg;
+      }
+    }
+  }
+}
+
+.figures__item {
+  &_animation {
+    &_1 {
+      animation: rotation 20s linear 0s infinite;
+    }
+    &_2 {
+      animation: rotation 20s linear 0s infinite reverse;
+    }
+    &_3 {
+      animation: rotation 40s linear 0s infinite;
+    }
+    &_4 {
+      animation: rotation 30s linear 0s infinite reverse;
+    }
+  }
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes moving {
+  0% {
+    transform: translate(-$offset-lg, $offset-lg);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
 }
