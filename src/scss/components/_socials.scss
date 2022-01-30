@@ -13,5 +13,9 @@
     @media screen and (max-width: $desktop-sm-width) {
       margin-left: $base-x;
     }
+
+    @media screen and (max-width: $phone-width) {
+      margin-left: $size-3;
+    }
   }
 }
