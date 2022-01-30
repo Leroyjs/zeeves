@@ -69,5 +69,8 @@
     "lint:js": "eslint --ext .js src/js/",
     "stats": "webpack --config config/webpack.prod.config.js --mode=production --json > dist/stats.json && webpack-bundle-analyzer dist/stats.json"
   },
-  "target": "web"
+  "target": "web",
+  "dependencies": {
+    "smooth-scrollbar": "^8.7.4"
+  }
 }

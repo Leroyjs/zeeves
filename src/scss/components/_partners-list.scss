@@ -90,4 +90,9 @@
   fill: $light-blue;
   stroke: $light-blue;
   transition: fill .3s, stroke .3s;
+
+  @media (pointer: coarse) {
+    fill: $dark-blue;
+    stroke: $dark-blue;
+  }
 }
