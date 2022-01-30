@@ -170,7 +170,7 @@ $text-colors: (
   }
 }
 
-@media screen and (max-width: $tablet-lg-width) {
+@media screen and (max-width: $phone-width) {
   .text {
     &_size {
       &_h1 {

@@ -5,13 +5,22 @@
   background: url("../../images/design/bg.png"), $light-blue;
   background-position: 100% 100%;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: auto calc(100vh - 108px);
   padding-top: $size-27 + $size-7;
   padding-bottom: $size-10;
+
+  @media (orientation: portrait) {
+    background-size: calc(100vh - 108px) auto;
+  }
+}
+
+.first-section__line {
+  letter-spacing: -0.12em;
 }
 
 .first-section__title {
   margin-bottom: $size-10;
+  max-width: 1008px;
 }
 
 .first-section__desc {
@@ -26,4 +35,40 @@
 
 .first-section__main-button {
   margin-right: $size-4;
+}
+
+@media (max-width: $desktop-md-width) {
+  .first-section__title {
+    max-width: 796px;
+  }
+
+  .first-section__desc {
+    max-width: 514px;
+  }
+}
+
+@media (max-width: $tablet-lg-width) {
+  .first-section {
+    padding-top: $size-20 + $size-12;
+  }
+
+  .first-section__buttons {
+    flex-direction: column;
+  }
+
+  .first-section__main-button {
+    margin-right: 0;
+    margin-bottom: $size-3;
+  }
+}
+
+@media (max-width: $tablet-lg-width) and (orientation: landscape) {
+  .first-section__title {
+    font-size: 60px;
+    max-width: 584px;
+  }
+
+  .first-section__desc {
+    max-width: 446px;
+  }
 }
