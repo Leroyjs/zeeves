@@ -1,12 +1,11 @@
-@use '../global/index'as *;
+@use "../global/index" as *;
 
 .social {
-  width: 42px;
-  height: 42px;
+  width: $size-10 + 2;
+  height: $size-10 + 2;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
   background-color: $white;
   border-radius: 50%;
 
@@ -17,18 +16,23 @@
       fill: $white;
     }
   }
+
+  @media screen and (max-width: $desktop-sm-width) {
+    height: $size-8;
+    width: $size-8;
+  }
 }
 
 .social__img {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  width: 42%;
-  height: 42%;
-  object-fit: contain;
-  object-position: center;
+  height: $size-4;
+  width: $size-4;
   fill: $dark-blue;
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
+
+  @media screen and (max-width: $desktop-sm-width) {
+    height: $size-3;
+    width: $size-3;
+  }
 }

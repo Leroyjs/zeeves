@@ -1,20 +1,28 @@
-@use '../global/index' as *;
-@use '../components/logo' as *;
-@use '../components/navbar' as *;
-@use '../components/socials' as *;
+@use "../global/index" as *;
+@use "../components/logo" as *;
+@use "../components/navbar" as *;
+@use "../components/socials" as *;
 
 .header {
   position: fixed;
   left: 0;
   right: 0;
   top: 0;
-  height: $size-27;
+  height: $size-26;
   background-color: $light-blue;
 
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: $z-index-header;
+
+  @media screen and (max-width: $desktop-md-width) {
+    height: $size-22;
+  }
+
+  @media screen and (max-width: $desktop-sm-width) {
+    height: $size-20;
+  }
 
   @media screen and (max-width: 670px) {
     background-color: $white;
@@ -26,10 +34,6 @@
   display: flex;
   align-items: center;
   width: 100%;
-}
-
-.header__logo {
-
 }
 
 .header__navbar {

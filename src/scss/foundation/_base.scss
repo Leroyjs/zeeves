@@ -3,6 +3,7 @@
 html {
   background-color: $white;
   font-family: $fontMain;
+  letter-spacing: -0.02em;
 }
 
 main {
@@ -26,5 +27,16 @@ main {
 
   .section-margin-top {
     margin-top: $size-22;
+  }
+}
+
+@media screen and (max-width: $phone-width) {
+  .main-padding {
+    padding-left: $size-3;
+    padding-right: $size-3;
+  }
+
+  .section-margin-top {
+    margin-top: $size-16;
   }
 }

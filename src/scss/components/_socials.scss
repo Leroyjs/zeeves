@@ -1,5 +1,5 @@
-@use '../global/index'as *;
-@use '../components/social'as *;
+@use "../global/index" as *;
+@use "../components/social" as *;
 
 .socials {
   display: flex;
@@ -9,5 +9,9 @@
 .socials__item {
   & + & {
     margin-left: $size-2;
+
+    @media screen and (max-width: $desktop-sm-width) {
+      margin-left: $base-x;
+    }
   }
 }

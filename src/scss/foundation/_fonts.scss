@@ -157,17 +157,40 @@ $text-colors: (
 
       &_desc {
         font-size: $font-size-4 + 2;
-        line-height: 140%;
       }
 
       &_small {
         font-size: $font-size-3 + 2;
-        line-height: 140%;
       }
 
       &_x-small {
         font-size: $font-size-2 + 2;
-        line-height: 140%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $phone-width) {
+  .text {
+    &_size {
+      &_h1 {
+        font-size: $font-size-8 + 2;
+      }
+
+      &_h2 {
+        font-size: $font-size-8 + 2;
+      }
+
+      &_main {
+        font-size: $font-size-4 + 2;
+      }
+
+      &_desc {
+        font-size: $font-size-4;
+      }
+
+      &_small {
+        font-size: $font-size-3;
       }
     }
   }
