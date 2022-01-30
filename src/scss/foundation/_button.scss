@@ -7,7 +7,7 @@
   height: $size-16;
   width: 240px;
   text-align: center;
-  transition: opacity 0.3s, color .3s, background-color .3s;
+  transition: opacity 0.3s, color 0.3s, background-color 0.3s;
   border-radius: 2px;
   cursor: pointer;
 
@@ -76,5 +76,6 @@
 
   @media screen and (max-width: $phone-width) {
     height: $size-12;
+    width: 100%;
   }
 }
