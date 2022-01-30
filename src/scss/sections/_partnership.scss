@@ -11,9 +11,14 @@
   width: 100%;
   margin-bottom: $size-16;
 
+  @media screen and (max-width: $tablet-lg-width) {
+    margin-bottom: $size-12;
+  }
+
   @media screen and (max-width: $phone-width) {
     flex-direction: column;
     align-items: flex-start;
+    margin-bottom: $size-10;
   }
 }
 

@@ -3,11 +3,18 @@
 
 .steps-section {
   position: relative;
-  overflow-x: hidden;
 }
 
 .steps-section__title {
   margin-bottom: $size-10;
+
+  @media screen and (max-width: $tablet-lg-width) {
+    margin-bottom: $size-6;
+  }
+
+  @media screen and (max-width: $phone-width) {
+    margin-bottom: $size-10;
+  }
 }
 
 .steps-section__list {
@@ -19,10 +26,14 @@
   align-items: center;
   width: 100%;
   margin-top: $size-16;
+
+  @media screen and (max-width: $tablet-lg-width) {
+    margin-top: $size-6;
+  }
 }
 
 .steps-section__action {
-  @media screen and (max-width: $tablet-sm-width) {
+  @media screen and (max-width: $phone-width) {
     width: 100%;
   }
 }
@@ -39,11 +50,16 @@
   }
 
   @media screen and (max-width: $tablet-lg-width) {
-    width: 25%;
-    bottom: -40%;
+    height: 150px;
+    bottom: -36%;
   }
 
   @media screen and (max-width: $tablet-sm-width) {
+    height: 150px;
+    bottom: -32%;
+  }
+
+  @media screen and (max-width: 650px) {
     display: none;
   }
 }
