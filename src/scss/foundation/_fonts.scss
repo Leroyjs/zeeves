@@ -170,6 +170,16 @@ $text-colors: (
   }
 }
 
+@media screen and (max-width: $tablet-sm-width) {
+  .text {
+    &_size {
+      &_h1 {
+        font-size: $font-size-14;
+      }
+    }
+  }
+}
+
 @media screen and (max-width: $phone-width) {
   .text {
     &_size {
