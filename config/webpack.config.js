@@ -55,6 +55,7 @@ module.exports = {
         options: {
           partialDirs: [
             path.join(__dirname, '../src/partials'),
+            path.join(__dirname, '../src/sections'),
           ],
           helperDirs: [
             path.join(__dirname, '../src/helpers'),

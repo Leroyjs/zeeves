@@ -34,6 +34,10 @@
   display: flex;
   align-items: center;
   width: 100%;
+
+  @media screen and (max-width: 670px) {
+    justify-content: space-between;
+  }
 }
 
 .header__navbar {
@@ -58,12 +62,16 @@
 
 .header__menu-btn {
   display: none;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 
   @media screen and (max-width: 670px) {
-    display: block;
+    display: flex;
   }
 }
 
 .menu-btn {
   fill: $black;
+  width: 20px;
 }

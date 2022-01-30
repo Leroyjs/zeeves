@@ -9,70 +9,70 @@
   padding-left: $size-10;
   padding-right: $size-10;
 
-    &__preference {
-        position: relative;
-    }
+  &__preference {
+    position: relative;
+  }
 
-    &__button {
-        margin-top: $size-16;
-    }
+  &__button {
+    margin-top: $size-16;
+  }
 }
 
 .preference {
-    display: inline;
-    text-align: center;
+  display: inline;
+  text-align: center;
 }
 
 .accentuation {
-    position: relative;
-    text-align: center;
+  position: relative;
+  text-align: center;
 
-    &_users {
+  &_users {
 
-        &::after {
-            content: '';
-            display: block;
-            position: absolute;
-            background: $light-orange;
-            left: -$size-6;
-            top: -$size-6;
-            height: calc(100% + #{$size-6 * 2});
-            width: calc(100% + #{$size-6 * 2});
-            border-radius: 25px;
-            z-index: -1;
-        }
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      background: $light-orange;
+      left: -$size-6;
+      top: -$size-6;
+      height: calc(100% + #{$size-6 * 2});
+      width: calc(100% + #{$size-6 * 2});
+      border-radius: 25px;
+      z-index: -1;
     }
+  }
 
-    &_zeeves {
+  &_zeeves {
 
-        &::after {
-            content: '';
-            display: block;
-            position: absolute;
-            left: -$size-6;
-            top: -$size-6;
-            height: calc(100% + (#{$size-6} * 2));
-            width: calc(100% + (#{$size-6} * 2));
-            border-radius: 25px;
-            background-color: $pink;
-            z-index: -1;
-        }
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      left: -$size-6;
+      top: -$size-6;
+      height: calc(100% + (#{$size-6} * 2));
+      width: calc(100% + (#{$size-6} * 2));
+      border-radius: 25px;
+      background-color: $pink;
+      z-index: -1;
     }
-  
+  }
 
-    &_community {
 
-        &::after {
-            content: '';
-            display: block;
-            position: absolute;
-            left: -$size-6;
-            top: -$size-6;
-            height: calc(100% + (#{$size-6} * 2));
-            width: calc(100% + (#{$size-6} * 2));
-            border-radius: 25px;
-            background-color: $purpure;
-            z-index: -1;
-        }
+  &_community {
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      left: -$size-6;
+      top: -$size-6;
+      height: calc(100% + (#{$size-6} * 2));
+      width: calc(100% + (#{$size-6} * 2));
+      border-radius: 25px;
+      background-color: $purpure;
+      z-index: -1;
     }
+  }
 }
