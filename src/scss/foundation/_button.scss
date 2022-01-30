@@ -1,7 +1,10 @@
-@use '../global/index'as *;
+@use "../global" as *;
 
 .button {
-  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: $size-16;
   width: 240px;
   text-align: center;
   transition: opacity 0.3s, color .3s, background-color .3s;
@@ -65,5 +68,13 @@
     &_light-blue {
       background-color: $light-blue;
     }
+  }
+
+  @media screen and (max-width: $tablet-lg-width) {
+    height: $size-11;
+  }
+
+  @media screen and (max-width: $phone-width) {
+    height: $size-12;
   }
 }
