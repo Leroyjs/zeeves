@@ -28,9 +28,8 @@
   text-align: center;
 
   &_users {
-
     &::after {
-      content: '';
+      content: "";
       display: block;
       position: absolute;
       background: $light-orange;
@@ -44,9 +43,8 @@
   }
 
   &_zeeves {
-
     &::after {
-      content: '';
+      content: "";
       display: block;
       position: absolute;
       left: -$size-6;
@@ -59,11 +57,9 @@
     }
   }
 
-
   &_community {
-
     &::after {
-      content: '';
+      content: "";
       display: block;
       position: absolute;
       left: -$size-6;

@@ -21,6 +21,11 @@
     height: $size-8;
     width: $size-8;
   }
+
+  @media screen and (max-width: $phone-width) {
+    height: $size-10;
+    width: $size-10;
+  }
 }
 
 .social__img {
@@ -34,5 +39,10 @@
   @media screen and (max-width: $desktop-sm-width) {
     height: $size-3;
     width: $size-3;
+  }
+
+  @media screen and (max-width: $phone-width) {
+    height: $size-4;
+    width: $size-4;
   }
 }

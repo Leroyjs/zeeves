@@ -5,8 +5,13 @@
 }
 
 .logo__img {
+  height: $size-4;
 
   &_footer {
     min-height: 32px;
+  }
+
+  @media screen and (max-width: $tablet-lg-width) {
+    height: $size-3;
   }
 }
