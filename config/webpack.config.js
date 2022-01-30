@@ -2,10 +2,9 @@
  * Webpack main config file
  */
 
+require('handlebars-loader');
 const path = require('path');
 const glob = require('glob');
-const posthtml = require('posthtml');
-const include = require('posthtml-include');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
@@ -15,9 +14,9 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const environment = require('./environment');
 
 const getHtmlTemplate = () => glob
-  .sync('./src/pages/**/index.html')
+  .sync('./src/pages/**/index.hbs')
   .map((file) => ({
-    name: file.match(/\/pages\/(.+)\/index.html/)[1],
+    name: file.match(/\/pages\/(.+)\/index.hbs/)[1],
     path: file,
   }))
   .map(
@@ -50,28 +49,21 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.hbs/,
+        loader: 'handlebars-loader',
+        exclude: /(node_modules|bower_components)/,
+        options: {
+          partialDirs: [
+            path.join(__dirname, '../src/partials'),
+          ],
+          helperDirs: [
+            path.join(__dirname, '../src/helpers'),
+          ],
+        },
+      },
+      {
         test: /\.html$/,
         loader: 'html-loader',
-        options: {
-          sources: false,
-          preprocessor: (content, loaderContext) => {
-            let result;
-
-            try {
-              result = posthtml([include({
-                encoding: 'utf8',
-                root: './src/html/',
-              })])
-                .process(content, { sync: true });
-            } catch (error) {
-              loaderContext.emitError(error);
-
-              return content;
-            }
-
-            return result.html;
-          },
-        },
       },
       {
         test: /\.((c|sa|sc)ss)$/i,

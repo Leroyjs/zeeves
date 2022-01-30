@@ -23,7 +23,6 @@
   margin-top: 144px;
 
   @media screen and (max-width: $tablet-sm-width) {
-    margin-top: $size-6;
-    margin-bottom: $size-10;
+    margin: $size-6 0;
   }
 }
