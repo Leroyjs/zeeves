@@ -85,6 +85,10 @@
     padding-right: $size-6;
   }
 
+  .manage__desc {
+    padding-right: $size-6;
+  }
+
   .manage__desc-title {
     margin-bottom: $size-5;
   }
@@ -111,5 +115,48 @@
   .manage__doodle {
     height: 150px;
     bottom: -8px;
+  }
+}
+
+@media screen and (max-width: $phone-width) {
+  .manage {
+    flex-direction: column;
+  }
+
+  .manage__doodle {
+    display: none;
+  }
+
+  .manage__title {
+    margin-bottom: $size-6;
+    padding-right: 0;
+  }
+
+  .manage__desc {
+    padding-right: 0;
+    margin-bottom: $size-10;
+  }
+
+  .manage__desc-title {
+    margin-bottom: $size-4;
+  }
+
+  .manage__user {
+    margin-bottom: $size-2;
+    height: $size-12;
+    width: $size-12;
+
+    &.manage_align_right {
+      margin-top: $size-3;
+    }
+  }
+
+  .manage__message {
+    margin-bottom: $base-x;
+    padding-top: $size-2 + 2;
+    padding-left: $size-3;
+    padding-right: $size-3;
+    padding-bottom: $size-3 + 2;
+    border-radius: $size-4;
   }
 }

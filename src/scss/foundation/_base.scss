@@ -28,3 +28,14 @@ main {
     margin-top: $size-22;
   }
 }
+
+@media screen and (max-width: $phone-width) {
+  .main-padding {
+    padding-left: $size-3;
+    padding-right: $size-3;
+  }
+
+  .section-margin-top {
+    margin-top: $size-16;
+  }
+}
