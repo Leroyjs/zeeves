@@ -6,69 +6,359 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding-left: $size-10;
-  padding-right: $size-10;
 
-  &__preference {
-    position: relative;
-  }
+    &__preference {
+        position: relative;
+    }
 
-  &__button {
-    margin-top: $size-16;
-  }
+    &__button {
+        margin-top: $size-16;
+    }
+
+    &_desktop {
+        display: none;
+    }
+    
+    &_tablet {
+        display: none;
+    }
+    
+    &_phone {
+        display:none;
+    }
 }
 
 .preference {
-  display: inline;
-  text-align: center;
+    display: inline;
+    text-align: center;
+    max-width: $desktop-lg-width;
 }
 
 .accentuation {
-  position: relative;
-  text-align: center;
+    position: relative;
+    text-align: center;
 
-  &_users {
-    &::after {
-      content: "";
-      display: block;
-      position: absolute;
-      background: $light-orange;
-      left: -$size-6;
-      top: -$size-6;
-      height: calc(100% + #{$size-6 * 2});
-      width: calc(100% + #{$size-6 * 2});
-      border-radius: 25px;
-      z-index: -1;
-    }
-  }
+    &_users {
 
-  &_zeeves {
-    &::after {
-      content: "";
-      display: block;
-      position: absolute;
-      left: -$size-6;
-      top: -$size-6;
-      height: calc(100% + (#{$size-6} * 2));
-      width: calc(100% + (#{$size-6} * 2));
-      border-radius: 25px;
-      background-color: $pink;
-      z-index: -1;
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            background: $light-orange;
+            left: -$size-6;
+            top: -$size-6;
+            height: calc(100% + #{$size-6 * 2});
+            width: calc(100% + #{$size-6 * 2});
+            border-radius: 25px;
+            z-index: -1;
+        }
     }
-  }
 
-  &_community {
-    &::after {
-      content: "";
-      display: block;
-      position: absolute;
-      left: -$size-6;
-      top: -$size-6;
-      height: calc(100% + (#{$size-6} * 2));
-      width: calc(100% + (#{$size-6} * 2));
-      border-radius: 25px;
-      background-color: $purpure;
-      z-index: -1;
+    &_zeeves {
+
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            left: -$size-6;
+            top: -$size-6;
+            height: calc(100% + (#{$size-6} * 2));
+            width: calc(100% + (#{$size-6} * 2));
+            border-radius: 25px;
+            background-color: $pink;
+            z-index: -1;
+        }
     }
-  }
+  
+    &_society {
+
+        &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            left: -$size-6;
+            top: -$size-6;
+            height: calc(100% + (#{$size-6} * 2));
+            width: calc(100% + (#{$size-6} * 2));
+            border-radius: 25px;
+            background-color: $purpure;
+            z-index: -1;
+        }
+    }
+}
+
+// @media (max-width: $desktop-xlg-width) {
+
+//     .preference {
+        
+//     }
+// }
+
+@media (max-width: $desktop-lg-width) {
+    .preference {
+        font-size: $font-size-19;
+    }
+}
+
+@media (max-width: $desktop-md-width) {
+    .preference {
+        font-size: $font-size-17;
+    }
+
+}
+
+@media (max-width: $desktop-sm-width) {
+    .preference {
+        font-size: $font-size-15;
+        max-width: 1080px;
+    }
+    .community {
+        &_desktop {
+            display: block;
+        }
+    }
+
+    .accentuation {
+
+        &_users {
+    
+            &::after {
+                left: -$size-5;
+                top: -$size-5;
+                height: calc(100% + #{$size-5 * 2});
+                width: calc(100% + #{$size-5 * 2});
+                border-radius: 20px;
+            }
+        }
+    
+        &_zeeves {
+    
+            &::after {
+                left: -$size-5;
+                top: -$size-5;
+                height: calc(100% + #{$size-5 * 2});
+                width: calc(100% + #{$size-5 * 2});
+                border-radius: 20px;
+            }
+        }
+      
+        &_society {
+    
+            &::after {
+                left: -$size-5;
+                top: -$size-5;
+                height: calc(100% + #{$size-5 * 2});
+                width: calc(100% + #{$size-5 * 2});
+                border-radius: 20px;
+            }
+        }
+    }
+
+}
+
+@media (max-width: 1080px) {
+    .preference {
+        font-size: $font-size-14;
+    }
+
+    .accentuation {
+
+        &_users {
+    
+            &::after {
+                left: -$size-5;
+                top: -$size-5;
+                height: calc(100% + #{$size-5 * 2});
+                width: calc(100% + #{$size-5 * 2});
+                border-radius: 20px;
+            }
+        }
+    
+        &_zeeves {
+    
+            &::after {
+                left: -$size-5;
+                top: -$size-5;
+                height: calc(100% + #{$size-5 * 2});
+                width: calc(100% + #{$size-5 * 2});
+                border-radius: 20px;
+            }
+        }
+      
+        &_society {
+    
+            &::after {
+                left: -$size-5;
+                top: -$size-5;
+                height: calc(100% + #{$size-5 * 2});
+                width: calc(100% + #{$size-5 * 2});
+                border-radius: 20px;
+            }
+        }
+    }
+}
+
+@media (max-width: $tablet-lg-width) {
+    .preference {
+        font-size: $font-size-14;
+    }
+
+    .community {
+        &_tablet {
+            display: block;
+        }
+    }
+
+    .accentuation {
+
+        &_users {
+    
+            &::after {
+                left: -$size-4;
+                top: -$size-4;
+                height: calc(100% + #{$size-4 * 2});
+                width: calc(100% + #{$size-4 * 2});
+                border-radius: 20px;
+            }
+        }
+    
+        &_zeeves {
+    
+            &::after {
+                left: -$size-4;
+                top: -$size-4;
+                height: calc(100% + #{$size-4 * 2});
+                width: calc(100% + #{$size-4 * 2});
+                border-radius: 20px;
+            }
+        }
+      
+        &_society {
+    
+            &::after {
+                left: -$size-4;
+                top: -$size-4;
+                height: calc(100% + #{$size-4 * 2});
+                width: calc(100% + #{$size-4 * 2});
+                border-radius: 20px;
+            }
+        }
+    }
+
+}
+
+@media (max-width: $tablet-sm-width) {
+    .preference {
+        font-size: $font-size-14;
+    }
+    .community {
+        &_desktop {
+            display: none;
+        }
+    
+        &_tablet {
+            display: none;
+        }
+        
+        &_phone {
+            display: block;
+        }
+        &__button {
+            margin-top: $size-12;
+        }
+    }
+
+    .accentuation {
+
+        &_users {
+    
+            &::after {
+                left: -$size-3;
+                top: -$size-3;
+                height: calc(100% + #{$size-3 * 2});
+                width: calc(100% + #{$size-3 * 2});
+                border-radius: 20px;
+            }
+        }
+    
+        &_zeeves {
+    
+            &::after {
+                left: -$size-3;
+                top: -$size-3;
+                height: calc(100% + #{$size-3 * 2});
+                width: calc(100% + #{$size-3 * 2});
+                border-radius: 20px;
+            }
+        }
+      
+        &_society {
+    
+            &::after {
+                left: -$size-3;
+                top: -$size-3;
+                height: calc(100% + #{$size-3 * 2});
+                width: calc(100% + #{$size-3 * 2});
+                border-radius: 20px;
+            }
+        }
+    }
+}
+
+@media (max-width: $phone-width) {
+    .preference {
+        font-size: 34px;
+    }
+    .community{
+        &_desktop {
+            display: none;
+        }
+    
+        &_tablet {
+            display: none;
+        }
+        
+        &_phone {
+            display: block;
+        }
+        &__button {
+            margin-top: $size-10;
+        }
+    }
+
+    .accentuation {
+
+        &_users {
+    
+            &::after {
+                left: -$size-2;
+                top: -$size-2;
+                height: calc(100% + #{$size-2 * 2});
+                width: calc(100% + #{$size-2 * 2});
+                border-radius: 16px;
+            }
+        }
+    
+        &_zeeves {
+    
+            &::after {
+                left: -$size-2;
+                top: -$size-2;
+                height: calc(100% + #{$size-2 * 2});
+                width: calc(100% + #{$size-2 * 2});
+                border-radius: 16px;
+            }
+        }
+      
+        &_society {
+    
+            &::after {
+                left: -$size-2;
+                top: -$size-2;
+                height: calc(100% + #{$size-2 * 2});
+                width: calc(100% + #{$size-2 * 2});
+                border-radius: 16px;
+            }
+        }
+    }
 }
