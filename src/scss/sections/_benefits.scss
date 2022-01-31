@@ -7,19 +7,19 @@ $section-height-sm: 160px;
 
 $star-size-lg: 120px;
 $rectangle-size-lg: 80px;
-$polygon-size-lg: 140px;
+$polygon-size-lg: 120px;
 
 $star-size-md: 80px;
 $rectangle-size-md: 70px;
-$polygon-size-md: 110px;
+$polygon-size-md: 90px;
 
 $star-size-sm: 74px;
 $rectangle-size-sm: 54px;
-$polygon-size-sm: 88px;
+$polygon-size-sm: 80px;
 
-$offset-lg: $section-height-lg + math.div($polygon-size-lg, 2);
-$offset-md: $section-height-md + math.div($polygon-size-md, 2);
-$offset-md-2: $section-height-sm + math.div($polygon-size-md, 2);
+$offset-lg: $section-height-lg + 70;
+$offset-md: $section-height-md + 55;
+$offset-md-2: $section-height-sm + 45;
 
 .benefits {
   display: flex;
