@@ -4,12 +4,11 @@ import './index.scss';
 import '../../js/common';
 /* import partials and lib */
 import '../../js/components/demo';
+import initHeader from '../../js/components/header';
 
 /* Your JS Code goes here */
 window.addEventListener('DOMContentLoaded', () => {
-
+  initHeader();
 });
 
-window.addEventListener('load', () => {
-
-});
+window.addEventListener('load', () => {});
