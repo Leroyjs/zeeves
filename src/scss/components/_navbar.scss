@@ -20,4 +20,9 @@
 
 .navbar__link {
   opacity: 0.4;
+  transition: opacity 0.3s;
+
+  &:hover {
+    opacity: 1;
+  }
 }

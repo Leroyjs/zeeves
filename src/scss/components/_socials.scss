@@ -7,6 +7,13 @@
 }
 
 .socials__item {
+  position: relative;
+  display: inline-flex;
+  flex: 0 0 auto;
+
+  width: $size-10 + 2;
+  height: $size-10 + 2;
+
   & + & {
     margin-left: $size-2;
 
