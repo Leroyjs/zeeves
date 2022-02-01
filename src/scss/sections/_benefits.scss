@@ -7,19 +7,19 @@ $section-height-sm: 160px;
 
 $star-size-lg: 120px;
 $rectangle-size-lg: 80px;
-$polygon-size-lg: 140px;
+$polygon-size-lg: 120px;
 
 $star-size-md: 80px;
 $rectangle-size-md: 70px;
-$polygon-size-md: 110px;
+$polygon-size-md: 90px;
 
 $star-size-sm: 74px;
 $rectangle-size-sm: 54px;
-$polygon-size-sm: 88px;
+$polygon-size-sm: 80px;
 
-$offset-lg: $section-height-lg + math.div($polygon-size-lg, 2);
-$offset-md: $section-height-md + math.div($polygon-size-md, 2);
-$offset-md-2: $section-height-sm + math.div($polygon-size-md, 2);
+$offset-lg: $section-height-lg + 70;
+$offset-md: $section-height-md + 55;
+$offset-md-2: $section-height-sm + 45;
 
 .benefits {
   display: flex;
@@ -53,6 +53,14 @@ $offset-md-2: $section-height-sm + math.div($polygon-size-md, 2);
   &:hover {
     .benefits__link-img {
       transform: rotate(-90deg);
+    }
+
+    .figures__item-wrapper-moving {
+      animation-play-state: running;
+    }
+
+    .figures__item {
+      animation-play-state: running;
     }
   }
 }
@@ -102,6 +110,11 @@ $offset-md-2: $section-height-sm + math.div($polygon-size-md, 2);
 .figures__item-wrapper-moving {
   position: absolute;
   animation: moving 10s linear 0s infinite;
+  animation-play-state: paused;
+
+  @media (pointer: coarse) {
+    animation-play-state: running;
+  }
 
   &_star {
     &_1 {
@@ -354,6 +367,14 @@ $offset-md-2: $section-height-sm + math.div($polygon-size-md, 2);
     &_4 {
       animation: rotation 30s linear 0s infinite reverse;
     }
+  }
+}
+
+.figures__item {
+  animation-play-state: paused;
+
+  @media (pointer: coarse) {
+    animation-play-state: running;
   }
 }
 
