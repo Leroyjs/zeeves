@@ -54,6 +54,14 @@ $offset-md-2: $section-height-sm + 45;
     .benefits__link-img {
       transform: rotate(-90deg);
     }
+
+    .figures__item-wrapper-moving {
+      animation-play-state: running;
+    }
+
+    .figures__item {
+      animation-play-state: running;
+    }
   }
 }
 
@@ -102,6 +110,11 @@ $offset-md-2: $section-height-sm + 45;
 .figures__item-wrapper-moving {
   position: absolute;
   animation: moving 10s linear 0s infinite;
+  animation-play-state: paused;
+
+  @media (pointer: coarse) {
+    animation-play-state: running;
+  }
 
   &_star {
     &_1 {
@@ -354,6 +367,14 @@ $offset-md-2: $section-height-sm + 45;
     &_4 {
       animation: rotation 30s linear 0s infinite reverse;
     }
+  }
+}
+
+.figures__item {
+  animation-play-state: paused;
+
+  @media (pointer: coarse) {
+    animation-play-state: running;
   }
 }
 

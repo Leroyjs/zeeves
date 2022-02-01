@@ -1,15 +1,13 @@
-import './index.hbs';
-import './index.scss';
+import "./index.hbs";
+import "./index.scss";
 /* import common js */
-import '../../js/common';
+import "../../js/common";
+import { chatAnimation } from "../../js/components/chat-animation";
 /* import partials and lib */
-import '../../js/components/demo';
 
 /* Your JS Code goes here */
-window.addEventListener('DOMContentLoaded', () => {
-
+window.addEventListener("DOMContentLoaded", () => {
+  chatAnimation();
 });
 
-window.addEventListener('load', () => {
-
-});
+window.addEventListener("load", () => {});
