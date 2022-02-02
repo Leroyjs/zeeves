@@ -17,10 +17,19 @@ main {
 .main-padding {
   padding-left: $size-10;
   padding-right: $size-10;
+
+  @media screen and (min-width: $desktop-xlg-width) {
+    padding-left: get-vw($size-10);
+    padding-right: get-vw($size-10);
+  }
 }
 
 .section-margin-top {
   margin-top: $size-35;
+
+  @media screen and (min-width: $desktop-xlg-width) {
+    margin-top: get-vw($size-35);
+  }
 }
 
 @media screen and (max-width: $tablet-lg-width) {

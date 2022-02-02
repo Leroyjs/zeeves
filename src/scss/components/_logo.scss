@@ -1,14 +1,14 @@
 @use '../global/index'as *;
 
-.logo {
-
-}
-
 .logo__img {
   height: $size-4;
 
   &_footer {
     min-height: 32px;
+  }
+
+  @media screen and (min-width: $desktop-xlg-width) {
+    height: get-vw($size-4);
   }
 
   @media screen and (max-width: $tablet-lg-width) {

@@ -6,12 +6,18 @@
   background: url("../../images/design/bg.png"), $light-blue;
   background-position: 100% 100%;
   background-repeat: no-repeat;
-  background-size: auto calc(100vh - 108px);
+  background-size: auto calc(100% - 180px);
   padding-top: $size-27 + $size-7;
   padding-bottom: $size-10;
 
+  @media screen and (min-width: $desktop-xlg-width) {
+    background-size: auto calc(100% - get-vw(180px));
+    padding-top: get-vw($size-27 + $size-7);
+    padding-bottom: get-vw($size-10);
+  }
+
   @media (orientation: portrait) {
-    background-size: calc(100vh - 108px) auto;
+    background-size: 60% auto;
   }
 }
 
@@ -22,12 +28,22 @@
 .first-section__title {
   margin-bottom: $size-10;
   max-width: 1008px;
+
+  @media screen and (min-width: $desktop-xlg-width) {
+    max-width: get-vw(1008px);
+    margin-bottom: get-vw($size-10);
+  }
 }
 
 .first-section__desc {
   max-width: 624px;
   display: inline-block;
   margin-bottom: $size-16;
+
+  @media screen and (min-width: $desktop-xlg-width) {
+    max-width: get-vw(624px);
+    margin-bottom: get-vw($size-16);
+  }
 }
 
 .first-section__buttons {
@@ -36,6 +52,10 @@
 
 .first-section__main-button {
   margin-right: $size-4;
+
+  @media screen and (min-width: $desktop-xlg-width) {
+    margin-right: get-vw($size-4);
+  }
 }
 
 @media (max-width: $desktop-md-width) {
@@ -92,11 +112,11 @@
   .first-section {
     background: url("../../images/design/bg-m.png"), $light-blue;
     background-repeat: no-repeat;
-    background-position: 100% calc(100% - $size-12);
+    background-position: 100% 100%;
     background-size: calc(100vw) auto;
     padding-top: calc(calc(100vh + #{$size-12 + $size-3 - 480px}) / 2);
-    padding-bottom: $size-12;
-    margin-bottom: -$size-12;
+    min-height: calc(100vh - $size-12);
+    min-height: calc(calc(var(--fsvh, 1vh) * 100) - $size-12);
 
     @media (max-height: 540px) {
       padding-top: $size-12 + $size-3;
@@ -136,7 +156,7 @@
 
 @media (max-width: $phone-width) and (orientation: landscape) {
   .first-section {
-    background-position: 100% calc(100% - $size-12);
+    background-position: 100% 100%;
     background-size: auto calc(100vh - #{$size-12 + $size-12 + $size-3});
   }
 

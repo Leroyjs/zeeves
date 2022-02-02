@@ -7,7 +7,7 @@
   width: 100%;
   height: 100vh;
   background-color: $light-blue;
-  z-index: 99;
+  z-index: $z-index-header - 1;
   padding-top: $size-27 + $size-6;
   transition: transform .6s;
   transform: translateY(0vh);
@@ -17,12 +17,20 @@
   }
 
   @media (max-width: $phone-width) {
+    z-index: $z-index-header + 1;
     padding-top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
 .preloader__counter {
   font-size: 98px;
+
+  @media (max-width: $tablet-lg-width) {
+    font-size: 78px;
+  }
 }
 
 .loaded{
