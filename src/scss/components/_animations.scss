@@ -22,7 +22,7 @@ $step-animation-delay: .3s;
   .partners-list__item, .community__button,
   .accentuation_users::after, .accentuation_zeeves::after,
   .accentuation_society::after {
-    transition: opacity 0.3s, transform 0.3s;
+    transition: opacity 0.3s, transform 0.3s, background-color 0.3s, color .3s;
     transform: translateY(0);
     opacity: 1;
   }
@@ -31,45 +31,45 @@ $step-animation-delay: .3s;
     @for $i from 1 through 4 {
       &:nth-child(#{$i}) {
         $animation-delay: #{$i * $step-animation-delay};
-        transition: opacity 0.3s #{$animation-delay}, transform 0.3s #{$animation-delay};
+        transition: opacity 0.3s #{$animation-delay}, transform 0.3s #{$animation-delay}, background-color 0.3s, color .3s;
       }
     }
   }
 
   .steps-section__action {
     $animation-delay: #{5 * $step-animation-delay};
-    transition: opacity 0.3s #{$animation-delay}, transform 0.3s #{$animation-delay};
+    transition: opacity 0.3s #{$animation-delay}, transform 0.3s #{$animation-delay}, background-color 0.3s, color .3s;
   }
 
   .partnership__subtitle {
-    transition: opacity 0.3s 0.4s, transform 0.3s $step-animation-delay;
+    transition: opacity 0.3s 0.4s, transform 0.3s $step-animation-delay, background-color 0.3s, color .3s;
   }
 
   .partners-list__item {
     @for $i from 1 through 4 {
       &:nth-child(#{$i}) {
         $animation-delay: #{($i + 1) * $step-animation-delay};
-        transition: opacity 0.3s #{$animation-delay}, transform 0.3s #{$animation-delay};
+        transition: opacity 0.3s #{$animation-delay}, transform 0.3s #{$animation-delay}, background-color 0.3s, color .3s;
       }
     }
   }
 
   .accentuation_users::after {
-    transition: opacity 0.3s #{$step-animation-delay}, transform 0.3s #{$step-animation-delay};
+    transition: opacity 0.3s #{$step-animation-delay}, transform 0.3s #{$step-animation-delay}, background-color 0.3s, color .3s;
   }
 
   .accentuation_zeeves::after {
     $animation-delay: #{2 * $step-animation-delay};
-    transition: opacity 0.3s #{$animation-delay}, transform 0.3s #{$animation-delay};
+    transition: opacity 0.3s #{$animation-delay}, transform 0.3s #{$animation-delay}, background-color 0.3s, color .3s;
   }
 
   .accentuation_society::after {
     $animation-delay: #{3 * $step-animation-delay};
-    transition: opacity 0.3s #{$animation-delay}, transform 0.3s #{$animation-delay};
+    transition: opacity 0.3s #{$animation-delay}, transform 0.3s #{$animation-delay}, background-color 0.3s, color .3s;
   }
 
   .community__button {
     $animation-delay: #{4 * $step-animation-delay};
-    transition: opacity 0.3s #{$animation-delay}, transform 0.3s #{$animation-delay};
+    transition: opacity 0.3s #{$animation-delay}, transform 0.3s #{$animation-delay}, background-color 0.3s, color .3s;
   }
 }

@@ -10,26 +10,38 @@
   transition: transform .3s;
   transform: translate(100%, 100%);
 
-  &.show {
-    transform: translate(0, 0);
+  @media screen and (min-width: $desktop-xlg-width) {
+    width: get-vw(160px);
+    height: get-vw(160px);
+  }
+  
+  @media screen and (max-width: $desktop-sm-width) {
+    width: 140px;
+    height: 140px;
   }
 
-  &::after {
-    content: '';
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    border: 80px solid transparent;
-    border-right: 80px solid $dark-blue;
-    border-bottom: 80px solid $dark-blue;
+  &.show {
+    transform: translate(0, 0);
   }
 }
 
 .goto__label {
   display: block;
   position: absolute;
-  bottom: 0;
-  right: 0;
-  transform: rotate(-45deg) translate(24px, -36px);
+  top: 20%;
+  left: 20%;
+  width: 200%;
+  height: 100%;
+  text-align: center;
+  padding-top: 12px;
+  transform: rotate(-45deg);
+  transform-origin: center bottom;
   z-index: $z-index-header;
+  background-color: $dark-blue;
+}
+
+@media screen and (max-width: $phone-width) {
+  .goto {
+    display: none;
+  }
 }

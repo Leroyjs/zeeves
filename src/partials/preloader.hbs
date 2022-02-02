@@ -1,5 +1,5 @@
 <div class="preloader main-padding">
-  <div class="preloader__counter text_color_white">0</div>
+  <div class="preloader__counter text_color_white">00</div>
 </div>
 <script>
   const preloader = document.querySelector('.preloader');
@@ -39,7 +39,7 @@
 
   (function drawPercentage(){
     setTimeout(() => {
-      preloaderCount.innerText = percent++
+      preloaderCount.innerText = getFormatedCount(percent++)
 
       if(percent <= 100) {
         drawPercentage()
@@ -50,4 +50,8 @@
       }
     }, stepTimeout);
   })()
+
+  function getFormatedCount(percent){
+    return percent >= 10 ? percent : '0'+percent
+  }
 </script>

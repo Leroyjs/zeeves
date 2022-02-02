@@ -17,18 +17,6 @@
   z-index: $z-index-header;
   transition: background-color .3s;
 
-  &_white {
-    background-color: $white;
-
-    .social {
-      background-color: $light-blue;
-
-      .social__img {
-        fill: $white;
-      }
-    }
-  }
-
   @media screen and (min-width: $desktop-xlg-width) {
     height: get-vw($size-22);
   }

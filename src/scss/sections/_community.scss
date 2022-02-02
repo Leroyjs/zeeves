@@ -13,6 +13,10 @@
 
   &__button {
     margin-top: $size-16;
+
+    @media screen and (min-width: $desktop-xlg-width) {
+      margin-top: get-vw($size-16);
+    }
   }
 
   &_desktop {
@@ -32,6 +36,10 @@
   display: inline;
   text-align: center;
   max-width: $desktop-lg-width;
+
+  @media screen and (min-width: $desktop-xlg-width) {
+    max-width: get-vw($desktop-lg-width);
+  }
 }
 
 .accentuation {
