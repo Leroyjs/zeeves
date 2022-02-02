@@ -11,16 +11,12 @@
   }
 }
 
-.footer__inner {
-
-}
-
-.footer__main {
-
-}
-
 .footer__agreements {
   margin-top: 144px;
+
+  @media screen and (min-width: $desktop-xlg-width) {
+    margin-top: get-vw(144px);
+  }
 
   @media screen and (max-width: $tablet-sm-width) {
     margin: $size-6 0;

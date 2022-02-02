@@ -12,6 +12,10 @@
   transition: transform .6s;
   transform: translateY(0vh);
 
+  @media screen and (min-width: $desktop-xlg-width) {
+    padding-top: get-vw($size-27 + $size-2);
+  }
+
   @media (max-width: $tablet-lg-width) {
     padding-top: $size-20 + $size-10;
   }
@@ -27,6 +31,10 @@
 
 .preloader__counter {
   font-size: 98px;
+
+  @media screen and (min-width: $desktop-xlg-width) {
+    font-size: get-vw(98px);
+  }
 
   @media (max-width: $tablet-lg-width) {
     font-size: 78px;
