@@ -2,15 +2,26 @@
 
 $step-animation-delay: .3s;
 
-.appear-animation, .step, .steps-section__action, .partnership__subtitle, .partners-list__item {
+.appear-animation, .step, .steps-section__action,
+.partnership__subtitle, .partners-list__item, .accentuation_users::after,
+.accentuation_zeeves::after, .accentuation_society::after {
   transform: translateY(20px);
+  opacity: 0;
+}
+
+.community__button {
   opacity: 0;
 }
 
 // active classes
 
 .observed-js.show {
-  .appear-animation, .step, .steps-section__action, .partnership__subtitle, .partners-list__item {
+  .appear-animation, .step,
+  .steps-section__action,
+  .partnership__subtitle,
+  .partners-list__item, .community__button,
+  .accentuation_users::after, .accentuation_zeeves::after,
+  .accentuation_society::after {
     transition: opacity 0.3s, transform 0.3s;
     transform: translateY(0);
     opacity: 1;
@@ -41,5 +52,24 @@ $step-animation-delay: .3s;
         transition: opacity 0.3s #{$animation-delay}, transform 0.3s #{$animation-delay};
       }
     }
+  }
+
+  .accentuation_users::after {
+    transition: opacity 0.3s #{$step-animation-delay}, transform 0.3s #{$step-animation-delay};
+  }
+
+  .accentuation_zeeves::after {
+    $animation-delay: #{2 * $step-animation-delay};
+    transition: opacity 0.3s #{$animation-delay}, transform 0.3s #{$animation-delay};
+  }
+
+  .accentuation_society::after {
+    $animation-delay: #{3 * $step-animation-delay};
+    transition: opacity 0.3s #{$animation-delay}, transform 0.3s #{$animation-delay};
+  }
+
+  .community__button {
+    $animation-delay: #{4 * $step-animation-delay};
+    transition: opacity 0.3s #{$animation-delay}, transform 0.3s #{$animation-delay};
   }
 }
