@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8"/>
-    <title>Zeeves</title>
-    {{> opengraph}}
-    <script>
-        window.pageLoaded = false;
-        window.addEventListener('load', function () {
-            window.pageLoaded = true;
-        })
-        window.onbeforeunload = function () {
-            window.scrollTo(0, 0);
-        };
+  <meta charset="UTF-8" />
+  <title>Zeeves</title>
+  {{> opengraph}}
+  <script>
+    window.pageLoaded = false;
+    window.addEventListener("load", function() {
+      window.pageLoaded = true;
+    });
+    window.onbeforeunload = function() {
+      window.scrollTo(0, 0);
+    };
 
-    </script>
+  </script>
 </head>
 <body class="no-scroll">
 {{> preloader}}
 {{> header}}
 <main>
-    {{> first}}
-    {{> benefits}}
-    {{> manage}}
-    {{> steps}}
-    {{> partnership}}
-    {{> community}}
+  {{> first}}
+  {{> benefits}}
+  {{> manage}}
+  {{> steps}}
+  {{> partnership}}
+  {{> community}}
 </main>
 {{> footer}}
+{{> goto}}
 </body>
 </html>

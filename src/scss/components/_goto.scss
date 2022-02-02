@@ -1,0 +1,29 @@
+@use "../global" as *;
+
+.goto {
+  width: 160px;
+  height: 160px;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  z-index: $z-index-header;
+
+  &::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    border: 80px solid transparent;
+    border-right: 80px solid $dark-blue;
+    border-bottom: 80px solid $dark-blue;
+  }
+}
+
+.goto__label {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: rotate(-45deg) translate(24px, -36px);
+  z-index: $z-index-header;
+}
