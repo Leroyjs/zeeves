@@ -12,8 +12,16 @@
 .steps-list__item {
   width: 240px;
 
+  @media screen and (min-width: $desktop-xlg-width) {
+    width: get-vw(240px);
+  }
+
   &:not(:first-child) {
     margin-left: $size-4;
+
+    @media screen and (min-width: $desktop-xlg-width) {
+      margin-left: get-vw($size-4);
+    }
   }
 
   @media screen and (max-width: $tablet-lg-width) {
@@ -44,12 +52,12 @@
 
 .step__count {
   margin-bottom: $size-4;
+
+  @media screen and (min-width: $desktop-xlg-width) {
+    margin-bottom: get-vw($size-4);
+  }
 }
 
 .step__title {
   font-weight: normal;
-}
-
-.step__title-br-04 {
-
 }

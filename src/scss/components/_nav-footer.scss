@@ -11,14 +11,26 @@
 .nav-footer__title {
   margin-bottom: $size-12;
   text-transform: uppercase;
-}
 
-.nav-footer__links {
-
+  @media screen and (min-width: $desktop-xlg-width) {
+    margin-bottom: get-vw($size-12);
+  }
 }
 
 .nav-footer__item {
   & + & {
     margin-top: $size-4;
+
+    @media screen and (min-width: $desktop-xlg-width) {
+      margin-top: get-vw($size-4);
+    }
+  }
+}
+
+.nav-footer__link{
+  transition: opacity .3s;
+  
+  &:hover{
+    opacity: .4;
   }
 }

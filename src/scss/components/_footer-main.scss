@@ -59,8 +59,20 @@
   }
 }
 
-@media screen and (max-width: $phone-width) {
-  .footer {
+.footer {
+  padding-bottom: $size-10;
+
+  @media screen and (min-width: $desktop-xlg-width) {
+    padding-bottom: get-vw($size-10);
+  }
+
+  @media screen and (max-width: $tablet-lg-width) {
+    padding-bottom: $size-6;
+  }
+
+  @media screen and (max-width: $phone-width) {
     padding-bottom: $size-12;
   }
 }
+
+

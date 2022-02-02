@@ -1,15 +1,15 @@
 @use '../global/index' as *;
 @use '../components/partners-list' as *;
 
-.partnership {
-
-}
-
 .partnership__header {
   display: flex;
   align-items: center;
   width: 100%;
   margin-bottom: $size-16;
+
+  @media screen and (min-width: $desktop-xlg-width) {
+    margin-bottom: get-vw($size-16);
+  }
 
   @media screen and (max-width: $tablet-lg-width) {
     margin-bottom: $size-12;
