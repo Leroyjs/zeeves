@@ -11,7 +11,7 @@
   padding-bottom: $size-10;
 
   @media screen and (min-width: $desktop-xlg-width) {
-    background-size: auto calc(100% - get-vw(180px));
+    background-size: auto calc(100% - #{get-vw(180px)});
     padding-top: get-vw($size-27 + $size-7);
     padding-bottom: get-vw($size-10);
   }
@@ -115,8 +115,8 @@
     background-position: 100% 100%;
     background-size: calc(100vw) auto;
     padding-top: calc(calc(100vh + #{$size-12 + $size-3 - 480px}) / 2);
-    min-height: calc(100vh - $size-12);
-    min-height: calc(calc(var(--fsvh, 1vh) * 100) - $size-12);
+    min-height: calc(100vh - #{$size-12  });
+    min-height: calc(calc(var(--fsvh, 1vh) * 100) - #{$size-12});
 
     @media (max-height: 540px) {
       padding-top: $size-12 + $size-3;

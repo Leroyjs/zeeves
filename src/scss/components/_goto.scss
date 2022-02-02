@@ -7,6 +7,12 @@
   right: 0;
   bottom: 0;
   z-index: $z-index-header;
+  transition: transform .3s;
+  transform: translate(100%, 100%);
+
+  &.show {
+    transform: translate(0, 0);
+  }
 
   &::after {
     content: '';
