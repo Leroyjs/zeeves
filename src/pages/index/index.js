@@ -1,8 +1,8 @@
-import "./index.hbs";
-import "./index.scss";
+import './index.hbs';
+import './index.scss';
 /* import common js */
-import "../../js/common";
-import { chatAnimation } from "../../js/components/chat-animation";
+import '../../js/common';
+import { chatAnimation } from '../../js/components/chat-animation';
 /* import partials and lib */
 import initHeader from '../../js/components/header';
 
@@ -12,4 +12,5 @@ window.addEventListener('DOMContentLoaded', () => {
   chatAnimation();
 });
 
-window.addEventListener('load', () => {});
+window.addEventListener('load', () => {
+});

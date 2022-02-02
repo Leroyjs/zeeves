@@ -1,5 +1,5 @@
-import { vhSize } from "./components/vh-size";
+import { vhSize } from './components/vh-size';
 
-window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener('DOMContentLoaded', () => {
   vhSize();
 });

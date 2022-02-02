@@ -1,1 +1,2 @@
-export const appearance = () => {};
+export const appearance = () => {
+};
