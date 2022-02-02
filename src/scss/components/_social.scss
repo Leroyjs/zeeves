@@ -1,7 +1,6 @@
 @use "../global/index" as *;
 
 .social {
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -24,6 +23,11 @@
 
   &:hover {
     transform: scale(1.1);
+  }
+
+  @media screen and (min-width: $desktop-xlg-width) {
+    height: get-vw($size-10);
+    width: get-vw($size-10);
   }
 
   @media screen and (max-width: $desktop-sm-width) {
@@ -49,6 +53,11 @@
   width: $size-4;
   fill: $dark-blue;
   transition: fill .2s;
+
+  @media screen and (min-width: $desktop-xlg-width) {
+    height: get-vw($size-4);
+    width: get-vw($size-4);
+  }
 
   @media screen and (max-width: $desktop-sm-width) {
     height: $size-3;

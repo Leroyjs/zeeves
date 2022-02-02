@@ -88,6 +88,11 @@ $offset-md-2: $section-height-sm + 45;
   align-items: flex-start;
   flex-direction: column;
 
+  @media screen and (min-width: $desktop-xlg-width) {
+    padding-top: get-vw($size-10);
+    padding-bottom: get-vw($size-10);
+  }
+
   &_color {
     &_pink {
       background-color: $pink;
@@ -120,6 +125,10 @@ $offset-md-2: $section-height-sm + 45;
 .benefits__title {
   margin-bottom: $size-6;
   position: relative;
+
+  @media screen and (min-width: $desktop-xlg-width) {
+    margin-bottom: get-vw($size-6);
+  }
 }
 
 .benefits__link {
@@ -134,6 +143,12 @@ $offset-md-2: $section-height-sm + 45;
   height: 9px;
   transition: transform 0.3s;
   transform-origin: right top;
+
+  @media screen and (min-width: $desktop-xlg-width) {
+    width: get-vw(9px);
+    height: get-vw(9px);
+    margin-left: get-vw($size-3);
+  }
 }
 
 .benefits__figures-wrapper {
@@ -437,6 +452,271 @@ $offset-md-2: $section-height-sm + 45;
   }
   100% {
     transform: translate(0, 0);
+  }
+}
+
+@media screen and (min-width: $desktop-xlg-width) {
+  .benefits {
+    min-height: get-vw($section-height-lg);
+  }
+
+  .figures__star {
+    width: get-vw($star-size-lg);
+    height: get-vw($star-size-lg);
+  }
+
+  .figures__rectangle {
+    width: get-vw($rectangle-size-lg);
+    height: get-vw($rectangle-size-lg);
+  }
+
+  .figures__polygon {
+    width: get-vw($polygon-size-lg);
+    height: get-vw($polygon-size-lg);
+  }
+
+  .figures__item-wrapper-moving {  
+    &_star {
+      &_1 {
+        $right: 300px;
+        $bottom: -50px;
+  
+        &_1 {
+          right: get-vw($right);
+          bottom: get-vw($bottom);
+        }
+  
+        &_2 {
+          right: get-vw($right - $offset-lg);
+          bottom: get-vw($bottom + $offset-lg);
+        }
+      }
+  
+      &_2 {
+        $right: 212px;
+        $bottom: 24px;
+  
+        &_1 {
+          right: get-vw($right);
+          bottom: get-vw($bottom);
+        }
+  
+        &_2 {
+          right: get-vw($right - $offset-lg);
+          bottom: get-vw($bottom + $offset-lg);
+        }
+      }
+  
+      &_3 {
+        $right: -32px;
+        $bottom: 0px;
+  
+        &_1 {
+          right: get-vw($right);
+          bottom: get-vw($bottom);
+        }
+  
+        &_2 {
+          right: get-vw($right - $offset-lg);
+          bottom: get-vw($bottom + $offset-lg);
+        }
+      }
+  
+      &_4 {
+        $right: -20px;
+        $bottom: 146px;
+  
+        &_1 {
+          right: get-vw($right);
+          bottom: get-vw($bottom);
+        }
+  
+        &_2 {
+          right: get-vw($right - $offset-lg);
+          bottom: get-vw($bottom + $offset-lg);
+        }
+      }
+  
+      &_5 {
+        $left: -40px;
+        $top: -20px;
+  
+        &_1 {
+          left: get-vw($left);
+          top: get-vw($top);
+          animation: moving 6s linear 0s infinite;
+        }
+  
+        &_2 {
+          left: get-vw($left + $offset-lg);
+          top: get-vw($top - $offset-lg);
+          animation: moving 6s linear 0s infinite;
+        }
+      }
+    }
+  
+    &_rectangle {
+      &_1 {
+        $right: -22px;
+        $bottom: -152px;
+  
+        &_1 {
+          right: get-vw($right);
+          bottom: get-vw($bottom);
+        }
+  
+        &_2 {
+          right: get-vw($right - $offset-lg);
+          bottom: get-vw($bottom + $offset-lg);
+        }
+      }
+  
+      &_2 {
+        $right: 63px;
+        $bottom: 150px;
+  
+        &_1 {
+          right: get-vw($right);
+          bottom: get-vw($bottom);
+        }
+  
+        &_2 {
+          right: get-vw($right - $offset-lg);
+          bottom: get-vw($bottom + $offset-lg);
+        }
+      }
+  
+      &_3 {
+        $right: 54px;
+        $bottom: 56px;
+  
+        &_1 {
+          right: get-vw($right);
+          bottom: get-vw($bottom);
+        }
+  
+        &_2 {
+          right: get-vw($right - $offset-lg);
+          bottom: get-vw($bottom + $offset-lg);
+        }
+      }
+  
+      &_4 {
+        $right: 164px;
+        $bottom: 46px;
+  
+        &_1 {
+          right: get-vw($right);
+          bottom: get-vw($bottom);
+        }
+  
+        &_2 {
+          right: get-vw($right - $offset-lg);
+          bottom: get-vw($bottom + $offset-lg);
+        }
+      }
+  
+      &_5 {
+        $right: 254px;
+        $bottom: -36px;
+  
+        &_1 {
+          right: get-vw($right);
+          bottom: get-vw($bottom);
+        }
+  
+        &_2 {
+          right: get-vw($right - $offset-lg);
+          bottom: get-vw($bottom + $offset-lg);
+        }
+      }
+    }
+  
+    &_polygon {
+      &_1 {
+        $right: -88px;
+        $bottom: -110px;
+  
+        &_1 {
+          right: get-vw($right);
+          bottom: get-vw($bottom);
+        }
+  
+        &_2 {
+          right: get-vw($right - $offset-lg);
+          bottom: get-vw($bottom + $offset-lg);
+        }
+      }
+  
+      &_2 {
+        $right: 62px;
+        $bottom: 104px;
+  
+        &_1 {
+          right: get-vw($right);
+          bottom: get-vw($bottom);
+        }
+  
+        &_2 {
+          right: get-vw($right - $offset-lg);
+          bottom: get-vw($bottom + $offset-lg);
+        }
+      }
+  
+      &_3 {
+        $right: 270px;
+        $bottom: 130px;
+  
+        &_1 {
+          right: get-vw($right);
+          bottom: get-vw($bottom);
+        }
+  
+        &_2 {
+          right: get-vw($right - $offset-lg);
+          bottom: get-vw($bottom + $offset-lg);
+        }
+      }
+  
+      &_4 {
+        $right: 164px;
+        $bottom: 46px;
+  
+        &_1 {
+          right: get-vw($right);
+          bottom: get-vw($bottom);
+        }
+  
+        &_2 {
+          right: get-vw($right - $offset-lg);
+          bottom: get-vw($bottom + $offset-lg);
+        }
+      }
+  
+      &_5 {
+        $right: 200px;
+        $bottom: -76px;
+  
+        &_1 {
+          right: get-vw($right);
+          bottom: get-vw($bottom);
+        }
+  
+        &_2 {
+          right: get-vw($right - $offset-lg);
+          bottom: get-vw($bottom + $offset-lg);
+        }
+      }
+    }
+  }
+
+  @keyframes moving {
+    0% {
+      transform: translate(get-vw(-$offset-lg), get-vw($offset-lg));
+    }
+    100% {
+      transform: translate(0, 0);
+    }
   }
 }
 

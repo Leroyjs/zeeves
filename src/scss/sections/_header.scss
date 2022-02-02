@@ -29,6 +29,10 @@
     }
   }
 
+  @media screen and (min-width: $desktop-xlg-width) {
+    height: get-vw($size-22);
+  }
+
   @media screen and (max-width: $desktop-md-width) {
     height: $size-22;
   }
@@ -40,6 +44,22 @@
   @media screen and (max-width: $tablet-sm-width) {
     background-color: $white;
     height: $size-12;
+  }
+}
+
+.loaded{
+  .header {
+    &_white {
+      background-color: $white;
+  
+      .social {
+        background-color: $light-blue;
+  
+        .social__img {
+          fill: $white;
+        }
+      }
+    }
   }
 }
 
@@ -55,6 +75,10 @@
 
 .header__navbar {
   margin-left: $size-10;
+
+  @media screen and (min-width: $desktop-xlg-width) {
+    margin-left: get-vw($size-10);
+  }
 
   @media screen and (max-width: $tablet-lg-width) {
     margin-left: $size-6;

@@ -5,7 +5,7 @@
   @return #{$px / 16}rem;
 }
 
-@function get-vw($px-vw, $base-vw: 1280px) {
+@function get-vw($px-vw, $base-vw: $desktop-xlg-width) {
   @return math.div($px-vw * 100vw, $base-vw);
 }
 

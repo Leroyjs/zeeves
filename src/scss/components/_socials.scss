@@ -14,8 +14,17 @@
   width: $size-10 + 2;
   height: $size-10 + 2;
 
+  @media screen and (min-width: $desktop-xlg-width) {
+    height: get-vw($size-10 + 2);
+    width: get-vw($size-10 + 2);
+  }
+
   & + & {
     margin-left: $size-2;
+
+    @media screen and (min-width: $desktop-xlg-width) {
+      margin-left: get-vw($size-2);
+    }
 
     @media screen and (max-width: $desktop-sm-width) {
       margin-left: $base-x;
