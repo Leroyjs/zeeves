@@ -97,6 +97,7 @@
     margin-top: $size-6;
   }
 }
+
 .manage__chat-step {
   display: flex;
   flex-direction: column;
@@ -219,13 +220,11 @@
   }
 
   70% {
-    transform: rotateX(10deg) rotateZ(-5deg) rotateY(-10deg) translateY(8px)
-      translateX(-15px);
+    transform: rotateX(10deg) rotateZ(-5deg) rotateY(-10deg) translateY(8px) translateX(-15px);
   }
 
   100% {
-    transform: rotateX(5deg) rotateZ(-8deg) rotateY(-5deg) translateY(0px)
-      translateX(-20px);
+    transform: rotateX(5deg) rotateZ(-8deg) rotateY(-5deg) translateY(0px) translateX(-20px);
   }
 }
 

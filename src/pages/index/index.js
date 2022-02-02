@@ -4,18 +4,18 @@ import "./index.scss";
 import "../../js/common";
 /* import partials and lib */
 import initBurgerMenu from "../../js/components/burgerMenu";
-import { chatAnimation } from "../../js/components/chat-animation";
 import { appearance } from "../../js/components/appearance";
 import initHeader from "../../js/components/header";
 import { preloader } from "../../js/components/preloader";
+import initAscentTitle from "../../js/components/ascentTitle";
 
+preloader();
 /* Your JS Code goes here */
 window.addEventListener("DOMContentLoaded", () => {
-  preloader();
   initHeader();
-  chatAnimation();
-  initBurgerMenu();
   appearance();
+  initAscentTitle();
+  initBurgerMenu();
 });
 
 window.addEventListener("load", () => {

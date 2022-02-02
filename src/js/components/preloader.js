@@ -1,9 +1,9 @@
 export const preloader = () => {
-  const preloader = document.querySelector('.preloader');
-  const preloaderCount = preloader.querySelector('.preloader__counter');
+  const preloader = document.querySelector(".preloader");
+  const preloaderCount = preloader.querySelector(".preloader__counter");
 
-  const minTimeout = 800;
-  const maxTimeout = 5000;
+  const minTimeout = 0 && 800;
+  const maxTimeout = 0 && 5000;
 
   let stepTimeout = maxTimeout / 100;
 
@@ -15,7 +15,7 @@ export const preloader = () => {
     preloaderDone();
 
   } else {
-    window.addEventListener('load', () => {
+    window.addEventListener("load", () => {
       preloaderDone();
     });
   }
@@ -27,24 +27,24 @@ export const preloader = () => {
   }, maxTimeout);
 
   function preloaderDone() {
-    stepTimeout = minTimeout / (100 - percent)
+    stepTimeout = minTimeout / (100 - percent);
 
     setTimeout(() => {
       preloaderIsDone = true;
     }, minTimeout);
   }
 
-  (function drawPercentage(){
+  (function drawPercentage() {
     setTimeout(() => {
-      preloaderCount.innerText = percent++
+      preloaderCount.innerText = percent++;
 
-      if(percent <= 100) {
-        drawPercentage()
-      }else{
+      if (percent <= 100) {
+        drawPercentage();
+      } else {
         const body = document.body;
-        body.classList.add('loaded');
-        body.classList.remove('no-scroll');
+        body.classList.add("loaded");
+        body.classList.remove("no-scroll");
       }
     }, stepTimeout);
-  })()
+  })();
 };
