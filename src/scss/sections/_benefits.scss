@@ -24,6 +24,58 @@ $offset-md-2: $section-height-sm + 45;
 .benefits {
   display: flex;
   min-height: $section-height-lg;
+
+  .benefits__item {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+
+  &:not(.element-show) {
+    .figures__item {
+      &_animation {
+        &_1 {
+          animation: rotation 0.2s linear 0s infinite;
+        }
+
+        &_2 {
+          animation: rotation 0.2s linear 0s infinite reverse;
+        }
+
+        &_3 {
+          animation: rotation 0.4s linear 0s infinite;
+        }
+
+        &_4 {
+          animation: rotation 0.3s linear 0s infinite reverse;
+        }
+      }
+    }
+  }
+
+  &.element-show {
+    .figures__item {
+      animation-play-state: paused;
+
+      @media (pointer: coarse) {
+        animation-play-state: running;
+      }
+    }
+
+    .benefits__item {
+      transform: translateY(0);
+      opacity: 1;
+
+      &:nth-child(1) {
+        transition: opacity 0.3s, transform 0.3s;
+      }
+      &:nth-child(2) {
+        transition: opacity 0.3s 0.3s, transform 0.3s 0.3s;
+      }
+      &:nth-child(3) {
+        transition: opacity 0.3s 0.6s, transform 0.3s 0.6s;
+      }
+    }
+  }
 }
 
 .benefits__item {
@@ -367,14 +419,6 @@ $offset-md-2: $section-height-sm + 45;
     &_4 {
       animation: rotation 30s linear 0s infinite reverse;
     }
-  }
-}
-
-.figures__item {
-  animation-play-state: paused;
-
-  @media (pointer: coarse) {
-    animation-play-state: running;
   }
 }
 
