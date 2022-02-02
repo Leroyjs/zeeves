@@ -1,12 +1,12 @@
 const initHeader = () => {
-  const headerEl = document.querySelector('#main-header');
-  const firstSectionEl = document.querySelector('.first-section');
+  const headerEl = document.querySelector("#main-header");
+  const firstSectionEl = document.querySelector(".first-section");
 
   const handleChangeColor = (isIntersecting) => {
     if (isIntersecting) {
-      headerEl.classList.remove('header_white');
+      headerEl.classList.remove("header_white");
     } else {
-      headerEl.classList.add('header_white');
+      headerEl.classList.add("header_white");
     }
   };
 
@@ -15,7 +15,7 @@ const initHeader = () => {
   };
 
   const observer = new IntersectionObserver(intersectionCallback, {
-    threshold: 1,
+    threshold: 1
   });
 
   observer.observe(firstSectionEl);

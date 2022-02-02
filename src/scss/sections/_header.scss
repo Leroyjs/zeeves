@@ -9,7 +9,7 @@
   right: 0;
   top: 0;
   height: $size-26;
-  background-color: $light-blue;
+  background-color: transparent;
 
   display: flex;
   align-items: center;
@@ -85,7 +85,29 @@
   }
 
   @media screen and (max-width: $tablet-sm-width) {
-    display: none;
+    position: absolute;
+    top: $size-12;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: calc(100vh - #{$size-12});
+    margin: 0;
+    background-color: $white;
+    pointer-events: none;
+    transform: translateY(-150vh);
+    transition: transform .3s, opacity .4s;
+    opacity: 0;
+
+    &.active {
+      pointer-events: auto;
+      transform: translateY(0vh);
+      opacity: 1;
+    }
+
+
+    @media screen and (max-width: $phone-width) {
+      height: calc(100vh - #{$size-12 *2});
+    }
   }
 }
 
@@ -102,6 +124,23 @@
   align-items: center;
   justify-content: center;
   height: 100%;
+  cursor: pointer;
+  position: relative;
+  width: 20px;
+
+  &.active {
+    .menu-btn {
+      transform: scale(0.9) translateY(-50%);
+      opacity: 0;
+      visibility: hidden;
+
+      &_close {
+        transform: scale(1) translateY(-50%);
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
 
   @media screen and (max-width: $tablet-sm-width) {
     display: flex;
@@ -111,4 +150,18 @@
 .menu-btn {
   fill: $black;
   width: 20px;
+  transition: transform .3s, opacity .3s;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  transform: scale(1) translateY(-50%);
+  opacity: 1;
+
+  &_close {
+    transform: scale(0.9) translateY(-50%);
+    opacity: 0;
+  }
 }

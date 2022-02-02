@@ -1,16 +1,20 @@
-import './index.hbs';
-import './index.scss';
+import "./index.hbs";
+import "./index.scss";
 /* import common js */
 import "../../js/common";
-import { appearance } from "../../js/components/appearance";
 /* import partials and lib */
-import initHeader from '../../js/components/header';
+import { appearance } from "../../js/components/appearance";
+import initHeader from "../../js/components/header";
+import initAscentTitle from "../../js/components/ascentTitle";
+import initBurgerMenu from "../../js/components/burgerMenu";
 
 /* Your JS Code goes here */
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener("DOMContentLoaded", () => {
   initHeader();
   appearance();
+  initAscentTitle();
+  initBurgerMenu();
 });
 
-window.addEventListener('load', () => {
+window.addEventListener("load", () => {
 });

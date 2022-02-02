@@ -1,0 +1,45 @@
+@use "../global" as *;
+
+$step-animation-delay: .3s;
+
+.appear-animation, .step, .steps-section__action, .partnership__subtitle, .partners-list__item {
+  transform: translateY(20px);
+  opacity: 0;
+}
+
+// active classes
+
+.observed-js.show {
+  .appear-animation, .step, .steps-section__action, .partnership__subtitle, .partners-list__item {
+    transition: opacity 0.3s, transform 0.3s;
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .step {
+    @for $i from 1 through 4 {
+      &:nth-child(#{$i}) {
+        $animation-delay: #{$i * $step-animation-delay};
+        transition: opacity 0.3s #{$animation-delay}, transform 0.3s #{$animation-delay};
+      }
+    }
+  }
+
+  .steps-section__action {
+    $animation-delay: #{5 * $step-animation-delay};
+    transition: opacity 0.3s #{$animation-delay}, transform 0.3s #{$animation-delay};
+  }
+
+  .partnership__subtitle {
+    transition: opacity 0.3s 0.4s, transform 0.3s $step-animation-delay;
+  }
+
+  .partners-list__item {
+    @for $i from 1 through 4 {
+      &:nth-child(#{$i}) {
+        $animation-delay: #{($i + 1) * $step-animation-delay};
+        transition: opacity 0.3s #{$animation-delay}, transform 0.3s #{$animation-delay};
+      }
+    }
+  }
+}
