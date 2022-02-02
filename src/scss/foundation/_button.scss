@@ -13,8 +13,10 @@
 
   &_type {
     &_common {
-      &:hover {
-        opacity: 0.7;
+      &.button_color_orange {
+        &:hover {
+          background-color: #dc8636;
+        }
       }
     }
 

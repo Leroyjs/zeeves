@@ -1,5 +1,7 @@
 export const chatAnimation = () => {
-  const chatWrapper = document.querySelector(".chat-animation");
+  const chatWrapper = document.querySelector(
+    "[data-appearance-animation='chat-animation'] .manage__chat-wrapper"
+  );
 
   chatWrapper.style.transition = ".3s";
 
@@ -40,5 +42,5 @@ export const chatAnimation = () => {
     chatItems[chatCount - 1] &&
       chatItems[chatCount - 1].classList.add("manage__chat-step_active");
     chatCount < chatItems.length ? chatCount++ : clearInterval(chatInterval);
-  }, 600);
+  }, 400);
 };
