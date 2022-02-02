@@ -25,6 +25,7 @@ export const appearance = () => {
   let options = { threshold: [0.5] };
   let observer = new IntersectionObserver(onEntry, options);
   let elements = document.querySelectorAll(".appearance-animation");
+  
   for (let elm of elements) {
     observer.observe(elm);
   }

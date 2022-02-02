@@ -3,12 +3,12 @@ export const chatAnimation = () => {
     "[data-appearance-animation='chat-animation'] .manage__chat-wrapper"
   );
 
-  chatWrapper.style.transition = ".3s";
+  chatWrapper.style.transition = '.3s';
 
   const chatItems = [];
 
   chatWrapper
-    .querySelectorAll(".manage__chat-step")
+    .querySelectorAll('.manage__chat-step')
     .forEach((item) => chatItems.push(item));
 
   const getTranslateY = (array, index) =>
@@ -19,12 +19,15 @@ export const chatAnimation = () => {
     }, 0);
 
   const withChatItemsSizesSignature = (chatItemsStyle) => ({
-    height: Number(chatItemsStyle.getPropertyValue("height").slice(0, -2)),
+    height: Number(chatItemsStyle.getPropertyValue('height')
+      .slice(0, -2)),
     marginBottom: Number(
-      chatItemsStyle.getPropertyValue("margin-bottom").slice(0, -2)
+      chatItemsStyle.getPropertyValue('margin-bottom')
+        .slice(0, -2)
     ),
     marginTop: Number(
-      chatItemsStyle.getPropertyValue("margin-top").slice(0, -2)
+      chatItemsStyle.getPropertyValue('margin-top')
+        .slice(0, -2)
     ),
   });
 
@@ -40,7 +43,7 @@ export const chatAnimation = () => {
     )}px))`;
 
     chatItems[chatCount - 1] &&
-      chatItems[chatCount - 1].classList.add("manage__chat-step_active");
+    chatItems[chatCount - 1].classList.add('manage__chat-step_active');
     chatCount < chatItems.length ? chatCount++ : clearInterval(chatInterval);
   }, 400);
 };

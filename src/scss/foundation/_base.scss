@@ -10,6 +10,10 @@ main {
   overflow-x: hidden;
 }
 
+.no-scroll{
+  overflow: hidden;
+}
+
 .main-padding {
   padding-left: $size-10;
   padding-right: $size-10;

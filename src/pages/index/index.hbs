@@ -4,8 +4,18 @@
     <meta charset="UTF-8"/>
     <title>Zeeves</title>
     {{> opengraph}}
+    <script>
+        window.pageLoaded = false;
+        window.addEventListener('load', function () {
+            window.pageLoaded = true;
+        })
+        window.onbeforeunload = function () {
+            window.scrollTo(0, 0);
+        };
+    </script>
 </head>
-<body>
+<body class="no-scroll">
+{{> preloader}}
 {{> header}}
 <main>
     {{> first}}
