@@ -3,7 +3,7 @@ export const chatAnimation = () => {
     "[data-appearance-animation='chat-animation'] .manage__chat-wrapper"
   );
 
-  chatWrapper.style.transition = '.3s';
+  chatWrapper.style.transition = 'transform .3s';
 
   const chatItems = [];
 
@@ -31,11 +31,25 @@ export const chatAnimation = () => {
     ),
   });
 
-  const chatItemsStyles = chatItems.map((item) =>
+  let chatItemsStyles = chatItems.map((item) =>
     withChatItemsSizesSignature(window.getComputedStyle(item))
   );
 
+  console.log(chatItemsStyles);
   let chatCount = 1;
+
+  window.addEventListener('resize', ()=>{
+    chatItemsStyles = chatItems.map((item) =>
+      withChatItemsSizesSignature(window.getComputedStyle(item))
+    );
+    console.warn(chatItemsStyles);
+
+    chatWrapper.style.transform = `translateY(calc(100% - ${getTranslateY(
+      chatItemsStyles,
+      chatCount
+    )}px))`;
+  })
+
   const chatInterval = setInterval(() => {
     chatWrapper.style.transform = `translateY(calc(100% - ${getTranslateY(
       chatItemsStyles,
@@ -47,3 +61,4 @@ export const chatAnimation = () => {
     chatCount < chatItems.length ? chatCount++ : clearInterval(chatInterval);
   }, 400);
 };
+
