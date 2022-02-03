@@ -3,6 +3,9 @@ const initGoto = () => {
   const footerEl = document.querySelector(".footer");
   const gotoEl = document.querySelector(".goto");
 
+  let isShowA = false;
+  let isShowB = false;
+
   const observerFirstSection = new IntersectionObserver(onEntryFirstSection, {
     threshold: [1],
     rootMargin: "140px"
@@ -17,22 +20,25 @@ const initGoto = () => {
 
   function onEntryFirstSection(entry) {
     entry.forEach((change) => {
-      if (!change.isIntersecting) {
-        gotoEl.classList.add("show");
-      } else {
-        gotoEl.classList.remove("show");
-      }
+      isShowA = change.isIntersecting;
+      changeStateGoto();
     });
   }
 
   function onEntryFooter(entry) {
     entry.forEach((change) => {
-      if (change.isIntersecting) {
-        gotoEl.classList.remove("show");
-      } else {
-        gotoEl.classList.add("show");
-      }
+      isShowB = change.isIntersecting;
+      changeStateGoto();
     });
+  }
+
+  function changeStateGoto() {
+    const state = isShowA || isShowB;
+    if (state) {
+      gotoEl.classList.remove("show");
+    } else {
+      gotoEl.classList.add("show");
+    }
   }
 };
 
