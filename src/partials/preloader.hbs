@@ -2,56 +2,65 @@
   <div class="preloader__counter text_color_white">00</div>
 </div>
 <script>
-  const preloader = document.querySelector('.preloader');
-  const preloaderCount = preloader.querySelector('.preloader__counter');
+  if (!localStorage.getItem('isPreloaderShown')) {
+    const preloader = document.querySelector('.preloader');
+    const preloaderCount = preloader.querySelector('.preloader__counter');
 
-  const minTimeout = 800;
-  const maxTimeout = 5000;
+    const minTimeout = 800;
+    const maxTimeout = 5000;
 
-  let stepTimeout = maxTimeout / 100;
+    let stepTimeout = maxTimeout / 100;
 
-  let percent = 0;
+    let percent = 0;
 
-  let preloaderIsDone = false;
+    let preloaderIsDone = false;
 
-  if (window.pageLoaded) {
-    preloaderDone();
-
-  } else {
-    window.addEventListener('load', () => {
+    if (window.pageLoaded) {
       preloaderDone();
-    });
-  }
 
-  setTimeout(() => {
-    if (!preloaderIsDone) {
-      preloaderDone();
+    } else {
+      window.addEventListener('load', () => {
+        preloaderDone();
+      });
     }
-  }, maxTimeout);
-
-  function preloaderDone() {
-    stepTimeout = minTimeout / (100 - percent)
 
     setTimeout(() => {
-      preloaderIsDone = true;
-    }, minTimeout);
-  }
-
-  (function drawPercentage(){
-    setTimeout(() => {
-      preloaderCount.innerText = getFormatedCount(percent++)
-
-      if(percent <= 100) {
-        drawPercentage()
-      }else{
-        const body = document.body;
-        body.classList.add('loaded');
-        body.classList.remove('no-scroll');
+      if (!preloaderIsDone) {
+        preloaderDone();
       }
-    }, stepTimeout);
-  })()
+    }, maxTimeout);
 
-  function getFormatedCount(percent){
-    return percent >= 10 ? percent : '0'+percent
+    function preloaderDone() {
+      stepTimeout = minTimeout / (100 - percent)
+
+      setTimeout(() => {
+        preloaderIsDone = true;
+      }, minTimeout);
+    }
+
+    (function drawPercentage(){
+      setTimeout(() => {
+        preloaderCount.innerText = getFormatedCount(percent++)
+
+        if(percent <= 100) {
+          drawPercentage()
+        } else {
+          const body = document.body;
+          body.classList.add('loaded');
+          body.classList.remove('no-scroll');
+        }
+      }, stepTimeout);
+    })()
+
+    function getFormatedCount(percent){
+      return percent >= 10 ? percent : '0'+percent
+    }
+
+    localStorage.setItem('isPreloaderShown', 'true');
+  } else {
+    document.querySelectorAll(".preloader").forEach(e => e.remove());
+    const body = document.body;
+    body.classList.add('loaded');
+    body.classList.remove('no-scroll');
   }
 </script>

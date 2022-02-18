@@ -3,7 +3,7 @@
   >
     We already have<br class="community_tablet"><br class="community_phone">
     <span class="text text_size_h2 text_color_orange accentuation accentuation_users">
-      42 737 users,
+      <span id="users-count">42737</span> users,
     </span>
     <br />
     who manage their
@@ -17,10 +17,10 @@
     <br class="community_phone">
     earn
     <br class="community_desktop">
-    $ZIL with
+    crypto with
     <br class="community_phone">
-    referral
-    program<br />
+    ZilSwap
+    pools<br />
     and participating in<br class="community_tablet">
     <br class="community_phone">
     <span class="text text_size_h2 text_color_dark-blue accentuation accentuation_society">
@@ -28,7 +28,19 @@
     </span>
     <br class="community_phone">
     activities
-    <br class="community_tablet"> on<br class="community_phone"> telegram
+    <br class="community_tablet"> on<br class="community_phone"> Telegram
   </div>
-  <button class="community__button button button_type_secondary text_size_small">Join community</button>
+  <a href="https://t.me/zeeves" target=_blank><button class="community__button button button_type_secondary text_size_small">Join community</button></a>
 </section>
+<script>
+  setInterval(() => {
+    fetch('https://zeeves.io/count')
+      .then(res => res.json())
+      .then(res => {
+        document.getElementById('users-count').innerText = res.Count || '42737';
+      })
+      .catch(err => {
+        console.error('Error loading users');
+      });
+  }, 1000);
+</script>

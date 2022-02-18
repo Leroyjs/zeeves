@@ -142,6 +142,22 @@ module.exports = {
             ignore: ['*.DS_Store', 'Thumbs.db'],
           },
         },
+        {
+          from: path.resolve(environment.paths.source, 'docs'),
+          to: path.resolve(environment.paths.output, 'docs'),
+          toType: 'dir',
+          globOptions: {
+            ignore: ['*.DS_Store', 'Thumbs.db'],
+          },
+        },
+        {
+          from: path.resolve(environment.paths.source, 'seofiles'),
+          to: path.resolve(environment.paths.output),
+          toType: 'dir',
+          globOptions: {
+            ignore: ['*.DS_Store', 'Thumbs.db'],
+          },
+        },
       ],
     }),
   ].concat([...getHtmlTemplate()]),
