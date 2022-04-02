@@ -15,8 +15,8 @@ stages:
     - eval "$(ssh-agent -s)"
     - ssh-add ~/.ssh/id_rsa
     - unset DOCKER_HOST
-    - docker context create --docker host=ssh://${SWARM_SSH_USER}@${SWARM_HOST}:${SWARM_SSH_PORT} --description="Deployment context" zeeves    
-    - docker context use zeeves
+    - docker context create --docker host=ssh://${SWARM_SSH_USER}@${SWARM_HOST}:${SWARM_SSH_PORT} --description="Deployment context" ${STACK_NAME}
+    - docker context use ${STACK_NAME}
     - docker login -u gitlab-ci-token -p ${CI_BUILD_TOKEN} ${CI_REGISTRY}
     - docker service ls
     - docker network create ${NETWORK_NAME} || true
