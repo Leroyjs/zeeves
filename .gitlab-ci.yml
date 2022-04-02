@@ -36,7 +36,6 @@ build:
     - docker:stable-dind
   tags:
     - test
-    - stage
     - prod
   only:
     - master
