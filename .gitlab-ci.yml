@@ -1,0 +1,69 @@
+variables:
+    DOCKER_TLS_CERTDIR: ""
+    STACK_NAME: zeeves-site
+    SITE_PORT: 18902
+    IMAGE_TAG: ${CI_REGISTRY}/${CI_PROJECT_PATH}:${CI_COMMIT_SHA}
+
+stages:
+  - build
+  - deploy
+
+.deployment: &deploy_script
+  script:
+    - mkdir -p ~/.ssh
+    - echo "$DEPLOYMENT_PRIV_KEY" | tr -d '\r' > ~/.ssh/id_rsa
+    - echo "$DEPLOYMENT_PUB_KEY" | tr -d '\r' > ~/.ssh/id_rsa.pub
+    - echo "$KNOWN_HOSTS" | tr -d '\r' > ~/.ssh/known_hosts
+    - chmod 700 ~/.ssh/id_rsa
+    - eval "$(ssh-agent -s)"
+    - ssh-add ~/.ssh/id_rsa
+    - sed -i -e 's/IMAGE_TAG/${IMAGE_TAG}/g' docker-compose.yml
+    - sed -i -e 's/SITE_PORT/${SITE_PORT}/g' docker-stack.yaml
+    - unset DOCKER_HOST
+    - docker context create --docker host=ssh://${SWARM_SSH_USER}@${SWARM_HOST}:${SWARM_SSH_PORT} --description="Deployment context" zeeves    
+    - docker context use zeeves    
+    - docker login -u gitlab-ci-token -p ${CI_BUILD_TOKEN} ${CI_REGISTRY}
+    - docker service ls
+    - docker stack deploy ${STACK_NAME} --compose-file=docker-compose.yml --with-registry-auth
+    - apk add --no-cache ncurses bash
+    - docker run --rm vitalets/docker-stack-wait-deploy | bash /dev/stdin ${STACK_NAME}
+    - docker ps
+
+build:
+  stage: build
+  image: docker:stable
+  services:
+    - docker:stable-dind
+  tags:
+    - test
+    - stage
+    - prod
+  only:
+    - master
+  script:
+    - docker login -u gitlab-ci-token -p ${CI_BUILD_TOKEN} ${CI_REGISTRY}
+    - docker build -t ${IMAGE_TAG} .
+    - docker push ${IMAGE_TAG}
+
+deploy-test:
+  stage: deploy
+  only:
+    - master	
+  tags:
+    - test
+  environment:
+    name: test
+    url: https://testnet.zeeves.io
+  <<: *deploy_script
+
+deploy-prod:
+  stage: deploy
+  when: manual
+  only:
+    - master
+  tags:
+    - prod
+  environment:
+    name: prod
+    url: https://zeeves.com
+  <<: *deploy_script

@@ -1,0 +1,24 @@
+services:
+  zeeves-site:
+    image: IMAGE_TAG
+    deploy:
+      mode: replicated
+      replicas: 1
+      resources:
+        limits:
+          cpus: '0.75'
+          memory: 256M
+        reservations:
+          cpus: '0.25'
+          memory: 128M
+      update_config:
+        parallelism: 0
+        order: start-first
+        failure_action: rollback
+      rollback_config:
+        parallelism: 0
+        order: start-first
+      restart_policy:
+        condition: any
+    ports:
+      - "SITE_PORT:80"
