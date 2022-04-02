@@ -1,7 +1,6 @@
 variables:
     DOCKER_TLS_CERTDIR: ""
     STACK_NAME: zeeves-site
-    SITE_PORT: 18902
     IMAGE_TAG: ${CI_REGISTRY}/${CI_PROJECT_PATH}:${CI_COMMIT_SHA}
 
 stages:
