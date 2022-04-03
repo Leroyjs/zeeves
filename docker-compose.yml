@@ -16,10 +16,11 @@ services:
       restart_policy:
         delay: 1s
         condition: any
+    networks:
+      - zeevesnet
     ports:
       - "127.0.0.1:${SITE_PORT}:80"
 
 networks:
-  dbnet:
-    external:
-      name: ${NETWORK_NAME}
+  zeevesnet:
+    external: true
