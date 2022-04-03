@@ -34,7 +34,7 @@
 </section>
 <script>
   setInterval(() => {
-    fetch('https://zeeves.io/count')
+    fetch('/count')
       .then(res => res.json())
       .then(res => {
         document.getElementById('users-count').innerText = res.Count || '42737';
