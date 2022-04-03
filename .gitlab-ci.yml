@@ -19,7 +19,7 @@ stages:
     - docker context use ${STACK_NAME}
     - docker login -u gitlab-ci-token -p ${CI_BUILD_TOKEN} ${CI_REGISTRY}
     - docker service ls
-    - docker network create ${NETWORK_NAME} || true
+    - docker network create -d overlay ${NETWORK_NAME} || true
     - docker stack deploy ${STACK_NAME} --compose-file=docker-compose.yml --with-registry-auth
     - apk add --no-cache ncurses bash
     - docker run --rm vitalets/docker-stack-wait-deploy | bash /dev/stdin ${STACK_NAME}
