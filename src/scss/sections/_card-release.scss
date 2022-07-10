@@ -1,0 +1,61 @@
+@use "../global" as *;
+
+.card-release {
+    margin-top: 160px;
+    align-content: center;
+}
+
+.svg-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.svg-wrapper {
+    position: absolute;
+    width: 100%;
+}
+
+.star-card-release {
+    position: absolute;
+    width: 240px;
+    height: 240px;
+    z-index: -100;
+}
+
+.star-card-release:hover {
+    clip-path: view-box 120%;
+}
+
+.star-card-release {
+    &_light-blue {
+        top: 30px;
+        left: -4.5%;
+    }
+
+    &_light-orange {
+        left: 43.4%;
+        top: 20px;
+    }
+
+    &_purple {
+        z-index: -20;
+        left: 53.3%;
+        top: 65px;
+    }
+
+    &_pink {
+        left: 83%;
+        top:-70px;
+    }
+
+    &_bg {
+        z-index: -5;
+        left: 35%;
+        top: 120px;
+    }
+}
+
+.text-wrapper {
+    text-align: center;
+}
