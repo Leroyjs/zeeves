@@ -20,11 +20,13 @@
     position: absolute;
     width: 240px;
     height: 240px;
-    z-index: -100;
+    z-index: -200;
 }
 
 .star-card-release:hover {
-    clip-path: view-box 120%;
+    // clip-path: view-box 120%;
+    transform: scale(1.2, 1.2) ;
+    transition: 0.3s;
 }
 
 .star-card-release {
@@ -39,7 +41,7 @@
     }
 
     &_purple {
-        z-index: -20;
+        z-index: -40;
         left: 53.3%;
         top: 65px;
     }
@@ -50,7 +52,7 @@
     }
 
     &_bg {
-        z-index: -5;
+        z-index: -20;
         left: 35%;
         top: 120px;
     }
