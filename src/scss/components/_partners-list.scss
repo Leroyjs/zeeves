@@ -81,7 +81,7 @@
   background: rgba(34, 34, 34, 0.02);
   border-radius: 2px;
   height: 100%;
-  
+
   @media screen and (min-width: $desktop-xlg-width) {
     padding: get-vw(56px) 0;
   }
@@ -92,6 +92,31 @@
       stroke: $dark-blue;
     }
   }
+}
+
+.partners-list__card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  width: 100%;
+  padding: 20px;
+  background: rgba(34, 34, 34, 0.02);
+  border-radius: 2px;
+  tab-size: 20px;
+  height: 160px;
+  position: relative;
+}
+
+.partners-list__card-img {
+  display: inline-block;
+  object-position: center;
+  object-fit: contain;
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  left: 73%;
+  bottom: 38%;
 }
 
 .partners-list__logo {

@@ -1,0 +1,68 @@
+@use "../global" as *;
+@use "sass:math";
+
+@mixin css-checkbox(
+  $size: '14px',
+  $selectedColor: #444,
+  $checkColor: #FFF,
+  $valign: 'middle',
+  $rounded: rounded) {
+  display: none;
+
+  &:checked + i {
+    border-color: #F2943E;
+
+    &:hover:after {
+      opacity: 1;
+    }
+
+    &:after {
+      opacity: 1;
+      //border-color: #F2943E;
+    }
+  }
+
+  + i {
+    position: relative;
+    display: inline-block;
+    top: -1px;
+    width: #{$size};
+    height: #{$size};
+    margin: 0;
+    margin-right: 0.5em;
+    flex-shrink: 0;
+    vertical-align: #{$valign};
+    border: 1px solid #F2943E;
+    transition: background 200ms ease;
+
+    border-radius: 4px;
+
+    background: #F9F9F9;
+    font-size: #{$size};
+    cursor: pointer;
+
+    &:after {
+      opacity: 0;
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      width: 8px;
+      height: 8px;
+      background-color: #F2943E;
+      border-radius: 1px;
+    }
+  }
+}
+
+.checkbox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  .css-checkbox {
+    @include css-checkbox(18px, $selectedColor: $orange);
+  }
+}

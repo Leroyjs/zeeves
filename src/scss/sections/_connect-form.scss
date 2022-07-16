@@ -1,0 +1,97 @@
+@use "../global" as *;
+@use "sass:math";
+
+.connect-form {
+  width: 100%;
+}
+
+.connect-form__inner {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+.connect-form__item {
+  display: inline-block;
+  text-align: center;
+}
+
+.connect-form__point {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #F1E7FF;
+  border-radius: 50%;
+  overflow: hidden;
+  height: 32px;
+  width: 32px;
+}
+
+.form-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-step__count {
+  margin-bottom: 24px;
+}
+
+.form-step__title {
+  margin-bottom: 16px;
+}
+
+.form-step__button {
+  display: inline-grid;
+  grid-auto-flow: column;
+  gap: 5px;
+}
+
+.connect-form__input {
+  border: none;
+  outline: none;
+  font-size: 84px;
+  background-color: transparent;
+  border-bottom: 2px solid rgba(34, 34, 34, 0.08);
+  text-align: center;
+
+  &::placeholder {
+    color: rgba(207, 234, 236, 0.4);
+  }
+}
+
+.connect-form__recaptcha {
+  display: inline-block;
+  position: static;
+  margin: 0 auto;
+}
+
+.connect-form__submit {
+  background-color: #F2943E;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-top: 24px;
+}
+
+.connect-form__checkbox {
+  text-transform: uppercase;
+  margin-top: 20px;
+
+  .text_color_gray {
+    color: rgba(34, 34, 34, 0.2);
+    position: relative;
+
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0px;
+      left: 2px;
+      right: 2px;
+      border-bottom: 1px solid rgba(34, 34, 34, 0.2);
+    }
+  }
+}
+
