@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Zeeves</title>
+  {{> opengraph}}
+  <script>
+    window.pageLoaded = false;
+    window.addEventListener("load", function() {
+      window.pageLoaded = true;
+    });
+    window.onbeforeunload = function() {
+      window.scrollTo(0, 0);
+    };
+
+  </script>
+</head>
+<body class="loaded">
+<noscript><div><img src="https://mc.yandex.ru/watch/67123789" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+{{> header init-color-white=true}}
+<main>
+  {{> text-block}}
+</main>
+{{> footer}}
+{{> goto}}
+</body>
+</html>

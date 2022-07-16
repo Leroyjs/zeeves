@@ -1,6 +1,6 @@
 const initHeader = () => {
   const headerEl = document.querySelector("#main-header");
-  const firstSectionEl = document.querySelector(".first-section");
+  const firstSectionEl = document.querySelector(".header-separator");
 
   const handleChangeColor = (isIntersecting) => {
     if (isIntersecting) {

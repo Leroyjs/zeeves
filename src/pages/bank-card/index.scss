@@ -1,0 +1,17 @@
+@charset "UTF-8";
+@use "../../scss/foundation";
+
+/* List of sections used on this page: */
+@use "../../scss/sections/header";
+@use "../../scss/sections/footer";
+@use "../../scss/sections/card-screen";
+@use "../../scss/sections/benchmarks";
+@use "../../scss/sections/community";
+@use "../../scss/sections/manage";
+@use "../../scss/sections/connect-form";
+@use "../../scss/components/animations";
+@use "../../scss/components/checkbox";
+
+html {
+  background-color: #F9FCFF;
+}

@@ -1,5 +1,5 @@
 const initGoto = () => {
-  const firstSection = document.querySelector(".first-section");
+  const firstSection = document.querySelector(".goto-separator");
   const footerEl = document.querySelector(".footer");
   const gotoEl = document.querySelector(".goto");
 

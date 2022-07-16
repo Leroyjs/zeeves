@@ -1,6 +1,10 @@
 @use "../global" as *;
 @use "../components/steps-list" as *;
 
+#zilswap-url {
+  color: $dark-blue;
+}
+
 .steps-section {
   position: relative;
 }

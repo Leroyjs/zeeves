@@ -1,0 +1,64 @@
+variables:
+    IMAGE_TAG: ${CI_REGISTRY}/${CI_PROJECT_PATH}:${CI_COMMIT_SHA}
+
+stages:
+  - build
+  - deploy
+
+.deployment: &deploy_script
+  script:
+    - mkdir -p ~/.ssh
+    - echo "$DEPLOYMENT_PRIV_KEY" | tr -d '\r' > ~/.ssh/id_rsa
+    - echo "$DEPLOYMENT_PUB_KEY" | tr -d '\r' > ~/.ssh/id_rsa.pub
+    - echo "$KNOWN_HOSTS" | tr -d '\r' > ~/.ssh/known_hosts
+    - chmod 700 ~/.ssh/id_rsa
+    - eval "$(ssh-agent -s)"
+    - ssh-add ~/.ssh/id_rsa
+    - unset DOCKER_HOST
+    - docker context create --docker host=ssh://${SWARM_SSH_USER}@${SWARM_HOST}:${SWARM_SSH_PORT} --description="Deployment context" ${STACK_NAME}
+    - docker context use ${STACK_NAME}
+    - docker login -u gitlab-ci-token -p ${CI_BUILD_TOKEN} ${CI_REGISTRY}
+    - docker service ls
+    - docker network create -d overlay ${NETWORK_NAME} || true
+    - docker stack deploy ${STACK_NAME} --compose-file=docker-compose.yml --with-registry-auth
+    - apk add --no-cache ncurses bash
+    - docker run --rm vitalets/docker-stack-wait-deploy | bash /dev/stdin ${STACK_NAME}
+    - docker ps
+
+build:
+  image: docker:${DOCKER_VERSION}
+  stage: build
+  tags:
+    - test
+    - prod
+  only:
+    - master
+  script:
+    - docker login -u gitlab-ci-token -p ${CI_BUILD_TOKEN} ${CI_REGISTRY}
+    - docker build -t ${IMAGE_TAG} .
+    - docker push ${IMAGE_TAG}
+
+deploy-test:
+  image: docker:${DOCKER_VERSION}
+  stage: deploy
+  only:
+    - master	
+  tags:
+    - test
+  environment:
+    name: test
+    url: https://testnet.zeeves.io
+  <<: *deploy_script
+
+deploy-prod:
+  image: docker:${DOCKER_VERSION}
+  stage: deploy
+  when: manual
+  only:
+    - master
+  tags:
+    - prod
+  environment:
+    name: prod
+    url: https://zeeves.com
+  <<: *deploy_script
