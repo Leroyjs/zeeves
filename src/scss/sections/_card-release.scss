@@ -2,7 +2,11 @@
 
 .card-release {
     margin-top: 160px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
     align-content: center;
+    align-items: center;
 }
 
 .svg-container {
@@ -14,6 +18,7 @@
 .svg-wrapper {
     position: absolute;
     width: 100%;
+    left: 50%;
 }
 
 .star-card-release {
@@ -32,22 +37,22 @@
 .star-card-release {
     &_light-blue {
         top: 30px;
-        left: -4.5%;
+        left: -54.5vw;
     }
 
     &_light-orange {
-        left: 43.4%;
+        left: -7.5vw;
         top: 20px;
     }
 
     &_purple {
         z-index: -40;
-        left: 53.3%;
+        left: 3.7vw;
         top: 65px;
     }
 
     &_pink {
-        left: 83%;
+        left: 33vw;
         top:-70px;
     }
 
@@ -60,4 +65,5 @@
 
 .text-wrapper {
     text-align: center;
+    margin-bottom: $size-16;
 }
