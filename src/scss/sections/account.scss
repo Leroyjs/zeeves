@@ -6,6 +6,9 @@
     justify-content: flex-start;
     align-items: center;
     text-align: center;
+    &__title {
+        margin-bottom: $size-10;
+    }
 }
 
 .wallet-button {
@@ -31,4 +34,21 @@
     border-radius:50%;
     background-color: $orange;
     margin-top: $size-6;
+}
+
+.send-img {
+    margin-bottom: $size-6;
+}
+
+.submit-button {
+    margin-top: $size-6;
+}
+
+.form-wrapper {
+    &__email-input {
+        
+    }
+    &__title {
+
+    }
 }
