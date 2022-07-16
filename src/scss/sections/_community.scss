@@ -6,6 +6,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
+  position: relative;
 
   &__preference {
     position: relative;
@@ -30,6 +31,98 @@
   &_phone {
     display: none;
   }
+}
+
+.community__pie {
+  position: relative;
+}
+
+.diagram {
+  display: inline-grid;
+  grid-auto-flow: column;
+  gap: 40px;
+  align-items: end;
+  justify-items: stretch;
+  margin: 50px;
+}
+
+.diagram__tooltip {
+  padding: 12px 24px;
+  position: absolute;
+  white-space: nowrap;
+  //transition: transform .3s;
+
+  background-color: #F1E7FF;
+  border-radius: 18px;
+}
+
+.diagram__legends {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transform: translateX(calc(-100% - 40px));
+}
+
+.legends {
+  display: inline-grid;
+  gap: 4px;
+}
+
+.legends__item {
+  display: inline-grid;
+  align-items: center;
+  grid-auto-flow: column;
+  gap: 8px;
+  text-align: left;
+  justify-content: flex-start;
+
+  &:before {
+    content: '';
+    width: 12px;
+    height: 12px;
+    overflow: hidden;
+    border-radius: 50%;
+    background-color: #FFF1E5;
+  }
+
+  &_wishlist:before {
+    background-color: #FFF1E5;
+  }
+
+  &_left:before {
+    background-color: #F1E7FF;
+  }
+}
+
+.diagram__pie-wrapper {
+  position: relative;
+}
+
+.pie {
+  width: 240px;
+  height: 240px;
+  background-color: #F1E7FF;
+  box-shadow: 0px 0px 50px #EEE1FF;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+}
+
+.pie__part {
+  width: 100%;
+  height: 100%;
+}
+
+.pie__circle {
+  cursor: pointer;
+}
+
+.pie__circle_one {
+  fill: #F1E7FF;
+}
+
+.pie__circle_two {
+  stroke: #FFF1E5;
 }
 
 .preference {
@@ -92,6 +185,61 @@
       background-color: $purpure;
       z-index: -1;
     }
+  }
+}
+
+.community__doodle_left {
+  position: absolute;
+  left: 0;
+  top: 18%;
+  object-fit: contain;
+  animation: levitation 12s ease-in-out 0s infinite alternate;
+
+  @media screen and (min-width: $desktop-xlg-width) {
+    width: get-vw(250px);
+    height: get-vw(281px);
+    bottom: get-vw(-48px);
+  }
+
+  @media screen and (max-width: $tablet-lg-width) {
+    height: 150px;
+    bottom: -8px;
+  }
+
+  @media screen and (max-width: $phone-width) {
+    display: none;
+  }
+}
+
+.community__doodle_right {
+  position: absolute;
+  right: -3.4%;
+  top: 100px;
+  object-fit: contain;
+  animation: levitation-2 12s ease-in-out 0s infinite alternate;
+
+  @media screen and (min-width: $desktop-xlg-width) {
+    width: get-vw(300px);
+    height: get-vw(300px);
+  }
+
+  @media screen and (max-width: $desktop-sm-width) {
+    top: auto;
+    bottom: -50%;
+  }
+
+  @media screen and (max-width: $tablet-lg-width) {
+    height: 150px;
+    bottom: -36%;
+  }
+
+  @media screen and (max-width: $tablet-sm-width) {
+    height: 150px;
+    bottom: -32%;
+  }
+
+  @media screen and (max-width: 650px) {
+    display: none;
   }
 }
 
@@ -362,5 +510,23 @@
         border-radius: 16px;
       }
     }
+  }
+}
+
+@keyframes levitation-2 {
+  0% {
+    transform: rotateX(-10deg) rotateY(15deg) translateX(-10px);
+  }
+
+  30% {
+    transform: rotateX(10deg) rotateZ(-5deg) rotateY(-10deg) translateY(8px) translateX(-15px);
+  }
+
+  70% {
+    transform: rotateX(-15deg) rotateY(0deg) translateX(-20px) translateY(-10px);
+  }
+
+  100% {
+    transform: rotateX(5deg) rotateZ(-8deg) rotateY(-5deg) translateY(0px) translateX(-20px);
   }
 }
