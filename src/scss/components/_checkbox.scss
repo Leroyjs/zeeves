@@ -2,15 +2,16 @@
 @use "sass:math";
 
 @mixin css-checkbox(
-  $size: '14px',
+  $size: "14px",
   $selectedColor: #444,
-  $checkColor: #FFF,
-  $valign: 'middle',
-  $rounded: rounded) {
+  $checkColor: #fff,
+  $valign: "middle",
+  $rounded: rounded
+) {
   display: none;
 
   &:checked + i {
-    border-color: #F2943E;
+    border-color: #f2943e;
 
     &:hover:after {
       opacity: 1;
@@ -32,18 +33,18 @@
     margin-right: 0.5em;
     flex-shrink: 0;
     vertical-align: #{$valign};
-    border: 1px solid #F2943E;
+    border: 1px solid #f2943e;
     transition: background 200ms ease;
 
     border-radius: 4px;
 
-    background: #F9F9F9;
+    background: #f9f9f9;
     font-size: #{$size};
     cursor: pointer;
 
     &:after {
       opacity: 0;
-      content: '';
+      content: "";
       position: absolute;
       top: 50%;
       left: 50%;
@@ -51,7 +52,7 @@
 
       width: 8px;
       height: 8px;
-      background-color: #F2943E;
+      background-color: #f2943e;
       border-radius: 1px;
     }
   }
@@ -64,5 +65,28 @@
 
   .css-checkbox {
     @include css-checkbox(18px, $selectedColor: $orange);
+  }
+}
+
+.checkbox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  .css-checkbox_error {
+    @include css-checkbox(18px, $selectedColor: $red);
+  }
+}
+
+.checkbox .css-checkbox_error + i {
+  border: 1px solid #ff2d2d;
+  span {
+    color:$red;
+  }
+}
+
+.checkbox-text {
+  &_error {
+    color:$red;
   }
 }

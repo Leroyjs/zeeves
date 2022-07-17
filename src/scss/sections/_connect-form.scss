@@ -22,7 +22,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: #F1E7FF;
+  background: #f1e7ff;
   border-radius: 50%;
   overflow: hidden;
   height: 32px;
@@ -51,7 +51,6 @@
   display: inline-grid;
   grid-auto-flow: column;
   gap: 5px;
-
 }
 
 .connect-form__input {
@@ -65,28 +64,16 @@
   &::placeholder {
     color: rgba(207, 234, 236, 0.4);
   }
-
-  @media screen and (max-width: $desktop-sm-width) {
-    font-size: 72px;
-  }
-
-  @media screen and (max-width: $tablet-lg-width) {
-    font-size: 64px;
-  }
-
-  @media screen and (max-width: $tablet-sm-width) {
-    font-size: 56px;
-    width: 75%;
-  }
-
-  @media screen and (max-width: $phone-width) {
-    font-size: 42px;
-    width: 100%;
-  }
-
-  @media screen and (max-width: 420px) {
-    font-size: 34px;
-    width: 100%;
+  &_error {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    text-align: center;
+    border-bottom: 2px solid $red;
+    color: $red;
+    &::placeholder {
+      color: $red;
+    }
   }
 }
 
@@ -97,7 +84,8 @@
 }
 
 .connect-form__submit {
-  background-color: #F2943E;
+  cursor: pointer;
+  background-color: #f2943e;
   width: 120px;
   height: 120px;
   border-radius: 50%;
@@ -124,7 +112,7 @@
     position: relative;
 
     &:after {
-      content: '';
+      content: "";
       position: absolute;
       bottom: 0px;
       left: 2px;
@@ -161,3 +149,22 @@
   }
 }
 
+.wallet-no-connect {
+  display: none;
+  &_error {
+  display: block;
+  font-size: $size-3;
+  margin-top: $size-2;
+  color: $red;
+  } 
+}
+
+.incorrect-email {
+  display: none;
+  &_error {
+  display: block;
+  font-size: $size-3;
+  margin-top: $size-5;
+  color: $red;
+  } 
+}
