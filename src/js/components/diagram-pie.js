@@ -110,6 +110,7 @@ function renderPie(count) {
   }, 42);
 
   initListener();
+  setTooltip();
 
   window.addEventListener("resize", handleResize);
 }
