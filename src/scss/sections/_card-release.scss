@@ -7,17 +7,27 @@
     justify-content: flex-start;
     align-content: center;
     align-items: center;
+    overflow: hidden;
+    @media screen and (max-width: $desktop-md-width) {
+        margin-top: 66px;
+    }
+    @media screen and (max-width: $desktop-md-width) {
+        margin-top: 88px;
+    }
+
 }
 
 .svg-container {
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    overflow: hidden;
 }
 
 .svg-wrapper {
     position: absolute;
-    left: 50%;
+    width: 100%;
 }
 
 .star-card-release {
@@ -25,8 +35,26 @@
     width: 240px;
     height: 240px;
     z-index: -200;
-    // @media screen and (max-width: $phone-width) {
-    // }
+    @media screen and (max-width: $desktop-md-width) {
+        height: $size-60;
+        width: $size-60;
+    }
+    @media screen and (max-width: $desktop-sm-width) {
+        height: $size-55;
+        width: $size-55;
+    }
+    @media screen and (max-width: $tablet-lg-width) {
+        height: $size-50;
+        width: $size-50;
+    }
+    @media screen and (max-width: $tablet-sm-width) {
+        height: $size-45;
+        width: $size-45;
+    }
+    @media screen and (max-width: $phone-width) {
+        height: $size-22;
+        width: $size-22;
+    }
 }
 
 .star-card-release:hover {
@@ -38,23 +66,57 @@
 .star-card-release {
     &_light-blue {
         top: 30px;
-        left: -54.5vw;
+        left: -4%;
+        @media screen and (max-width: $tablet-sm-width) {
+            top: -25px;
+            left: -4%;
+        }
+        @media screen and (max-width: $phone-width) {
+            top: -68px;
+            left: 4%;
+        }
     }
 
     &_light-orange {
-        left: -7.5vw;
+        left: 42%;
         top: 20px;
+        @media screen and (max-width: $tablet-sm-width) {
+            left: 1%;
+            top: 30px;
+            z-index: -500;
+        }
+        @media screen and (max-width: $phone-width) {
+            left: 20%;
+            top: 20px;
+            z-index: -500;
+        }
     }
 
     &_purple {
         z-index: -40;
-        left: 3.7vw;
+        left: 54%;
         top: 65px;
+        @media screen and (max-width: $tablet-sm-width) {
+            z-index: -40;
+            left: 24%;
+            top: 80px;
+        }
+        @media screen and (max-width: $phone-width) {
+            z-index: -40;
+            left: 75%;
+            top: 65px;
+        }
     }
 
     &_pink {
-        left: 33vw;
+        right: 2%;
         top:-70px;
+        @media screen and (max-width: $tablet-sm-width) {}
+        @media screen and (max-width: $phone-width) {
+            right: 5%;
+            top: -90px;
+            z-index: -50;
+        }
     }
 
     &_bg {
@@ -67,4 +129,24 @@
 .text-wrapper {
     text-align: center;
     margin-bottom: $size-16;
+    @media screen and (max-width: $tablet-sm-width) {
+        margin-bottom: $size-9;
+    }
+    @media screen and (max-width: $phone-width) {
+        margin-bottom: $size-3;
+    }
+}
+
+.desktop {
+    display: block;
+    @media screen and (max-width: $phone-width) {
+        display: none;
+    }
+}
+
+.phone {
+    display: block;
+    @media screen and (min-width: $phone-width) {
+        display: none;
+    }
 }
