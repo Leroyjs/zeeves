@@ -1,4 +1,7 @@
 <section class="connect-form">
+  <div class="connect-form__bg-wrapper">
+    {{> bank-bg-bottom-svg}}
+  </div>
   <form class="connect-form__inner">
     <h3 class="connect-form__item text text_color_orange text_size_main">
       Just 2 simple steps
@@ -8,11 +11,11 @@
       <span class="connect-form__point form-step__count text text_size_small">
         1
       </span>
-      <h4 class="connect-form__item form-step__title form-step">
+      <h4 class="connect-form__item form-step__title form-step text text_uppercase text_size_x-small">
         Please, connect your <br>
         Zeeves account
       </h4>
-      <a href="/" target=_blank>
+      <a href="/" target="_blank">
         <button class="form-step__button button button_type_secondary text_size_small">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
             <circle cx="12" cy="12" r="12" fill="#CFEAEC" />
@@ -33,7 +36,7 @@
       <span class="connect-form__point form-step__count text text_size_small">
         2
       </span>
-      <h4 class="connect-form__item form-step__title form-step">
+      <h4 class="connect-form__item form-step__title form-step text text_uppercase text_size_x-small">
         enter your E-mail
       </h4>
       <input class="connect-form__input text" type="text" placeholder="mail@mail.com">
@@ -54,9 +57,9 @@
     </div>
 
     <div class="connect-form__item form-step">
-      <div class="connect-form__recaptcha g-recaptcha" data-sitekey="6LeLU4EgAAAAAFtX9fs9XpcfFPOk3cBzvE_hWQmG"></div>
+      {{!-- <div class="connect-form__recaptcha g-recaptcha" data-sitekey="6LeLU4EgAAAAAFtX9fs9XpcfFPOk3cBzvE_hWQmG"></div> --}}
 
-      <button class="connect-form__submit text text_color_white" type="submit">
+      <button id="demo-form" data-sitekey="6LeLU4EgAAAAAFtX9fs9XpcfFPOk3cBzvE_hWQmG" data-callback='onSubmit' data-action='submit' class="g-recaptcha connect-form__submit text text_color_white" type="submit">
         Submit
       </button>
     </div>
