@@ -67,6 +67,11 @@
     font-size: 18px;
   }
 
+  @media screen and (max-width: $phone-width) {
+    bottom: -75px;
+    left: 50%;
+  }
+
   @media screen and (max-width: 420px) {
     font-size: 16px;
     bottom: 0;
@@ -223,7 +228,7 @@
 .community__doodle_left {
   position: absolute;
   left: 0;
-  top: 18%;
+  top: 200px;
   object-fit: contain;
   animation: levitation 12s ease-in-out 0s infinite alternate;
 
@@ -238,6 +243,10 @@
     bottom: -8px;
   }
 
+  @media screen and (max-width: $tablet-sm-width) {
+    top: 280px;
+  }
+
   @media screen and (max-width: $phone-width) {
     display: none;
   }
@@ -246,7 +255,7 @@
 .community__doodle_right {
   position: absolute;
   right: -3.4%;
-  top: 100px;
+  top: 230px;
   object-fit: contain;
   animation: levitation-2 12s ease-in-out 0s infinite alternate;
 
@@ -255,35 +264,54 @@
     height: get-vw(300px);
   }
 
+  @media screen and (min-width: $desktop-md-width) {
+    top: 180px;
+  }
+
   @media screen and (max-width: $desktop-sm-width) {
     top: auto;
-    bottom: -50%;
+    top: 180px;
   }
 
   @media screen and (max-width: $tablet-lg-width) {
     height: 150px;
-    bottom: -36%;
+    top: 200px;
   }
 
   @media screen and (max-width: $tablet-sm-width) {
     height: 150px;
-    bottom: -32%;
+    top: 280px;
   }
 
   @media screen and (max-width: 650px) {
     display: none;
   }
+} 
+
+@media (max-width: $desktop-xlg-width) {
+  .community {
+    &_desktop-bank {
+      display: none;
+    }
+  }
 }
 
-@media (max-width: $desktop-lg-width) {
-  .preference {
-    font-size: $font-size-19;
+@media (max-width: 1590px) {
+  .community {
+    &_desktop-bank {
+      display: block;
+    }
   }
 }
 
 @media (max-width: $desktop-md-width) {
   .preference {
     font-size: $font-size-17;
+  }
+  .community {    
+    &_desktop-bank {
+      display: none;
+    }
   }
 
 }
@@ -296,6 +324,10 @@
   .community {
     &_desktop {
       display: block;
+    }
+    
+    &_desktop-bank {
+      display: none;
     }
   }
 
@@ -386,6 +418,9 @@
 
   .community {
     &_tablet {
+      display: block;
+    }
+    &_tablet-sm {
       display: block;
     }
   }

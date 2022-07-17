@@ -1,4 +1,7 @@
 <section class="connect-form" id="join-wishlist">
+  <div class="connect-form__bg-wrapper">
+    {{> bank-bg-bottom-svg}}
+  </div>
   <form class="connect-form__inner main-padding">
     <h3 class="form-title-js connect-form__item text text_color_orange text_size_main">
       Just 2 simple steps
@@ -8,7 +11,7 @@
       <span class="connect-form__point form-step__count text text_size_small">
         1
       </span>
-      <h4 class="connect-form__item form-step__title form-step">
+      <h4 class="connect-form__item form-step__title form-step text text_uppercase text_size_x-small">
         Please, connect your <br>
         Zeeves account
       </h4>
@@ -31,20 +34,20 @@
       <span class="connect-form__point form-step__count text text_size_small">
         2
       </span>
-      <h4 class="connect-form__item form-step__title form-step">
+      <h4 class="connect-form__item form-step__title form-step text text_uppercase text_size_x-small">
         enter your E-mail
       </h4>
-      <input class="connect-form__input text" type="text" name="email" placeholder="mail@mail.com">
+      <input class="connect-form__input text text_size_h2" type="text" placeholder="mail@mail.com">
       <label class="connect-form__checkbox checkbox">
         <input class="css-checkbox" type="checkbox">
         <i></i>
-        <p class="connect-form__accept text">
+        <span class="text text_size_x-small text_uppercase text_weight_bold">
           I accept
-          <a class="text text_color_gray" target="_blank" href="https://zeeves.com/docs/pp.pdf">
+          <a class="text text_color_gray text_size_x-small text_uppercase text_weight_bold" target="_blank" href="https://zeeves.com/docs/pp.pdf">
             privacy policy
           </a>
           and
-          <a class="text text_color_gray" target="_blank" href="https://zeeves.com/docs/tos.pdf">
+          <a class="text text_color_gray text_size_x-small text_uppercase text_weight_bold" target="_blank" href="https://zeeves.com/docs/tos.pdf">
             terms and conditions
           </a>
         </p>
@@ -52,9 +55,8 @@
     </div>
 
     <div class="connect-form__item form-step">
-      <div class="connect-form__recaptcha g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
-
-      <button class="connect-form__submit text text_color_white" type="submit">
+      {{!-- <div class="connect-form__recaptcha g-recaptcha" data-sitekey="6LeLU4EgAAAAAFtX9fs9XpcfFPOk3cBzvE_hWQmG"></div> --}}
+      <button id="demo-form" data-sitekey="6LeLU4EgAAAAAFtX9fs9XpcfFPOk3cBzvE_hWQmG" data-callback='onSubmit' data-action='submit' class="g-recaptcha connect-form__submit text text_color_white" type="submit">
         Submit
       </button>
     </div>
