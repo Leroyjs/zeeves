@@ -2,8 +2,9 @@ const initForm = () => {
   const formEl = document.querySelector(".connect-form__inner");
   const emailInputEl = formEl.querySelector(".connect-form__input");
   const checkboxInputEl = formEl.querySelector(".css-checkbox");
-  const connectBtnEl = formEl.querySelector(".form-step__button");
+  const recaptchaEl = formEl.querySelector(".g-recaptcha");
   const submitBtnEl = formEl.querySelector(".connect-form__submit");
+  const nicknameBtnEl = formEl.querySelector(".button-connect");
 
   formEl.onsubmit = (event) => {
     event.preventDefault();
@@ -18,7 +19,7 @@ const initForm = () => {
     const data = {
       recaptcha: responseValue,
       email: emailValue,
-      nickname: nicknameValue
+      nickname: nicknameValue,
     };
 
     const isValidate = validateForm(data, checkboxValue);
@@ -26,13 +27,11 @@ const initForm = () => {
     if (isValidate) {
       const requestOptions = {
         method: "POST",
-        body: JSON.stringify(data)
+        body: JSON.stringify(data),
       };
 
       fetch("https://zeeves.io/site-api/wishlist/submit", requestOptions)
-        .then(() => {
-
-        })
+        .then(() => {})
         .catch((err) => {
           console.log(err);
         })
@@ -44,32 +43,47 @@ const initForm = () => {
     }
   };
 
+  function checkboxError() {
+    checkboxInputEl.classList.remove("connect-form__input");
+    checkboxInputEl.classList.add("connect-form__input_error");
+  }
+  function recaptchaError() {
+    checkboxInputEl.classList.remove("g-recaptcha");
+    recaptchaEl.classList.add("g-recaptcha_error");
+  }
+  function emailError() {
+    checkboxInputEl.classList.remove("css-checkbox");
+    emailInputEl.classList.add("css-checkbox_error");
+  }
+  function nicknameError() {
+    checkboxInputEl.classList.remove("button-connect");
+    nicknameBtnEl.classList.add("button-connect_error");
+  }
+
   function validateForm(data, checkboxValue) {
     let isValidate = true;
     if (!checkboxValue) {
       isValidate = false;
-    } else if (!data.recaptcha) {
+      console.log("соглы?");
+      checkboxError();
+    }
+    if (!data.recaptcha) {
       isValidate = false;
-    } else if (data.email) {
+      console.log("пройди капчу");
+      recaptchaError();
+    }
+    if (emailValid(data.email)) {
       isValidate = false;
-    } else if (data.nickname) {
+      console.log("введи нормальный email");
+      emailError();
+    }
+    if (!data.nickname) {
       isValidate = false;
+      console.log("жду именни");
+      nicknameError();
     }
 
     return isValidate;
-  }
-
-// сформировали объект для отправки, осталась валидация для разрешения отправки
-  function getErrorsForm(form) {
-    // МОЖНО ПРОБЕЖАТЬСЯ ЦИКЛОМ ПО ЗНАЧЕНИЯМ ОБЪЕКТА И ЕСЛИ ВСЕ BOOLEAN(TRUE) то разрешить фечить, либо узнть вариант удобнее
-    const errors = [
-      console.log(form),
-      emailValid(emailValid)
-      // recaptchaValid(formData.get("recaptcha")),
-      //  walletValid
-    ];
-
-    return errors;
   }
 
   function emailValid(value) {
@@ -86,7 +100,6 @@ const initForm = () => {
       return true;
     }
   }
-
 };
 
 export default initForm;
