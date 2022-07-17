@@ -6,20 +6,19 @@ const initForm = () => {
   const submitBtnEl = formEl.querySelector(".connect-form__submit");
   const nicknameBtnEl = formEl.querySelector(".button-connect");
 
-  formEl.onsubmit = (event) => {
-    event.preventDefault();
+  window.handleConnectForm = (token) => {
     submitBtnEl.disabled = true;
 
     /* get state form */
     const emailValue = emailInputEl.value;
     const checkboxValue = checkboxInputEl.checked;
-    const responseValue = grecaptcha?.getResponse() || false;
+    const responseValue = token;
     const nicknameValue = "true";
 
     const data = {
       recaptcha: responseValue,
       email: emailValue,
-      nickname: nicknameValue,
+      nickname: nicknameValue
     };
 
     const isValidate = validateForm(data, checkboxValue);
@@ -28,10 +27,14 @@ const initForm = () => {
       const requestOptions = {
         method: "POST",
         body: JSON.stringify(data),
+        headers: {
+          "Content-Type": "application/json"
+        }
       };
 
       fetch("https://zeeves.io/site-api/wishlist/submit", requestOptions)
-        .then(() => {})
+        .then(() => {
+        })
         .catch((err) => {
           console.log(err);
         })
@@ -47,14 +50,17 @@ const initForm = () => {
     checkboxInputEl.classList.remove("connect-form__input");
     checkboxInputEl.classList.add("connect-form__input_error");
   }
+
   function recaptchaError() {
     checkboxInputEl.classList.remove("g-recaptcha");
     recaptchaEl.classList.add("g-recaptcha_error");
   }
+
   function emailError() {
     checkboxInputEl.classList.remove("css-checkbox");
     emailInputEl.classList.add("css-checkbox_error");
   }
+
   function nicknameError() {
     checkboxInputEl.classList.remove("button-connect");
     nicknameBtnEl.classList.add("button-connect_error");
