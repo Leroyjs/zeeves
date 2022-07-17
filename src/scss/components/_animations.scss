@@ -3,7 +3,7 @@
 $step-animation-delay: .3s;
 
 .appear-animation, .step, .steps-section__action,
-.partnership__subtitle, .partners-list__item, .accentuation_users::after,
+.partnership__subtitle, .partners-list__item, .benchmarks__item, .accentuation_users::after,
 .accentuation_zeeves::after, .accentuation_society::after {
   transform: translateY(20px);
   opacity: 0;
@@ -19,7 +19,7 @@ $step-animation-delay: .3s;
   .appear-animation, .step,
   .steps-section__action,
   .partnership__subtitle,
-  .partners-list__item, .community__button,
+  .partners-list__item, .benchmarks__item, .community__button,
   .accentuation_users::after, .accentuation_zeeves::after,
   .accentuation_society::after {
     transition: opacity 0.3s, transform 0.3s, background-color 0.3s, color .3s;
@@ -45,7 +45,7 @@ $step-animation-delay: .3s;
     transition: opacity 0.3s 0.4s, transform 0.3s $step-animation-delay, background-color 0.3s, color .3s;
   }
 
-  .partners-list__item {
+  .partners-list__item, .benchmarks__item {
     @for $i from 1 through 4 {
       &:nth-child(#{$i}) {
         $animation-delay: #{($i + 1) * $step-animation-delay};
