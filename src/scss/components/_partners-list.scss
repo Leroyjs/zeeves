@@ -106,6 +106,10 @@
   tab-size: 20px;
   height: 160px;
   position: relative;
+
+  @media screen and (max-width: $phone-width) {
+    height: 104px;
+  }
 }
 
 .partners-list__card-img {
@@ -117,6 +121,31 @@
   height: 140px;
   left: 73%;
   bottom: 38%;
+
+  @media screen and (max-width: $desktop-sm-width) {
+    width: 100px;
+    height: 100px;
+    right: -14%;
+    left: auto;
+    bottom: 63%;
+  }
+
+  @media screen and (max-width: $tablet-lg-width) {
+    width: 120px;
+    height: 120px;
+    right: -28px;
+    top: -50px;
+    left: auto;
+    bottom: auto;
+  }
+
+  @media screen and (max-width: $phone-width) {
+    width: 64px;
+    height: 64px;
+    left: auto;
+    right: 10px;
+    top: 20px;
+  }
 }
 
 .partners-list__logo {
