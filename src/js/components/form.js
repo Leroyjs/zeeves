@@ -1,60 +1,70 @@
 const initForm = () => {
-	const form = document.querySelector(".connect-form__inner");
-	 document.querySelector(".css-checkbox").checked;
-//   debugger;
-  form.onsubmit = (event) => {
+  const formEl = document.querySelector(".connect-form__inner");
+  const emailInputEl = formEl.querySelector(".connect-form__input");
+  const checkboxInputEl = formEl.querySelector(".css-checkbox");
+  const connectBtnEl = formEl.querySelector(".form-step__button");
+  const submitBtnEl = formEl.querySelector(".connect-form__submit");
+
+  formEl.onsubmit = (event) => {
     event.preventDefault();
-    console.log(form);
-    const emailValue = form.email.value;
-    // раскомментировать  для привязки аккаунта ↓
-    // const nicknameValue = form.nickname.value
-    //закомменитровать для привязки аккаунта ↓
-    const nicknameValue = true;
+    submitBtnEl.disabled = true;
 
-	  let response = grecaptcha.getResponse();
-	  console.log(response.lenght);
-	  if (response.lenght == 0) {
-		  response = false
-	  }
-	  const checkboxValue = document.querySelector(".css-checkbox").checked;
-	  console.log(checkboxValue);
-    const postForm = {
-      recaptcha: response,
+    /* get state form */
+    const emailValue = emailInputEl.value;
+    const checkboxValue = checkboxInputEl.checked;
+    const responseValue = grecaptcha?.getResponse() || false;
+    const nicknameValue = "true";
+
+    const data = {
+      recaptcha: responseValue,
       email: emailValue,
-      nickname: nicknameValue,
+      nickname: nicknameValue
     };
-    const validateErrorArray = getErrorsForm(postForm);
 
-    debugger;
-    const hasValidateError = validateErrorArray.some((item) => Boolean(item));
-    !hasValidateError
-      ? //в феч должен отправляться JSON
-		  fetchData(JSON.stringify(postForm), onDone, onError)
-		 : console.log(response);
-      // : setErrorsForm(validateErrorArray);
-	};
-//Отправка формы
-function fetchData(formdata, onDone, onError) {
-  const requestOptions = {
-    method: "POST",
-    body: formdata,
+    const isValidate = validateForm(data, checkboxValue);
+
+    if (isValidate) {
+      const requestOptions = {
+        method: "POST",
+        body: JSON.stringify(data)
+      };
+
+      fetch("https://zeeves.io/site-api/wishlist/submit", requestOptions)
+        .then(() => {
+
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+        .finally(() => {
+          submitBtnEl.disabled = false;
+        });
+    } else {
+      submitBtnEl.disabled = false;
+    }
   };
 
-  fetch("https://zeeves.io/site-api/wishlist/submit", requestOptions)
-    .then((response) => response.text())
-    // .then((result) => (console.log(result), Popup))
-    .then(onDone)
-    .catch(onError);
-}
+  function validateForm(data, checkboxValue) {
+    let isValidate = true;
+    if (!checkboxValue) {
+      isValidate = false;
+    } else if (!data.recaptcha) {
+      isValidate = false;
+    } else if (data.email) {
+      isValidate = false;
+    } else if (data.nickname) {
+      isValidate = false;
+    }
 
-
+    return isValidate;
+  }
 
 // сформировали объект для отправки, осталась валидация для разрешения отправки
-	function getErrorsForm(form) {
-	// МОЖНО ПРОБЕЖАТЬСЯ ЦИКЛОМ ПО ЗНАЧЕНИЯМ ОБЪЕКТА И ЕСЛИ ВСЕ BOOLEAN(TRUE) то разрешить фечить, либо узнть вариант удобнее
+  function getErrorsForm(form) {
+    // МОЖНО ПРОБЕЖАТЬСЯ ЦИКЛОМ ПО ЗНАЧЕНИЯМ ОБЪЕКТА И ЕСЛИ ВСЕ BOOLEAN(TRUE) то разрешить фечить, либо узнть вариант удобнее
     const errors = [
       console.log(form),
-      emailValid(emailValid),
+      emailValid(emailValid)
       // recaptchaValid(formData.get("recaptcha")),
       //  walletValid
     ];
@@ -75,7 +85,7 @@ function fetchData(formdata, onDone, onError) {
     } else {
       return true;
     }
-	}
+  }
 
 };
 
