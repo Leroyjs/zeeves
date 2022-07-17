@@ -8,6 +8,7 @@ import initHeader from "../../js/components/header";
 import initAscentTitle from "../../js/components/ascentTitle";
 import initBurgerMenu from "../../js/components/burgerMenu";
 import initPie from "../../js/components/diagram-pie";
+import initForm from "../../js/components/form";
 
 /* Your JS Code goes here */
 window.addEventListener("DOMContentLoaded", () => {
@@ -16,6 +17,7 @@ window.addEventListener("DOMContentLoaded", () => {
   initAscentTitle();
   initBurgerMenu();
   initPie();
+  initForm();
 });
 
 window.addEventListener("load", () => {
