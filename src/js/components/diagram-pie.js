@@ -1,3 +1,5 @@
+import TOTAL_CARDS from "../../../config-cards";
+
 const initPie = () => {
   renderPie();
 
@@ -13,11 +15,18 @@ const initPie = () => {
 };
 
 function renderPie(count) {
-  const leftCars = 10000 - count;
+  const leftCars = TOTAL_CARDS - count;
   const pieWrapperEl = document.querySelector(".pie-wrapper-js");
+  const pieDiagramEl = document.querySelector(".diagram");
+  const formTitleEl = document.querySelector(".form-title-js");
+  const cardsTitleMainEl = document.querySelector(".cards-title-main-js");
+  const cardsTitleSecondEl = document.querySelector(".cards-title-second-js");
 
-  if (count >= 10000) {
-    pieWrapperEl.parentElement.remove();
+  if (count >= TOTAL_CARDS) {
+    cardsTitleMainEl.remove();
+    pieDiagramEl.remove();
+    cardsTitleSecondEl.removeAttribute("style");
+    formTitleEl.innerHTML = "Plan for the future";
     return;
   }
 
@@ -25,10 +34,14 @@ function renderPie(count) {
   const pieTooltip = pieWrapperEl.querySelector(".diagram__tooltip");
   const pieCircleOneEl = document.querySelector(".pie__circle_one");
   const pieCircleTwoEl = document.querySelector(".pie__circle_two");
+
   let currentColor = "#F1E7FF";
   const isTable = window.matchMedia("screen and (max-width: 768px)").matches;
   let isMobile = window.matchMedia("screen and (max-width: 420px)").matches;
   let radiusCircle = isTable ? 90 : 120;
+  const present = Math.round(count / TOTAL_CARDS * 100);
+
+  pieCircleTwoEl.setAttribute("stroke-dasharray", `calc(${present} * 31.4 / 100) 31.4`);
 
   function setTooltip() {
     const isLeft = currentColor === "#F1E7FF";
