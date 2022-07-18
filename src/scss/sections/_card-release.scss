@@ -309,3 +309,14 @@
     transform: translate(0, 0);
   }
 }
+
+.card-release__title {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.element-show.card-release__title {
+  opacity: 1;
+  transition: opacity 0.8s, transform 0.6s;
+  transform: translateY(0px);
+}

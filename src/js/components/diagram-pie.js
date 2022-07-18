@@ -10,16 +10,20 @@ const initPie = () => {
   let currentColor = "#F1E7FF";
 
   fetch("https://zeeves.io/site-api/wishlist/count")
-    .then(res => res.json())
+    .then((res) => res.json())
     .then((res) => {
       const count = res["Count"];
-      renderTooltip(2352);
+      renderTooltip(count);
     })
-    .catch(err => {
+    .catch((err) => {
       console.log(err);
     });
 
-  function renderPie(count = 0) {
+  function renderPie(countInner = 0) {
+    const minValue = TOTAL_CARDS * 0.02;
+    let count = countInner < minValue ? minValue : countInner;
+    if (countInner === 0) count = 0;
+
     const pieTooltipEl = document.querySelector(".diagram-tooltip-js");
     const ctxEl = document.querySelector(".pie-canvas-js");
     const ctx = ctxEl.getContext("2d");
@@ -28,9 +32,8 @@ const initPie = () => {
     ctx.canvas.width = radiusCircle * 2;
     const results = [
       { label: "left", total: leftCards, shade: "#F1E7FF" },
-      { label: "wishlist", total: count, shade: "#FFF1E5" }
+      { label: "wishlist", total: count, shade: "#FFF1E5" },
     ];
-
 
     let currentAngle = 0;
 
@@ -39,20 +42,30 @@ const initPie = () => {
 
     const handleMouse = debounce((event) => {
       isLeft = ctx.isPointInPath(circleLeft, event.offsetX, event.offsetY);
-      isWishlist = ctx.isPointInPath(circleWishlist, event.offsetX, event.offsetY);
+      isWishlist = ctx.isPointInPath(
+        circleWishlist,
+        event.offsetX,
+        event.offsetY
+      );
       setTooltip();
     }, 28);
 
     ctxEl.addEventListener("mousemove", handleMouse);
 
     for (const sector of results) {
-      let circle = (sector.label === "left") ? circleLeft : circleWishlist;
+      let circle = sector.label === "left" ? circleLeft : circleWishlist;
       //calculating the angle the slice (portion) will take in the chart
       let portionAngle = (sector.total / TOTAL_CARDS) * 2 * Math.PI;
       //drawing an arc and a line to the center to differentiate the slice from the rest
       ctx.beginPath();
 
-      circle.arc(radiusCircle, radiusCircle, radiusCircle, currentAngle, currentAngle + portionAngle);
+      circle.arc(
+        radiusCircle,
+        radiusCircle,
+        radiusCircle,
+        currentAngle,
+        currentAngle + portionAngle
+      );
 
       currentAngle += portionAngle;
       circle.lineTo(radiusCircle, radiusCircle);
@@ -68,11 +81,15 @@ const initPie = () => {
       const isScip = !isLeft && !isWishlist;
       if (isScip) return;
       currentColor = isLeft ? "#F1E7FF" : "#FFF1E5";
-      pieTooltipEl.innerHTML = isLeft ? `${leftCards} cards left` : `${count} cards in the wishlist`;
+      pieTooltipEl.innerHTML = isLeft
+        ? `${leftCards} cards left`
+        : `${countInner} cards in the wishlist`;
       pieTooltipEl.style.backgroundColor = currentColor;
     }
 
-    pieTooltipEl.innerHTML = isLeft ? `${leftCars} cards left` : `${count} cards in the wishlist`;
+    pieTooltipEl.innerHTML = isLeft
+      ? `${leftCars} cards left`
+      : `${countInner} cards in the wishlist`;
   }
 
   function renderTooltip(count) {
@@ -109,12 +126,17 @@ const initPie = () => {
       const posX = radiusCircle + Math.cos(angle) * radiusCircle;
       const posY = radiusCircle + Math.sin(angle) * radiusCircle;
 
-      pieTooltip.setAttribute("style", `
+      pieTooltip.setAttribute(
+        "style",
+        `
     top: ${posY}px;
     left: ${posX}px;
     background-color: ${currentColor};
-    transform: translate(${isMirrorX ? "calc(-100% - 4px)" : "4px"}, ${isMirrorY ? "calc(-100% - 4px)" : "4px"});
-    `);
+    transform: translate(${isMirrorX ? "calc(-100% - 4px)" : "4px"}, ${
+          isMirrorY ? "calc(-100% - 4px)" : "4px"
+        });
+    `
+      );
     }, 3);
 
     const handleResize = debounce((e) => {
@@ -142,14 +164,14 @@ const initPie = () => {
 function debounce(f, ms) {
   let isCooldown = false;
 
-  return function() {
+  return function () {
     if (isCooldown) return;
 
     f.apply(this, arguments);
 
     isCooldown = true;
 
-    setTimeout(() => isCooldown = false, ms);
+    setTimeout(() => (isCooldown = false), ms);
   };
 }
 
@@ -158,6 +180,5 @@ function getAngle(cx, cy, ex, ey) {
   const dx = ex - cx;
   return Math.atan2(dy, dx);
 }
-
 
 export default initPie;
