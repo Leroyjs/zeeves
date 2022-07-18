@@ -1,152 +1,311 @@
 @use "../global" as *;
 
 .card-release {
-    margin-top: 160px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-content: center;
-    align-items: center;
-    overflow: hidden;
-    @media screen and (max-width: $desktop-md-width) {
-        margin-top: 66px;
-    }
-    @media screen and (max-width: $desktop-md-width) {
-        margin-top: 88px;
-    }
+  margin-top: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+  position: relative;
 
+  @media screen and (max-width: $desktop-md-width) {
+    margin-top: 66px;
+  }
+  @media screen and (max-width: $desktop-md-width) {
+    margin-top: 88px;
+  }
 }
 
 .svg-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 300%;
+  top: -50%;
+  overflow: hidden;
+  position: absolute;
+  pointer-events: none;
 }
 
 .svg-wrapper {
-    position: absolute;
+  position: absolute;
+  height: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  z-index: -500;
+}
+
+.star-card-release {
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  z-index: -200;
+
+  svg {
+    height: 100%;
     width: 100%;
+  }
+
+  @media screen and (max-width: $desktop-md-width) {
+    height: $size-60;
+    width: $size-60;
+  }
+
+  @media screen and (max-width: $desktop-sm-width) {
+    height: $size-55;
+    width: $size-55;
+  }
+
+  @media screen and (max-width: $tablet-lg-width) {
+    height: $size-50;
+    width: $size-50;
+  }
+
+  @media screen and (max-width: $tablet-sm-width) {
+    height: $size-45;
+    width: $size-45;
+  }
+
+  @media screen and (max-width: $phone-width) {
+    height: $size-22;
+    width: $size-22;
+  }
 }
 
 .star-card-release {
-    position: absolute;
-    width: 240px;
-    height: 240px;
-    z-index: -200;
-    @media screen and (max-width: $desktop-md-width) {
-        height: $size-60;
-        width: $size-60;
+  &_rotation {
+    &_1 {
+      animation: rotation 20s linear 0s infinite;
     }
-    @media screen and (max-width: $desktop-sm-width) {
-        height: $size-55;
-        width: $size-55;
-    }
-    @media screen and (max-width: $tablet-lg-width) {
-        height: $size-50;
-        width: $size-50;
-    }
-    @media screen and (max-width: $tablet-sm-width) {
-        height: $size-45;
-        width: $size-45;
-    }
-    @media screen and (max-width: $phone-width) {
-        height: $size-22;
-        width: $size-22;
-    }
-}
 
-.star-card-release:hover {
-    // clip-path: view-box 120%;
-    transform: scale(1.2, 1.2) ;
-    transition: 0.3s;
-}
+    &_2 {
+      animation: rotation 20s linear 0s infinite reverse;
+    }
 
-.star-card-release {
-    &_light-blue {
-        top: 30px;
+    &_3 {
+      animation: rotation 40s linear 0s infinite;
+    }
+
+    &_4 {
+      animation: rotation 30s linear 0s infinite reverse;
+    }
+  }
+  &_light-blue {
+    &_1 {
+      top: 30px;
+      left: -4%;
+      animation: moving_1 15s linear 0s infinite;
+
+      @media screen and (max-width: $tablet-sm-width) {
+        top: -25px;
         left: -4%;
-        @media screen and (max-width: $tablet-sm-width) {
-            top: -25px;
-            left: -4%;
-        }
-        @media screen and (max-width: $phone-width) {
-            top: -68px;
-            left: 4%;
-        }
-    }
+      }
 
-    &_light-orange {
-        left: 42%;
+      @media screen and (max-width: $phone-width) {
+        top: -68px;
+        left: 4%;
+      }
+    }
+    &_2 {
+      animation: moving_2 15s linear 0s infinite;
+      top: 30px;
+      left: -4%;
+      transform: translate(-150vw, 100%);
+
+      @media screen and (max-width: $tablet-sm-width) {
+        top: -25px;
+        left: -4%;
+      }
+
+      @media screen and (max-width: $phone-width) {
+        top: -68px;
+        left: 4%;
+      }
+    }
+  }
+
+  &_light-orange {
+    &_1 {
+      animation: moving_1 30s linear 0s infinite;
+      left: 42%;
+      top: 20px;
+
+      @media screen and (max-width: $tablet-sm-width) {
+        left: 1%;
+        top: 30px;
+        z-index: -500;
+      }
+
+      @media screen and (max-width: $phone-width) {
+        left: 20%;
         top: 20px;
-        @media screen and (max-width: $tablet-sm-width) {
-            left: 1%;
-            top: 30px;
-            z-index: -500;
-        }
-        @media screen and (max-width: $phone-width) {
-            left: 20%;
-            top: 20px;
-            z-index: -500;
-        }
+        z-index: -500;
+      }
     }
+    &_2 {
+      animation: moving_2 30s linear 0s infinite;
+      left: 42%;
+      top: 20px;
+      transform: translate(-150vw, 100%);
 
-    &_purple {
+      @media screen and (max-width: $tablet-sm-width) {
+        left: 1%;
+        top: 30px;
+        z-index: -500;
+      }
+
+      @media screen and (max-width: $phone-width) {
+        left: 20%;
+        top: 20px;
+        z-index: -500;
+      }
+    }
+  }
+
+  &_purple {
+    &_1 {
+      animation: moving_1 25s linear 0s infinite;
+      z-index: -40;
+      left: 54%;
+      top: 65px;
+
+      @media screen and (max-width: $tablet-sm-width) {
         z-index: -40;
-        left: 54%;
+        left: 24%;
+        top: 80px;
+      }
+
+      @media screen and (max-width: $phone-width) {
+        z-index: -40;
+        left: 75%;
         top: 65px;
-        @media screen and (max-width: $tablet-sm-width) {
-            z-index: -40;
-            left: 24%;
-            top: 80px;
-        }
-        @media screen and (max-width: $phone-width) {
-            z-index: -40;
-            left: 75%;
-            top: 65px;
-        }
+      }
     }
+    &_2 {
+      animation: moving_2 25s linear 0s infinite;
+      z-index: -40;
+      left: 54%;
+      top: 65px;
+      transform: translate(-150vw, 100%);
 
-    &_pink {
-        right: 2%;
-        top:-70px;
-        @media screen and (max-width: $tablet-sm-width) {}
-        @media screen and (max-width: $phone-width) {
-            right: 5%;
-            top: -90px;
-            z-index: -50;
-        }
-    }
+      @media screen and (max-width: $tablet-sm-width) {
+        z-index: -40;
+        left: 24%;
+        top: 80px;
+      }
 
-    &_bg {
-        z-index: -20;
-        left: 35%;
-        top: 120px;
+      @media screen and (max-width: $phone-width) {
+        z-index: -40;
+        left: 75%;
+        top: 65px;
+      }
     }
+  }
+
+  &_pink {
+    &_1 {
+      animation: moving_1 20s linear 0s infinite;
+      right: 2%;
+      top: -70px;
+
+      @media screen and (max-width: $phone-width) {
+        right: 5%;
+        top: -90px;
+        z-index: -50;
+      }
+    }
+    &_2 {
+      animation: moving_2 20s linear 0s infinite;
+      right: 2%;
+      top: -70px;
+      transform: translate(-150vw, 100%);
+
+      @media screen and (max-width: $phone-width) {
+        right: 5%;
+        top: -90px;
+        z-index: -50;
+      }
+    }
+  }
+
+  &_bg {
+    z-index: -20;
+    left: 35%;
+    top: 120px;
+  }
+}
+
+.star-card-release,
+.star-card-release_rotation {
+  animation-play-state: paused;
+
+  @media (pointer: coarse) {
+    animation-play-state: running;
+  }
+}
+
+.card-release__button:hover {
+  .star-card-release {
+    animation-play-state: running;
+  }
+  .star-card-release_rotation {
+    animation-play-state: running;
+  }
 }
 
 .text-wrapper {
-    text-align: center;
-    margin-bottom: $size-16;
-    @media screen and (max-width: $tablet-sm-width) {
-        margin-bottom: $size-9;
-    }
-    @media screen and (max-width: $phone-width) {
-        margin-bottom: $size-3;
-    }
+  text-align: center;
+  margin-bottom: $size-16;
+
+  @media screen and (max-width: $tablet-sm-width) {
+    margin-bottom: $size-9;
+  }
+
+  @media screen and (max-width: $phone-width) {
+    margin-bottom: $size-3;
+  }
 }
 
 .desktop {
-    display: block;
-    @media screen and (max-width: $phone-width) {
-        display: none;
-    }
+  display: block;
+  @media screen and (max-width: $phone-width) {
+    display: none;
+  }
 }
 
 .phone {
-    display: block;
-    @media screen and (min-width: $phone-width) {
-        display: none;
-    }
+  display: block;
+  @media screen and (min-width: $phone-width) {
+    display: none;
+  }
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes moving_1 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(calc(100vw + 120px), -100%);
+  }
+}
+
+@keyframes moving_2 {
+  0% {
+    transform: translate(calc(-100vw - 120px), 100%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
 }
