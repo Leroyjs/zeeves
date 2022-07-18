@@ -1,10 +1,7 @@
 const Popup = () => {
-console.log('open');
+  console.log("open");
 
-
-
-// debugger
-
+  debugger;
 
   const body = document.querySelector("body");
   const lockPadding = document.querySelectorAll(".lock-padding");
@@ -12,15 +9,12 @@ console.log('open');
   let unlock = true;
 
   const timeout = 800;
-console.log("open");
+  console.log("open");
   const currentPopup = document.querySelector(".popup");
   console.log("open");
   popupOpen(currentPopup);
-  
-console.log('open');
 
-
-
+  console.log("open");
 
 //   const popupCloseIcon = document.querySelectorAll(".close-popup");
 //   if (popupCloseIcon.length > 0) {
@@ -34,10 +28,7 @@ console.log('open');
 //     }
 //   }
 
-
-
-
-console.log("open");
+  console.log("open");
   function popupOpen(currentPopup) {
     if (currentPopup && unlock) {
       const popupActive = document.querySelector(".popup.open");
@@ -48,7 +39,6 @@ console.log("open");
         bodyLock();
       }
       currentPopup.classList.add("open");
-
     }
   }
 
