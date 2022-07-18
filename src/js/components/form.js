@@ -24,7 +24,7 @@ const initForm = () => {
 
   function openModal() {
     popupRootEl.classList.add("active");
-    popupRootEl.classList.add("no-scroll");
+    bodyEl.classList.add("no-scroll");
   }
 
   formEl.onsubmit = (event) => {
