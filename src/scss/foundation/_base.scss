@@ -10,7 +10,7 @@ main {
   overflow-x: hidden;
 }
 
-.no-scroll{
+.no-scroll {
   overflow: hidden;
 }
 
@@ -22,6 +22,11 @@ main {
     padding-left: get-vw($size-10);
     padding-right: get-vw($size-10);
   }
+}
+
+.ancor {
+  position: absolute;
+  top: -100px;
 }
 
 .section-margin-top {

@@ -1,4 +1,4 @@
-@use '../global/index'as *;
+@use "../global/index" as *;
 
 .navbar {
   display: flex;
@@ -17,6 +17,12 @@
 
   & + & {
     margin-left: $size-10;
+  }
+
+  @media screen and (max-width: $tablet-lg-width) {
+    & + & {
+      margin-left: $size-6;
+    }
   }
 
   @media screen and (max-width: $tablet-sm-width) {

@@ -12,11 +12,16 @@
 }
 
 .card-screen__bg-wrapper {
-  width: 100%;
+  width: 102%;
   height: calc(var(--fsvh, 1vh) * 112);
   position: absolute;
   bottom: calc(var(--fsvh, 1vh) * -12);
   overflow: hidden;
+
+  @media (max-width: $tablet-lg-width) {
+    height: calc(var(--fsvh, 1vh) * 100);
+    bottom: 0;
+  }
 }
 
 .card-screen__bg-inner {
@@ -29,11 +34,15 @@
   bottom: 0;
   transform: translateX(-50%);
   clip-path: url(#myPath);
+
+  @media (max-width: $tablet-lg-width) {
+    height: calc(var(--fsvh, 1vh) * 100);
+  }
 }
 
 .card-screen__bg {
   background-image: url("../../images/design/bank-card.jpeg");
-  width: 100vw;
+  width: 104vw;
   height: calc(var(--fsvh, 1vh) * 112);
   background-size: cover;
   background-position: center;
@@ -41,4 +50,77 @@
   left: 50%;
   bottom: 0;
   transform: translateX(-50%);
+
+  @media (max-width: $tablet-lg-width) {
+    height: calc(var(--fsvh, 1vh) * 100);
+  }
+}
+
+.card-screen__content {
+  position: relative;
+  height: calc(var(--fsvh, 1vh) * 100);
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-screen__content-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  @media (max-width: $phone-width) {
+    height: calc(100% - 220px);
+    position: relative;
+  }
+}
+
+.card-screen__title {
+  margin-bottom: 64px;
+  max-width: 65vw;
+
+  @media (max-width: $desktop-lg-width) {
+    max-width: 1039px;
+  }
+
+  @media (max-width: $tablet-lg-width) {
+    margin-bottom: 40px;
+  }
+
+  @media (max-width: $phone-width) {
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: $phone-width) {
+  .card-screen__button {
+    bottom: 0;
+    position: absolute;
+    left: 0;
+    width: 100%;
+  }
+}
+
+.card-screen__scroll-down-wrapper {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    transition: transform 0.5s;
+  }
+
+  &:hover {
+    img {
+      transform: translateY(20px);
+    }
+  }
 }

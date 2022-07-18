@@ -1,5 +1,5 @@
-@use '../global/index' as *;
-@use '../components/partners-list' as *;
+@use "../global/index" as *;
+@use "../components/partners-list" as *;
 
 .partnership__header {
   display: flex;
@@ -57,10 +57,6 @@
   }
 }
 
-.benchmarks__item {
-
-}
-
 .benchmarks__title {
   font-size: 20px;
 
@@ -75,4 +71,8 @@
   @media screen and (max-width: $phone-width) {
     font-size: 16px;
   }
+}
+
+.benchmarks {
+  position: relative;
 }
