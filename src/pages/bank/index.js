@@ -12,7 +12,7 @@ import initForm from "../../js/components/form";
 
 /* Your JS Code goes here */
 window.addEventListener("DOMContentLoaded", () => {
-  // initHeader();
+  initHeader();
   appearance();
   initAscentTitle();
   initBurgerMenu();
@@ -20,5 +20,4 @@ window.addEventListener("DOMContentLoaded", () => {
   initForm();
 });
 
-window.addEventListener("load", () => {
-});
+window.addEventListener("load", () => {});

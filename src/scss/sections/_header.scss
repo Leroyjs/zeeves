@@ -15,7 +15,7 @@
   align-items: center;
   justify-content: center;
   z-index: $z-index-header;
-  transition: background-color .3s;
+  transition: background-color 0.3s;
 
   @media screen and (min-width: $desktop-xlg-width) {
     height: get-vw($size-22);
@@ -35,14 +35,27 @@
   }
 }
 
-.loaded{
+.header_white-theme:not(.header_white) {
+  .logo__img {
+    path {
+      fill: $white;
+    }
+  }
+
+  .navbar__link {
+    color: $white;
+    opacity: 0.4;
+  }
+}
+
+.loaded {
   .header {
     &_white {
       background-color: $white;
-  
+
       .social {
         background-color: $light-blue;
-  
+
         .social__img {
           fill: $white;
         }
@@ -83,7 +96,7 @@
     background-color: $white;
     pointer-events: none;
     transform: translateY(-150vh);
-    transition: transform .3s, opacity .4s;
+    transition: transform 0.3s, opacity 0.4s;
     opacity: 0;
 
     &.active {
@@ -92,9 +105,8 @@
       opacity: 1;
     }
 
-
     @media screen and (max-width: $phone-width) {
-      height: calc(100vh - #{$size-12 *2});
+      height: calc(100vh - #{$size-12 * 2});
     }
   }
 }
@@ -138,7 +150,7 @@
 .menu-btn {
   fill: $black;
   width: 20px;
-  transition: transform .3s, opacity .3s;
+  transition: transform 0.3s, opacity 0.3s;
   position: absolute;
   top: 0;
   bottom: 0;
