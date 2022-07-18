@@ -1,3 +1,5 @@
+import Popup from "./popup";
+
 const initForm = () => {
   const formEl = document.querySelector(".connect-form__inner");
   const emailInputEl = formEl.querySelector(".connect-form__input");
@@ -5,6 +7,9 @@ const initForm = () => {
   const recaptchaEl = formEl.querySelector(".g-recaptcha");
   const submitBtnEl = formEl.querySelector(".connect-form__submit");
   const nicknameBtnEl = formEl.querySelector(".button-connect");
+  const checkboxTextEl = formEl.querySelector(".checkbox-text");
+  const networkErrorEl = formEl.querySelector(".wallet-no-connect");
+  const emailErrorEl = formEl.querySelector(".incorrect-email");
 
   window.handleConnectForm = (token) => {
     submitBtnEl.disabled = true;
@@ -13,29 +18,31 @@ const initForm = () => {
     const emailValue = emailInputEl.value;
     const checkboxValue = checkboxInputEl.checked;
     const responseValue = token;
-    const nicknameValue = "true";
+    const nicknameValue = 'true';
 
     const data = {
       recaptcha: responseValue,
       email: emailValue,
-      nickname: nicknameValue
+      nickname: nicknameValue,
     };
 
     const isValidate = validateForm(data, checkboxValue);
 
     if (isValidate) {
+      console.log('popup');
+      Popup();
       const requestOptions = {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
-          "Content-Type": "application/json"
-        }
+          "Content-Type": "application/json",
+        },
       };
 
       fetch("https://zeeves.io/site-api/wishlist/submit", requestOptions)
-        .then(() => {
-        })
+        .then(() => {})
         .catch((err) => {
+          
           console.log(err);
         })
         .finally(() => {
@@ -45,48 +52,54 @@ const initForm = () => {
       submitBtnEl.disabled = false;
     }
   };
+  function walletConnectError() {
+    networkErrorEl.classList.remove("wallet-no-connect");
+    networkErrorEl.classList.add("wallet-no-connect_error");
+  }
 
   function checkboxError() {
-    checkboxInputEl.classList.remove("connect-form__input");
-    checkboxInputEl.classList.add("connect-form__input_error");
+    checkboxInputEl.classList.remove("css-checkbox");
+    checkboxInputEl.classList.add("css-checkbox_error");
+    checkboxTextEl.classList.remove("checkbox-text");
+    checkboxTextEl.classList.add("checkbox-text_error");
   }
 
   function recaptchaError() {
-    checkboxInputEl.classList.remove("g-recaptcha");
+    recaptchaEl.classList.remove("g-recaptcha");
     recaptchaEl.classList.add("g-recaptcha_error");
   }
 
   function emailError() {
-    checkboxInputEl.classList.remove("css-checkbox");
-    emailInputEl.classList.add("css-checkbox_error");
+    emailInputEl.classList.remove("connect-form__input");
+    emailInputEl.classList.add("connect-form__input_error");
+    emailErrorEl.classList.remove("incorrect-email");
+    emailErrorEl.classList.add("incorrect-email_error");
   }
 
   function nicknameError() {
-    checkboxInputEl.classList.remove("button-connect");
+    nicknameBtnEl.classList.remove("button-connect");
     nicknameBtnEl.classList.add("button-connect_error");
+    walletConnectError();
   }
 
   function validateForm(data, checkboxValue) {
     let isValidate = true;
     if (!checkboxValue) {
       isValidate = false;
-      console.log("соглы?");
       checkboxError();
     }
     if (!data.recaptcha) {
       isValidate = false;
-      console.log("пройди капчу");
       recaptchaError();
     }
     if (emailValid(data.email)) {
       isValidate = false;
-      console.log("введи нормальный email");
       emailError();
     }
     if (!data.nickname) {
       isValidate = false;
-      console.log("жду именни");
       nicknameError();
+      walletConnectError();
     }
 
     return isValidate;
@@ -106,6 +119,6 @@ const initForm = () => {
       return true;
     }
   }
-};
 
+}
 export default initForm;

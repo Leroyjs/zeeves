@@ -28,6 +28,7 @@
         </svg>
         Connect wallet
       </button>
+      <span class="wallet-no-connect text_uppercase text_weight_bold">no connect</span>
     </div>
 
     <div class="connect-form__item form-step">
@@ -38,10 +39,11 @@
         enter your E-mail
       </h4>
       <input class="connect-form__input text text_size_h2" type="text" placeholder="mail@mail.com">
+      <span class="text_uppercase incorrect-email text_weight_bold">e-mail entered incorrectly</span>
       <label class="connect-form__checkbox checkbox">
         <input class="css-checkbox" type="checkbox">
         <i></i>
-        <span class="text text_size_x-small text_uppercase text_weight_bold">
+        <span class="text text_size_x-small text_uppercase text_weight_bold checkbox-text">
           I accept
           <a class="text text_color_gray text_size_x-small text_uppercase text_weight_bold" target="_blank"
              href="https://zeeves.com/docs/pp.pdf">
@@ -63,6 +65,7 @@
         Submit
       </button>
     </div>
+     {{> popup}}
 
   </form>
 
