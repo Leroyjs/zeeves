@@ -1,5 +1,3 @@
-import Popup from "./popup";
-
 const initForm = () => {
   const formEl = document.querySelector(".connect-form__inner");
   const emailInputEl = formEl.querySelector(".connect-form__input");
@@ -11,47 +9,73 @@ const initForm = () => {
   const networkErrorEl = formEl.querySelector(".wallet-no-connect");
   const emailErrorEl = formEl.querySelector(".incorrect-email");
 
-  window.handleConnectForm = (token) => {
-    submitBtnEl.disabled = true;
+  const popupRootEl = document.querySelector(".popup-card-js");
+  const popupOkBtnEl = popupRootEl.querySelector(".close-popup");
+  const bodyEl = document.body;
 
-    /* get state form */
-    const emailValue = emailInputEl.value;
-    const checkboxValue = checkboxInputEl.checked;
-    const responseValue = token;
-    const nicknameValue = 'true';
+  popupRootEl.removeAttribute("style");
+  popupOkBtnEl.addEventListener("click", closeModal);
 
-    const data = {
-      recaptcha: responseValue,
-      email: emailValue,
-      nickname: nicknameValue,
-    };
+  function closeModal() {
+    popupRootEl.classList.remove("active");
+    bodyEl.classList.remove("no-scroll");
+  }
 
-    const isValidate = validateForm(data, checkboxValue);
 
-    if (isValidate) {
-      console.log('popup');
-      Popup();
-      const requestOptions = {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      };
+  function openModal() {
+    popupRootEl.classList.add("active");
+    popupRootEl.classList.add("no-scroll");
+  }
 
-      fetch("https://zeeves.io/site-api/wishlist/submit", requestOptions)
-        .then(() => {})
-        .catch((err) => {
-          
-          console.log(err);
-        })
-        .finally(() => {
+  formEl.onsubmit = (event) => {
+    event.preventDefault();
+
+    grecaptcha.ready(() => {
+      grecaptcha.execute("6LeLU4EgAAAAAFtX9fs9XpcfFPOk3cBzvE_hWQmG", {
+        action: "submit"
+      }).then((token) => {
+        submitBtnEl.disabled = true;
+
+        /* get state form */
+        const emailValue = emailInputEl.value;
+        const checkboxValue = checkboxInputEl.checked;
+        const responseValue = token;
+        const nicknameValue = "true";
+
+        const data = {
+          recaptcha: responseValue,
+          email: emailValue,
+          nickname: nicknameValue
+        };
+
+        const isValidate = validateForm(data, checkboxValue);
+
+        if (isValidate) {
+          const requestOptions = {
+            method: "POST",
+            body: JSON.stringify(data),
+            headers: {
+              "Content-Type": "application/json"
+            }
+          };
+
+          fetch("https://zeeves.io/site-api/wishlist/submit", requestOptions)
+            .then(() => {
+              openModal();
+            })
+            .catch((err) => {
+              console.log(err);
+            })
+            .finally(() => {
+              submitBtnEl.disabled = false;
+            });
+        } else {
           submitBtnEl.disabled = false;
-        });
-    } else {
-      submitBtnEl.disabled = false;
-    }
+        }
+      });
+    });
   };
+
   function walletConnectError() {
     networkErrorEl.classList.remove("wallet-no-connect");
     networkErrorEl.classList.add("wallet-no-connect_error");
@@ -120,5 +144,5 @@ const initForm = () => {
     }
   }
 
-}
+};
 export default initForm;
