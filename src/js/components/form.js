@@ -62,6 +62,9 @@ const initForm = () => {
           fetch("https://zeeves.io/site-api/wishlist/submit", requestOptions)
             .then(() => {
               openModal();
+              emailInputEl.value = "";
+              checkboxInputEl.checked = false;
+              //  TODO: Reset nicknameValue
             })
             .catch((err) => {
               console.log(err);
