@@ -39,10 +39,13 @@
 
 .diagram {
   margin: 50px 0;
-  width: 100%;
   display: grid;
   align-items: center;
   justify-content: center;
+
+  @media screen and (max-width: $tablet-sm-width) {
+    width: 100%;
+  }
 
   @media screen and (max-width: $phone-width) {
     margin-bottom: 100px;
@@ -58,7 +61,6 @@
   padding: 12px 24px;
   position: absolute;
   white-space: nowrap;
-  //transition: transform .3s;
 
   background-color: #F1E7FF;
   border-radius: 18px;
@@ -124,6 +126,12 @@
   &_left:before {
     background-color: #F1E7FF;
   }
+}
+
+.diagram__pie {
+  display: block;
+  flex: 0 0 auto;
+  object-fit: contain;
 }
 
 .diagram__pie-wrapper {
@@ -286,7 +294,7 @@
   @media screen and (max-width: 650px) {
     display: none;
   }
-} 
+}
 
 @media (max-width: $desktop-xlg-width) {
   .community {
@@ -308,7 +316,7 @@
   .preference {
     font-size: $font-size-17;
   }
-  .community {    
+  .community {
     &_desktop-bank {
       display: none;
     }
@@ -325,7 +333,7 @@
     &_desktop {
       display: block;
     }
-    
+
     &_desktop-bank {
       display: none;
     }
@@ -420,6 +428,7 @@
     &_tablet {
       display: block;
     }
+
     &_tablet-sm {
       display: block;
     }
