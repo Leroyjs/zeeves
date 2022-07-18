@@ -9,6 +9,7 @@ import initAscentTitle from "../../js/components/ascentTitle";
 import initBurgerMenu from "../../js/components/burgerMenu";
 import initPie from "../../js/components/diagram-pie";
 import initForm from "../../js/components/form";
+import { gearRotation } from "../../js/components/gearRotation";
 
 /* Your JS Code goes here */
 window.addEventListener("DOMContentLoaded", () => {
@@ -18,6 +19,11 @@ window.addEventListener("DOMContentLoaded", () => {
   initBurgerMenu();
   initPie();
   initForm();
+  gearRotation();
 });
 
-window.addEventListener("load", () => {});
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    document.body.classList.add("start");
+  }, 100);
+});
