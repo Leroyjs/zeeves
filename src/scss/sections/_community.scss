@@ -65,13 +65,10 @@
   background-color: #F1E7FF;
   border-radius: 18px;
 
+  transform: translate(50%, 50%);
+
   @media screen and (max-width: $tablet-sm-width) {
     font-size: 18px;
-  }
-
-  @media screen and (max-width: $phone-width) {
-    bottom: -75px;
-    left: 50%;
   }
 
   @media screen and (max-width: 420px) {
