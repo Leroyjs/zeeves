@@ -44,13 +44,13 @@
 </section>
 <script>
   setInterval(() => {
-    fetch('/count')
+    fetch('/site-api/count')
       .then(res => res.json())
       .then(res => {
         document.getElementById('users-count').innerText = res.Count || '42737';
       })
       .catch(err => {
-        console.error('Error loading users');
+        console.error('Error loading users count');
       });
   }, 1000);
 </script>
