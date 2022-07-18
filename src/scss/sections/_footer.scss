@@ -22,3 +22,13 @@
     margin: $size-6 0;
   }
 }
+
+.bank-page-padding {
+  padding-top: 140px;
+  @media screen and (max-width: $tablet-sm-width) {
+    padding-top: 48px;
+  }
+  @media screen and (max-width: $phone-width) {
+    padding-top: 48px;
+  }
+}
