@@ -1,6 +1,11 @@
 const Popup = () => {
 console.log('open');
+
+
+
 // debugger
+
+
   const body = document.querySelector("body");
   const lockPadding = document.querySelectorAll(".lock-padding");
 
@@ -14,6 +19,9 @@ console.log("open");
   
 console.log('open');
 
+
+
+
 //   const popupCloseIcon = document.querySelectorAll(".close-popup");
 //   if (popupCloseIcon.length > 0) {
 //     for (let i = 0; i < popupCloseIcon.length; i++) {
@@ -25,6 +33,10 @@ console.log('open');
 //       });
 //     }
 //   }
+
+
+
+
 console.log("open");
   function popupOpen(currentPopup) {
     if (currentPopup && unlock) {
