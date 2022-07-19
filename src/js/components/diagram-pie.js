@@ -4,7 +4,7 @@ const initPie = () => {
   renderTooltip();
   const isTable = window.matchMedia("screen and (max-width: 768px)").matches;
   let isMobile = window.matchMedia("screen and (max-width: 420px)").matches;
-  let radiusCircle = isTable ? 90 : 120;
+  let radiusCircle = isTable ? 90 : 160;
   let isLeft = false;
   let isWishlist = false;
   let currentColor = "#F1E7FF";
@@ -25,14 +25,15 @@ const initPie = () => {
     if (countInner === 0) count = 0;
 
     const pieTooltipEl = document.querySelector(".diagram-tooltip-js");
+    const pieWrapper = document.querySelector(".pie-wrapper-js");
     const ctxEl = document.querySelector(".pie-canvas-js");
     const ctx = ctxEl.getContext("2d");
     const leftCards = TOTAL_CARDS - count;
-    ctx.canvas.height = radiusCircle * 2;
-    ctx.canvas.width = radiusCircle * 2;
+    ctx.canvas.height = pieWrapper.offsetWidth;
+    ctx.canvas.width = pieWrapper.offsetWidth;
     const results = [
       { label: "left", total: leftCards, shade: "#F1E7FF" },
-      { label: "wishlist", total: count, shade: "#FFF1E5" },
+      { label: "wishlist", total: count, shade: "#FFF1E5" }
     ];
 
     let currentAngle = 0;
@@ -110,8 +111,6 @@ const initPie = () => {
 
     const pieTooltip = pieWrapperEl.querySelector(".diagram__tooltip");
 
-    let radiusCircle = isTable ? 90 : 120;
-
     function handleHover(event) {
       if (isMobile) return;
       renderTooltip(event.layerX, event.layerY);
@@ -144,7 +143,7 @@ const initPie = () => {
       if (clientWidth <= 768) {
         radiusCircle = 90;
       } else {
-        radiusCircle = 120;
+        radiusCircle = 160;
       }
       isMobile = clientWidth <= 420;
 
@@ -164,7 +163,7 @@ const initPie = () => {
 function debounce(f, ms) {
   let isCooldown = false;
 
-  return function () {
+  return function() {
     if (isCooldown) return;
 
     f.apply(this, arguments);
