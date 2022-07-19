@@ -91,7 +91,7 @@
   }
 
   @media screen and (max-width: $tablet-sm-width) {
-    position: absolute;
+    position: fixed;
     top: $size-12;
     left: 0;
     right: 0;
