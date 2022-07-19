@@ -13,6 +13,8 @@ const initForm = () => {
   const popupOkBtnEl = popupRootEl.querySelector(".close-popup");
   const bodyEl = document.body;
 
+  let nicknameValue = false;
+
   popupRootEl.removeAttribute("style");
   popupOkBtnEl.addEventListener("click", closeModal);
 
@@ -20,7 +22,6 @@ const initForm = () => {
     popupRootEl.classList.remove("active");
     bodyEl.classList.remove("no-scroll");
   }
-
 
   function openModal() {
     popupRootEl.classList.add("active");
@@ -31,79 +32,80 @@ const initForm = () => {
     event.preventDefault();
 
     grecaptcha.ready(() => {
-      grecaptcha.execute("6LeLU4EgAAAAAFtX9fs9XpcfFPOk3cBzvE_hWQmG", {
-        action: "submit"
-      }).then((token) => {
-        submitBtnEl.disabled = true;
+      grecaptcha
+        .execute("6LeLU4EgAAAAAFtX9fs9XpcfFPOk3cBzvE_hWQmG", {
+          action: "submit",
+        })
+        .then((token) => {
+          submitBtnEl.disabled = true;
 
-        /* get state form */
-        const emailValue = emailInputEl.value;
-        const checkboxValue = checkboxInputEl.checked;
-        const responseValue = token;
-        const nicknameValue = "true";
+          /* get state form */
+          const emailValue = emailInputEl.value;
+          const checkboxValue = checkboxInputEl.checked;
+          const responseValue = token;
 
-        const data = {
-          recaptcha: responseValue,
-          email: emailValue,
-          nickname: nicknameValue
-        };
-
-        const isValidate = validateForm(data, checkboxValue);
-
-        if (isValidate) {
-          const requestOptions = {
-            method: "POST",
-            body: JSON.stringify(data),
-            headers: {
-              "Content-Type": "application/json"
-            }
+          const data = {
+            recaptcha: responseValue,
+            email: emailValue,
+            nickname: nicknameValue,
           };
 
-          fetch("https://zeeves.io/site-api/wishlist/submit", requestOptions)
-            .then(() => {
-              openModal();
-              emailInputEl.value = "";
-              checkboxInputEl.checked = false;
-              //  TODO: Reset nicknameValue
-            })
-            .catch((err) => {
-              console.log(err);
-            })
-            .finally(() => {
-              submitBtnEl.disabled = false;
-            });
-        } else {
-          submitBtnEl.disabled = false;
-        }
-      });
+          const isValidate = validateForm(data, checkboxValue);
+
+          if (isValidate) {
+            const requestOptions = {
+              method: "POST",
+              body: JSON.stringify(data),
+              headers: {
+                "Content-Type": "application/json",
+              },
+            };
+
+            fetch("https://zeeves.io/site-api/wishlist/submit", requestOptions)
+              .then(() => {
+                openModal();
+                emailInputEl.value = "";
+                checkboxInputEl.checked = false;
+                //  TODO: Reset nicknameValue
+              })
+              .catch((err) => {
+                console.log(err);
+              })
+              .finally(() => {
+                submitBtnEl.disabled = false;
+              });
+          } else {
+            submitBtnEl.disabled = false;
+          }
+        });
     });
   };
 
-  function walletConnectError() {
+  function walletConnectError(remove = false) {
     networkErrorEl.classList.remove("wallet-no-connect");
     networkErrorEl.classList.add("wallet-no-connect_error");
   }
 
-  function checkboxError() {
+  function checkboxError(remove = false) {
     checkboxInputEl.classList.remove("css-checkbox");
     checkboxInputEl.classList.add("css-checkbox_error");
     checkboxTextEl.classList.remove("checkbox-text");
     checkboxTextEl.classList.add("checkbox-text_error");
   }
 
-  function recaptchaError() {
+  function recaptchaError(remove = false) {
     recaptchaEl.classList.remove("g-recaptcha");
     recaptchaEl.classList.add("g-recaptcha_error");
   }
 
-  function emailError() {
+  function emailError(remove = false) {
     emailInputEl.classList.remove("connect-form__input");
     emailInputEl.classList.add("connect-form__input_error");
     emailErrorEl.classList.remove("incorrect-email");
     emailErrorEl.classList.add("incorrect-email_error");
   }
 
-  function nicknameError() {
+  function nicknameError(remove = false) {
     nicknameBtnEl.classList.remove("button-connect");
     nicknameBtnEl.classList.add("button-connect_error");
     walletConnectError();
@@ -114,6 +116,7 @@ const initForm = () => {
     if (!checkboxValue) {
       isValidate = false;
       checkboxError();
+    } else {
     }
     if (!data.recaptcha) {
       isValidate = false;
@@ -147,5 +150,15 @@ const initForm = () => {
     }
   }
 
+  //stub
+  const button = document.querySelector(".button-connect");
+  button.addEventListener("click", () => connectButton(button));
+
+  function connectButton(button) {
+    button.classList.add("button-connect_active");
+    button.innerText = "Connected";
+
+    nicknameValue = "some nickname value";
+  }
 };
 export default initForm;
