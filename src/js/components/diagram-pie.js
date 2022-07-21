@@ -1,7 +1,15 @@
 import TOTAL_CARDS from "../../../config-cards";
 
 const initPie = () => {
-  renderTooltip();
+  const pieDiagramEl = document.querySelector(".diagram");
+  const pieTooltipEl = document.querySelector(".diagram-tooltip-js");
+
+  const pieWrapperEl = document.querySelector(".pie-wrapper-js");
+  const ctxEl = document.querySelector(".pie-canvas-js");
+  const cardsTitleMainEl = document.querySelector(".cards-title-main-js");
+  const cardsTitleSecondEl = document.querySelector(".cards-title-second-js");
+  const formTitleEl = document.querySelector(".form-title-js");
+
   const isTable = window.matchMedia("screen and (max-width: 768px)").matches;
   let isMobile = window.matchMedia("screen and (max-width: 420px)").matches;
   let radiusCircle = isTable ? 90 : 160;
@@ -13,24 +21,17 @@ const initPie = () => {
     .then((res) => res.json())
     .then((res) => {
       const count = res["Count"];
-      renderTooltip(count);
+      renderDiagram(count);
     })
     .catch((err) => {
       console.log(err);
     });
 
-  function renderPie(countInner = 0) {
-    const minValue = TOTAL_CARDS * 0.02;
-    let count = countInner < minValue ? minValue : countInner;
-    if (countInner === 0) count = 0;
-
-    const pieTooltipEl = document.querySelector(".diagram-tooltip-js");
-    const pieWrapper = document.querySelector(".pie-wrapper-js");
-    const ctxEl = document.querySelector(".pie-canvas-js");
+  function renderPie(count = 0) {
     const ctx = ctxEl.getContext("2d");
     const leftCards = TOTAL_CARDS - count;
-    ctx.canvas.height = pieWrapper.offsetWidth;
-    ctx.canvas.width = pieWrapper.offsetWidth;
+    ctx.canvas.height = pieWrapperEl.offsetWidth;
+    ctx.canvas.width = pieWrapperEl.offsetWidth;
     const results = [
       { label: "left", total: leftCards, shade: "#F1E7FF" },
       { label: "wishlist", total: count, shade: "#FFF1E5" }
@@ -55,9 +56,7 @@ const initPie = () => {
 
     for (const sector of results) {
       let circle = sector.label === "left" ? circleLeft : circleWishlist;
-      //calculating the angle the slice (portion) will take in the chart
       let portionAngle = (sector.total / TOTAL_CARDS) * 2 * Math.PI;
-      //drawing an arc and a line to the center to differentiate the slice from the rest
       ctx.beginPath();
 
       circle.arc(
@@ -70,11 +69,8 @@ const initPie = () => {
 
       currentAngle += portionAngle;
       circle.lineTo(radiusCircle, radiusCircle);
-      //filling the slices with the corresponding label's color
 
       ctx.fillStyle = sector.shade;
-      // ctx.shadowColor = sector.shade;
-      // ctx.shadowBlur = 15;
       ctx.fill(circle);
     }
 
@@ -84,22 +80,15 @@ const initPie = () => {
       currentColor = isLeft ? "#F1E7FF" : "#FFF1E5";
       pieTooltipEl.innerHTML = isLeft
         ? `${leftCards} cards left`
-        : `${countInner} cards in the wishlist`;
+        : `${count} cards in the wishlist`;
       pieTooltipEl.style.backgroundColor = currentColor;
     }
 
-    pieTooltipEl.innerHTML = isLeft
-      ? `${leftCars} cards left`
-      : `${countInner} cards in the wishlist`;
+    setTooltip();
   }
 
-  function renderTooltip(count) {
+  function renderDiagram(count) {
     renderPie(count);
-    const pieWrapperEl = document.querySelector(".pie-wrapper-js");
-    const pieDiagramEl = document.querySelector(".diagram");
-    const formTitleEl = document.querySelector(".form-title-js");
-    const cardsTitleMainEl = document.querySelector(".cards-title-main-js");
-    const cardsTitleSecondEl = document.querySelector(".cards-title-second-js");
 
     if (count >= TOTAL_CARDS) {
       cardsTitleMainEl.remove();
