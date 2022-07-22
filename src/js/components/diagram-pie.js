@@ -34,7 +34,7 @@ const initPie = () => {
     ctx.canvas.width = pieWrapperEl.offsetWidth;
     const results = [
       { label: "left", total: leftCards, shade: "#F1E7FF" },
-      { label: "wishlist", total: count, shade: "#FFF1E5" }
+      { label: "wishlist", total: count, shade: "#FFF1E5" },
     ];
 
     let currentAngle = 0;
@@ -117,16 +117,16 @@ const initPie = () => {
       pieTooltip.setAttribute(
         "style",
         `
-    top: ${posY}px;
-    left: ${posX}px;
-    background-color: ${currentColor};
-    transform: translate(${isMirrorX ? "calc(-100% - 4px)" : "4px"}, ${
+        top: ${posY}px;
+        left: ${posX}px;
+        background-color: ${currentColor};
+        transform: translate(${isMirrorX ? "calc(-100% - 4px)" : "4px"}, ${
           isMirrorY ? "calc(-100% - 4px)" : "4px"
         });
-    `
+        `
       );
     }, 3);
-
+    renderTooltip(10000, 10000);
     const handleResize = debounce((e) => {
       const clientWidth = document.body.clientWidth;
       if (clientWidth <= 768) {
@@ -152,7 +152,7 @@ const initPie = () => {
 function debounce(f, ms) {
   let isCooldown = false;
 
-  return function() {
+  return function () {
     if (isCooldown) return;
 
     f.apply(this, arguments);
