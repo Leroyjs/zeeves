@@ -34,7 +34,7 @@ const initPie = () => {
     ctx.canvas.width = pieWrapperEl.offsetWidth;
     const results = [
       { label: "left", total: leftCards, shade: "#F1E7FF" },
-      { label: "wishlist", total: count, shade: "#FFF1E5" },
+      { label: "wishlist", total: count, shade: "#FFF1E5" }
     ];
 
     let currentAngle = 0;
@@ -85,6 +85,17 @@ const initPie = () => {
     }
 
     setTooltip();
+    if (!isMobile) {
+      pieTooltipEl.setAttribute(
+        "style",
+        `
+        bottom: 0px;
+        right: 0px;
+        background-color: ${currentColor};
+        transform: translate(calc(50% + 24px), calc(50% + 24px));
+        `
+      );
+    }
   }
 
   function renderDiagram(count) {
@@ -126,7 +137,7 @@ const initPie = () => {
         `
       );
     }, 3);
-    renderTooltip(10000, 10000);
+
     const handleResize = debounce((e) => {
       const clientWidth = document.body.clientWidth;
       if (clientWidth <= 768) {
@@ -152,7 +163,7 @@ const initPie = () => {
 function debounce(f, ms) {
   let isCooldown = false;
 
-  return function () {
+  return function() {
     if (isCooldown) return;
 
     f.apply(this, arguments);

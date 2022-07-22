@@ -51,6 +51,7 @@
 
 .form-step__title {
   margin-bottom: 16px;
+  font-weight: 700;
 }
 
 .form-step__connect {
@@ -66,18 +67,25 @@
 .connect-form__input {
   border: none;
   outline: none;
-  // font-size: 84px;
+  font-size: 56px;
   background-color: transparent;
   border-bottom: 2px solid rgba(34, 34, 34, 0.08);
   text-align: center;
+  max-width: 75%;
+
+  @media screen and (min-width: $desktop-xlg-width) {
+    font-size: get-vw(56px);
+  }
 
   @media screen and (max-width: $phone-width) {
     max-width: calc(100vw - 24px);
+    font-size: 34px;
   }
 
   &::placeholder {
     color: rgba(207, 234, 236, 0.4);
   }
+
   &_error {
     border: none;
     outline: none;
@@ -85,6 +93,7 @@
     text-align: center;
     border-bottom: 2px solid $red;
     color: $red;
+
     &::placeholder {
       color: $red;
       opacity: 0.5;
@@ -186,6 +195,7 @@
 
 .wallet-no-connect {
   display: none;
+
   &_error {
     display: block;
     font-size: $size-3;
@@ -196,6 +206,7 @@
 
 .incorrect-email {
   display: none;
+
   &_error {
     display: block;
     font-size: $size-3;
