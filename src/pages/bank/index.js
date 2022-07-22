@@ -23,6 +23,12 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 window.addEventListener("load", () => {
+  const clipPath = document.querySelector(".card-screen__example-svg");
+  const isSafari = navigator.userAgent.search("Safari") >= 0 && navigator.userAgent.search("Chrome") < 0;
+  if (isSafari) {
+    clipPath.remove();
+  }
+
   setTimeout(() => {
     document.body.classList.add("start");
   }, 100);
